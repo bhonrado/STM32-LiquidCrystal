@@ -1,0 +1,385 @@
+ARM GAS  /tmp/cc1FKH7r.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.main,"ax",%progbits
+  18              		.align	2
+  19              		.global	main
+  20              		.code	16
+  21              		.thumb_func
+  23              	main:
+  24              		.fnstart
+  25              	.LFB616:
+  26              		.file 1 "Src/main.cpp"
+   1:Src/main.cpp  **** 
+   2:Src/main.cpp  **** /* Includes ------------------------------------------------------------------*/
+   3:Src/main.cpp  **** #include "main.h"
+   4:Src/main.cpp  **** #include "stm32f0xx_hal.h"
+   5:Src/main.cpp  **** #include "stm32f0xx.h"
+   6:Src/main.cpp  **** #include "stm32f051x8.h"
+   7:Src/main.cpp  **** #include <stdexcept>
+   8:Src/main.cpp  **** #include "LQFP64_pinout.h"
+   9:Src/main.cpp  **** #include "GPIO_operations.h"
+  10:Src/main.cpp  **** #include "LCD.h"
+  11:Src/main.cpp  **** 
+  12:Src/main.cpp  **** #define LCDD0 PC6
+  13:Src/main.cpp  **** #define LCDD1 PC7
+  14:Src/main.cpp  **** #define LCDD2 PC8
+  15:Src/main.cpp  **** #define LCDD3 PC9
+  16:Src/main.cpp  **** #define LCDD4 PA8
+  17:Src/main.cpp  **** #define LCDD5 PA9
+  18:Src/main.cpp  **** #define LCDD6 PA10
+  19:Src/main.cpp  **** #define LCDD7 PA11
+  20:Src/main.cpp  **** #define LCDEnable PB15
+  21:Src/main.cpp  **** #define LCDReadWrite PB14
+  22:Src/main.cpp  **** #define LCDRegisterSelect PB13
+  23:Src/main.cpp  **** 
+  24:Src/main.cpp  **** /* Private function prototypes -----------------------------------------------*/
+  25:Src/main.cpp  **** void SystemClock_Config(void);
+  26:Src/main.cpp  **** static void MX_GPIO_Init(void);
+  27:Src/main.cpp  **** 
+  28:Src/main.cpp  **** /* USER CODE BEGIN 0 */
+  29:Src/main.cpp  **** extern "C" void initialise_monitor_handles(void);
+  30:Src/main.cpp  **** 
+  31:Src/main.cpp  **** int main(void)
+  32:Src/main.cpp  **** {
+ARM GAS  /tmp/cc1FKH7r.s 			page 2
+
+
+  27              		.loc 1 32 0
+  28              		.cfi_startproc
+  29 0000 00B5     		push	{lr}
+  30              		.save {lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 4
+  33              		.cfi_offset 14, -4
+  34              		.pad #52
+  35 0002 8DB0     		sub	sp, sp, #52
+  36              	.LCFI1:
+  37              		.cfi_def_cfa_offset 56
+  38              	.LBB2:
+  33:Src/main.cpp  ****   LiquidCrystal lcd(LCDRegisterSelect, LCDReadWrite, LCDEnable, LCDD0, LCDD1, LCDD2, LCDD3, LCDD4, 
+  39              		.loc 1 33 0
+  40 0004 2523     		mov	r3, #37
+  41 0006 0093     		str	r3, [sp]
+  42 0008 0133     		add	r3, r3, #1
+  43 000a 0193     		str	r3, [sp, #4]
+  44 000c 0133     		add	r3, r3, #1
+  45 000e 0293     		str	r3, [sp, #8]
+  46 0010 0133     		add	r3, r3, #1
+  47 0012 0393     		str	r3, [sp, #12]
+  48 0014 0133     		add	r3, r3, #1
+  49 0016 0493     		str	r3, [sp, #16]
+  50 0018 0133     		add	r3, r3, #1
+  51 001a 0593     		str	r3, [sp, #20]
+  52 001c 0133     		add	r3, r3, #1
+  53 001e 0693     		str	r3, [sp, #24]
+  54 0020 0133     		add	r3, r3, #1
+  55 0022 0793     		str	r3, [sp, #28]
+  56 0024 09A8     		add	r0, sp, #36
+  57 0026 2221     		mov	r1, #34
+  58 0028 2322     		mov	r2, #35
+  59 002a 083B     		sub	r3, r3, #8
+  60 002c FFF7FEFF 		bl	_ZN13LiquidCrystalC1Ehhhhhhhhhhh
+  61              	.LVL0:
+  34:Src/main.cpp  ****   // set up the LCD's number of columns and rows:
+  35:Src/main.cpp  ****   lcd.begin(16, 2);
+  62              		.loc 1 35 0
+  63 0030 09A8     		add	r0, sp, #36
+  64 0032 1021     		mov	r1, #16
+  65 0034 0222     		mov	r2, #2
+  66 0036 FFF7FEFF 		bl	_ZN13LiquidCrystal5beginEhh
+  67              	.LVL1:
+  36:Src/main.cpp  ****   // Print a message to the LCD.
+  37:Src/main.cpp  ****   lcd.print("Hello EDS!");
+  68              		.loc 1 37 0
+  69 003a 09A8     		add	r0, sp, #36
+  70 003c 0749     		ldr	r1, .L3
+  71 003e FFF7FEFF 		bl	_ZN13LiquidCrystal5printEPKc
+  72              	.LVL2:
+  38:Src/main.cpp  ****   lcd.setCursor(0, 1);
+  73              		.loc 1 38 0
+  74 0042 09A8     		add	r0, sp, #36
+  75 0044 0021     		mov	r1, #0
+  76 0046 0122     		mov	r2, #1
+  77 0048 FFF7FEFF 		bl	_ZN13LiquidCrystal9setCursorEhh
+ARM GAS  /tmp/cc1FKH7r.s 			page 3
+
+
+  78              	.LVL3:
+  39:Src/main.cpp  ****   lcd.print(2.365);
+  79              		.loc 1 39 0
+  80 004c 0223     		mov	r3, #2
+  81 004e 0093     		str	r3, [sp]
+  82 0050 09A8     		add	r0, sp, #36
+  83 0052 034A     		ldr	r2, .L3+4
+  84 0054 034B     		ldr	r3, .L3+8
+  85 0056 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEdi
+  86              	.LVL4:
+  87              	.L2:
+  40:Src/main.cpp  ****   while (1)
+  41:Src/main.cpp  ****   {
+  42:Src/main.cpp  ****   }
+  88              		.loc 1 42 0 discriminator 1
+  89 005a FEE7     		b	.L2
+  90              	.L4:
+  91              		.align	2
+  92              	.L3:
+  93 005c 00000000 		.word	.LC0
+  94 0060 EC51B81E 		.word	515396076
+  95 0064 85EB0240 		.word	1073933189
+  96              	.LBE2:
+  97              		.cfi_endproc
+  98              	.LFE616:
+  99              		.fnend
+ 101              		.global	__aeabi_uidiv
+ 102              		.section	.text._Z18SystemClock_Configv,"ax",%progbits
+ 103              		.align	2
+ 104              		.global	_Z18SystemClock_Configv
+ 105              		.code	16
+ 106              		.thumb_func
+ 108              	_Z18SystemClock_Configv:
+ 109              		.fnstart
+ 110              	.LFB617:
+  43:Src/main.cpp  **** }
+  44:Src/main.cpp  **** 
+  45:Src/main.cpp  **** /**
+  46:Src/main.cpp  ****   * @brief System Clock Configuration
+  47:Src/main.cpp  ****   * @retval None
+  48:Src/main.cpp  ****   */
+  49:Src/main.cpp  **** void SystemClock_Config(void)
+  50:Src/main.cpp  **** {
+ 111              		.loc 1 50 0
+ 112              		.cfi_startproc
+ 113 0000 00B5     		push	{lr}
+ 114              		.save {lr}
+ 115              	.LCFI2:
+ 116              		.cfi_def_cfa_offset 4
+ 117              		.cfi_offset 14, -4
+ 118              		.pad #68
+ 119 0002 91B0     		sub	sp, sp, #68
+ 120              	.LCFI3:
+ 121              		.cfi_def_cfa_offset 72
+ 122              	.LBB3:
+  51:Src/main.cpp  **** 
+  52:Src/main.cpp  ****   RCC_OscInitTypeDef RCC_OscInitStruct;
+ARM GAS  /tmp/cc1FKH7r.s 			page 4
+
+
+  53:Src/main.cpp  ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+  54:Src/main.cpp  **** 
+  55:Src/main.cpp  ****   /**Initializes the CPU, AHB and APB busses clocks 
+  56:Src/main.cpp  ****     */
+  57:Src/main.cpp  ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 123              		.loc 1 57 0
+ 124 0004 0223     		mov	r3, #2
+ 125 0006 0493     		str	r3, [sp, #16]
+  58:Src/main.cpp  ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 126              		.loc 1 58 0
+ 127 0008 0122     		mov	r2, #1
+ 128 000a 0792     		str	r2, [sp, #28]
+  59:Src/main.cpp  ****   RCC_OscInitStruct.HSICalibrationValue = 16;
+ 129              		.loc 1 59 0
+ 130 000c 0F32     		add	r2, r2, #15
+ 131 000e 0892     		str	r2, [sp, #32]
+  60:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 132              		.loc 1 60 0
+ 133 0010 0C93     		str	r3, [sp, #48]
+  61:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 134              		.loc 1 61 0
+ 135 0012 0023     		mov	r3, #0
+ 136 0014 0D93     		str	r3, [sp, #52]
+  62:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
+ 137              		.loc 1 62 0
+ 138 0016 A022     		mov	r2, #160
+ 139 0018 9203     		lsl	r2, r2, #14
+ 140 001a 0E92     		str	r2, [sp, #56]
+  63:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+ 141              		.loc 1 63 0
+ 142 001c 0F93     		str	r3, [sp, #60]
+  64:Src/main.cpp  ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 143              		.loc 1 64 0
+ 144 001e 04A8     		add	r0, sp, #16
+ 145 0020 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 146              	.LVL5:
+ 147 0024 0028     		cmp	r0, #0
+ 148 0026 03D0     		beq	.L6
+  65:Src/main.cpp  ****   {
+  66:Src/main.cpp  ****     _Error_Handler(__FILE__, __LINE__);
+ 149              		.loc 1 66 0
+ 150 0028 1348     		ldr	r0, .L8
+ 151 002a 4221     		mov	r1, #66
+ 152 002c FFF7FEFF 		bl	_Error_Handler
+ 153              	.LVL6:
+ 154              	.L6:
+  67:Src/main.cpp  ****   }
+  68:Src/main.cpp  **** 
+  69:Src/main.cpp  ****   /**Initializes the CPU, AHB and APB busses clocks 
+  70:Src/main.cpp  ****     */
+  71:Src/main.cpp  ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1;
+ 155              		.loc 1 71 0
+ 156 0030 0723     		mov	r3, #7
+ 157 0032 0093     		str	r3, [sp]
+  72:Src/main.cpp  ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 158              		.loc 1 72 0
+ 159 0034 053B     		sub	r3, r3, #5
+ARM GAS  /tmp/cc1FKH7r.s 			page 5
+
+
+ 160 0036 0193     		str	r3, [sp, #4]
+  73:Src/main.cpp  ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 161              		.loc 1 73 0
+ 162 0038 0023     		mov	r3, #0
+ 163 003a 0293     		str	r3, [sp, #8]
+  74:Src/main.cpp  ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 164              		.loc 1 74 0
+ 165 003c 0393     		str	r3, [sp, #12]
+  75:Src/main.cpp  **** 
+  76:Src/main.cpp  ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+ 166              		.loc 1 76 0
+ 167 003e 6846     		mov	r0, sp
+ 168 0040 0121     		mov	r1, #1
+ 169 0042 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 170              	.LVL7:
+ 171 0046 0028     		cmp	r0, #0
+ 172 0048 03D0     		beq	.L7
+  77:Src/main.cpp  ****   {
+  78:Src/main.cpp  ****     _Error_Handler(__FILE__, __LINE__);
+ 173              		.loc 1 78 0
+ 174 004a 0B48     		ldr	r0, .L8
+ 175 004c 4E21     		mov	r1, #78
+ 176 004e FFF7FEFF 		bl	_Error_Handler
+ 177              	.LVL8:
+ 178              	.L7:
+  79:Src/main.cpp  ****   }
+  80:Src/main.cpp  **** 
+  81:Src/main.cpp  ****   /**Configure the Systick interrupt time 
+  82:Src/main.cpp  ****     */
+  83:Src/main.cpp  ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
+ 179              		.loc 1 83 0
+ 180 0052 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 181              	.LVL9:
+ 182 0056 FA21     		mov	r1, #250
+ 183 0058 8900     		lsl	r1, r1, #2
+ 184 005a FFF7FEFF 		bl	__aeabi_uidiv
+ 185              	.LVL10:
+ 186 005e FFF7FEFF 		bl	HAL_SYSTICK_Config
+ 187              	.LVL11:
+  84:Src/main.cpp  **** 
+  85:Src/main.cpp  ****   /**Configure the Systick 
+  86:Src/main.cpp  ****     */
+  87:Src/main.cpp  ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ 188              		.loc 1 87 0
+ 189 0062 0420     		mov	r0, #4
+ 190 0064 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
+ 191              	.LVL12:
+  88:Src/main.cpp  **** 
+  89:Src/main.cpp  ****   /* SysTick_IRQn interrupt configuration */
+  90:Src/main.cpp  ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+ 192              		.loc 1 90 0
+ 193 0068 0120     		mov	r0, #1
+ 194 006a 4042     		neg	r0, r0
+ 195 006c 0021     		mov	r1, #0
+ 196 006e 0022     		mov	r2, #0
+ 197 0070 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 198              	.LVL13:
+ARM GAS  /tmp/cc1FKH7r.s 			page 6
+
+
+ 199              	.LBE3:
+  91:Src/main.cpp  **** }
+ 200              		.loc 1 91 0
+ 201 0074 11B0     		add	sp, sp, #68
+ 202              		@ sp needed
+ 203 0076 00BD     		pop	{pc}
+ 204              	.L9:
+ 205              		.align	2
+ 206              	.L8:
+ 207 0078 0C000000 		.word	.LC2
+ 208              		.cfi_endproc
+ 209              	.LFE617:
+ 210              		.fnend
+ 212              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 213              		.align	2
+ 214              	.LC0:
+ 215 0000 48656C6C 		.ascii	"Hello EDS!\000"
+ 215      6F204544 
+ 215      532100
+ 216 000b 00       		.space	1
+ 217              	.LC2:
+ 218 000c 5372632F 		.ascii	"Src/main.cpp\000"
+ 218      6D61696E 
+ 218      2E637070 
+ 218      00
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
+ 222              		.file 3 "/usr/include/newlib/machine/_default_types.h"
+ 223              		.file 4 "/usr/include/newlib/sys/_stdint.h"
+ 224              		.file 5 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stddef.h"
+ 225              		.file 6 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stdarg.h"
+ 226              		.file 7 "/usr/include/newlib/sys/lock.h"
+ 227              		.file 8 "/usr/include/newlib/sys/_types.h"
+ 228              		.file 9 "/usr/include/newlib/sys/reent.h"
+ 229              		.file 10 "<built-in>"
+ 230              		.file 11 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 231              		.file 12 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h"
+ 232              		.file 13 "/usr/include/newlib/c++/4.9.3/cwchar"
+ 233              		.file 14 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/c++config.h"
+ 234              		.file 15 "/usr/include/newlib/c++/4.9.3/clocale"
+ 235              		.file 16 "/usr/include/newlib/c++/4.9.3/debug/debug.h"
+ 236              		.file 17 "/usr/include/newlib/c++/4.9.3/bits/predefined_ops.h"
+ 237              		.file 18 "/usr/include/newlib/c++/4.9.3/ext/new_allocator.h"
+ 238              		.file 19 "/usr/include/newlib/c++/4.9.3/ext/numeric_traits.h"
+ 239              		.file 20 "/usr/include/newlib/c++/4.9.3/exception"
+ 240              		.file 21 "/usr/include/newlib/wchar.h"
+ 241              		.file 22 "/usr/include/newlib/locale.h"
+ 242              		.file 23 "Src/LCD.h"
+ 243              		.file 24 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h"
+ 244              		.file 25 "Inc/main.h"
+ARM GAS  /tmp/cc1FKH7r.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+     /tmp/cc1FKH7r.s:18     .text.main:0000000000000000 $t
+     /tmp/cc1FKH7r.s:23     .text.main:0000000000000000 main
+     /tmp/cc1FKH7r.s:93     .text.main:000000000000005c $d
+             .ARM.exidx.text.main:0000000000000000 $d
+     /tmp/cc1FKH7r.s:103    .text._Z18SystemClock_Configv:0000000000000000 $t
+     /tmp/cc1FKH7r.s:108    .text._Z18SystemClock_Configv:0000000000000000 _Z18SystemClock_Configv
+     /tmp/cc1FKH7r.s:207    .text._Z18SystemClock_Configv:0000000000000078 $d
+.ARM.exidx.text._Z18SystemClock_Configv:0000000000000000 $d
+     /tmp/cc1FKH7r.s:213    .rodata.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+_ZN13LiquidCrystalC1Ehhhhhhhhhhh
+_ZN13LiquidCrystal5beginEhh
+_ZN13LiquidCrystal5printEPKc
+_ZN13LiquidCrystal9setCursorEhh
+_ZN13LiquidCrystal5printEdi
+__aeabi_unwind_cpp_pr0
+__aeabi_uidiv
+HAL_RCC_OscConfig
+_Error_Handler
+HAL_RCC_ClockConfig
+HAL_RCC_GetHCLKFreq
+HAL_SYSTICK_Config
+HAL_SYSTICK_CLKSourceConfig
+HAL_NVIC_SetPriority

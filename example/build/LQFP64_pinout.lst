@@ -1,0 +1,2110 @@
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"LQFP64_pinout.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z10GetPinMaskh,"ax",%progbits
+  18              		.align	2
+  19              		.global	_Z10GetPinMaskh
+  20              		.code	16
+  21              		.thumb_func
+  23              	_Z10GetPinMaskh:
+  24              		.fnstart
+  25              	.LFB616:
+  26              		.file 1 "Src/LQFP64_pinout.cpp"
+   1:Src/LQFP64_pinout.cpp **** #include "LQFP64_pinout.h"
+   2:Src/LQFP64_pinout.cpp **** 
+   3:Src/LQFP64_pinout.cpp **** int GetPinMask(uint8_t pinName)
+   4:Src/LQFP64_pinout.cpp **** {
+  27              		.loc 1 4 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30              	.LBB97:
+   5:Src/LQFP64_pinout.cpp ****     int result = -1;
+   6:Src/LQFP64_pinout.cpp ****     switch (pinName)
+  31              		.loc 1 6 0
+  32 0000 3E28     		cmp	r0, #62
+  33 0002 03D8     		bhi	.L2
+  34 0004 8000     		lsl	r0, r0, #2
+  35              	.LVL1:
+  36 0006 414B     		ldr	r3, .L57
+  37 0008 1B58     		ldr	r3, [r3, r0]
+  38 000a 9F46     		mov	pc, r3
+  39              		.section	.rodata._Z10GetPinMaskh,"a",%progbits
+  40              		.align	2
+  41              	.L4:
+  42 0000 0C000000 		.word	.L2
+  43 0004 0C000000 		.word	.L2
+  44 0008 06010000 		.word	.L56
+  45 000c 12000000 		.word	.L5
+  46 0010 18000000 		.word	.L6
+  47 0014 1E000000 		.word	.L7
+  48 0018 22000000 		.word	.L8
+  49 001c 0C000000 		.word	.L2
+  50 0020 26000000 		.word	.L9
+  51 0024 2A000000 		.word	.L10
+  52 0028 2E000000 		.word	.L11
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 2
+
+
+  53 002c 32000000 		.word	.L12
+  54 0030 0C000000 		.word	.L2
+  55 0034 0C000000 		.word	.L2
+  56 0038 36000000 		.word	.L13
+  57 003c 3A000000 		.word	.L14
+  58 0040 3E000000 		.word	.L15
+  59 0044 42000000 		.word	.L16
+  60 0048 46000000 		.word	.L17
+  61 004c 4A000000 		.word	.L18
+  62 0050 4E000000 		.word	.L19
+  63 0054 52000000 		.word	.L20
+  64 0058 56000000 		.word	.L21
+  65 005c 5A000000 		.word	.L22
+  66 0060 5E000000 		.word	.L23
+  67 0064 62000000 		.word	.L24
+  68 0068 66000000 		.word	.L25
+  69 006c 6A000000 		.word	.L26
+  70 0070 6E000000 		.word	.L27
+  71 0074 72000000 		.word	.L28
+  72 0078 78000000 		.word	.L29
+  73 007c 0C000000 		.word	.L2
+  74 0080 0C000000 		.word	.L2
+  75 0084 7E000000 		.word	.L30
+  76 0088 06010000 		.word	.L56
+  77 008c 84000000 		.word	.L31
+  78 0090 8A000000 		.word	.L32
+  79 0094 90000000 		.word	.L33
+  80 0098 94000000 		.word	.L34
+  81 009c 98000000 		.word	.L35
+  82 00a0 9E000000 		.word	.L36
+  83 00a4 A4000000 		.word	.L37
+  84 00a8 AA000000 		.word	.L38
+  85 00ac B0000000 		.word	.L39
+  86 00b0 B6000000 		.word	.L40
+  87 00b4 BC000000 		.word	.L41
+  88 00b8 0C000000 		.word	.L2
+  89 00bc C2000000 		.word	.L42
+  90 00c0 C6000000 		.word	.L43
+  91 00c4 0C000000 		.word	.L2
+  92 00c8 CA000000 		.word	.L44
+  93 00cc D0000000 		.word	.L45
+  94 00d0 D6000000 		.word	.L46
+  95 00d4 DC000000 		.word	.L47
+  96 00d8 E2000000 		.word	.L48
+  97 00dc E6000000 		.word	.L49
+  98 00e0 EA000000 		.word	.L50
+  99 00e4 EE000000 		.word	.L51
+ 100 00e8 F2000000 		.word	.L52
+ 101 00ec F6000000 		.word	.L53
+ 102 00f0 0C000000 		.word	.L2
+ 103 00f4 FA000000 		.word	.L54
+ 104 00f8 00010000 		.word	.L55
+ 105              		.section	.text._Z10GetPinMaskh
+ 106              	.L2:
+   5:Src/LQFP64_pinout.cpp ****     int result = -1;
+ 107              		.loc 1 5 0
+ 108 000c 0120     		mov	r0, #1
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 3
+
+
+ 109 000e 4042     		neg	r0, r0
+ 110 0010 7BE0     		b	.L3
+ 111              	.L5:
+ 112              	.LVL2:
+   7:Src/LQFP64_pinout.cpp ****     {
+   8:Src/LQFP64_pinout.cpp ****     case PC13:
+   9:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_13;
+  10:Src/LQFP64_pinout.cpp ****         break;
+  11:Src/LQFP64_pinout.cpp ****     case PC14:
+  12:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_14;
+ 113              		.loc 1 12 0
+ 114 0012 8020     		mov	r0, #128
+ 115 0014 C001     		lsl	r0, r0, #7
+  13:Src/LQFP64_pinout.cpp ****         break;
+ 116              		.loc 1 13 0
+ 117 0016 78E0     		b	.L3
+ 118              	.LVL3:
+ 119              	.L6:
+  14:Src/LQFP64_pinout.cpp ****     case PC15:
+  15:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_15;
+ 120              		.loc 1 15 0
+ 121 0018 8020     		mov	r0, #128
+ 122 001a 0002     		lsl	r0, r0, #8
+  16:Src/LQFP64_pinout.cpp ****         break;
+ 123              		.loc 1 16 0
+ 124 001c 75E0     		b	.L3
+ 125              	.LVL4:
+ 126              	.L7:
+  17:Src/LQFP64_pinout.cpp ****     case PF0:
+  18:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_0;
+ 127              		.loc 1 18 0
+ 128 001e 0120     		mov	r0, #1
+  19:Src/LQFP64_pinout.cpp ****         break;
+ 129              		.loc 1 19 0
+ 130 0020 73E0     		b	.L3
+ 131              	.LVL5:
+ 132              	.L8:
+  20:Src/LQFP64_pinout.cpp ****     case PF1:
+  21:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_1;
+ 133              		.loc 1 21 0
+ 134 0022 0220     		mov	r0, #2
+  22:Src/LQFP64_pinout.cpp ****         break;
+ 135              		.loc 1 22 0
+ 136 0024 71E0     		b	.L3
+ 137              	.LVL6:
+ 138              	.L9:
+  23:Src/LQFP64_pinout.cpp ****     case PC0:
+  24:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_0;
+ 139              		.loc 1 24 0
+ 140 0026 0120     		mov	r0, #1
+  25:Src/LQFP64_pinout.cpp ****         break;
+ 141              		.loc 1 25 0
+ 142 0028 6FE0     		b	.L3
+ 143              	.LVL7:
+ 144              	.L10:
+  26:Src/LQFP64_pinout.cpp ****     case PC1:
+  27:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_1;
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 4
+
+
+ 145              		.loc 1 27 0
+ 146 002a 0220     		mov	r0, #2
+  28:Src/LQFP64_pinout.cpp ****         break;
+ 147              		.loc 1 28 0
+ 148 002c 6DE0     		b	.L3
+ 149              	.LVL8:
+ 150              	.L11:
+  29:Src/LQFP64_pinout.cpp ****     case PC2:
+  30:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_2;
+ 151              		.loc 1 30 0
+ 152 002e 0420     		mov	r0, #4
+  31:Src/LQFP64_pinout.cpp ****         break;
+ 153              		.loc 1 31 0
+ 154 0030 6BE0     		b	.L3
+ 155              	.LVL9:
+ 156              	.L12:
+  32:Src/LQFP64_pinout.cpp ****     case PC3:
+  33:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_3;
+ 157              		.loc 1 33 0
+ 158 0032 0820     		mov	r0, #8
+  34:Src/LQFP64_pinout.cpp ****         break;
+ 159              		.loc 1 34 0
+ 160 0034 69E0     		b	.L3
+ 161              	.LVL10:
+ 162              	.L13:
+  35:Src/LQFP64_pinout.cpp ****     case PA0:
+  36:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_0;
+ 163              		.loc 1 36 0
+ 164 0036 0120     		mov	r0, #1
+  37:Src/LQFP64_pinout.cpp ****         break;
+ 165              		.loc 1 37 0
+ 166 0038 67E0     		b	.L3
+ 167              	.LVL11:
+ 168              	.L14:
+  38:Src/LQFP64_pinout.cpp ****     case PA1:
+  39:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_1;
+ 169              		.loc 1 39 0
+ 170 003a 0220     		mov	r0, #2
+  40:Src/LQFP64_pinout.cpp ****         break;
+ 171              		.loc 1 40 0
+ 172 003c 65E0     		b	.L3
+ 173              	.LVL12:
+ 174              	.L15:
+  41:Src/LQFP64_pinout.cpp ****     case PA2:
+  42:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_2;
+ 175              		.loc 1 42 0
+ 176 003e 0420     		mov	r0, #4
+  43:Src/LQFP64_pinout.cpp ****         break;
+ 177              		.loc 1 43 0
+ 178 0040 63E0     		b	.L3
+ 179              	.LVL13:
+ 180              	.L16:
+  44:Src/LQFP64_pinout.cpp ****     case PA3:
+  45:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_3;
+ 181              		.loc 1 45 0
+ 182 0042 0820     		mov	r0, #8
+  46:Src/LQFP64_pinout.cpp ****         break;
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 5
+
+
+ 183              		.loc 1 46 0
+ 184 0044 61E0     		b	.L3
+ 185              	.LVL14:
+ 186              	.L17:
+  47:Src/LQFP64_pinout.cpp ****     case PF4:
+  48:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_4;
+ 187              		.loc 1 48 0
+ 188 0046 1020     		mov	r0, #16
+  49:Src/LQFP64_pinout.cpp ****         break;
+ 189              		.loc 1 49 0
+ 190 0048 5FE0     		b	.L3
+ 191              	.LVL15:
+ 192              	.L18:
+  50:Src/LQFP64_pinout.cpp ****     case PF5:
+  51:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_5;
+ 193              		.loc 1 51 0
+ 194 004a 2020     		mov	r0, #32
+  52:Src/LQFP64_pinout.cpp ****         break;
+ 195              		.loc 1 52 0
+ 196 004c 5DE0     		b	.L3
+ 197              	.LVL16:
+ 198              	.L19:
+  53:Src/LQFP64_pinout.cpp ****     case PA4:
+  54:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_4;
+ 199              		.loc 1 54 0
+ 200 004e 1020     		mov	r0, #16
+  55:Src/LQFP64_pinout.cpp ****         break;
+ 201              		.loc 1 55 0
+ 202 0050 5BE0     		b	.L3
+ 203              	.LVL17:
+ 204              	.L20:
+  56:Src/LQFP64_pinout.cpp ****     case PA5:
+  57:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_5;
+ 205              		.loc 1 57 0
+ 206 0052 2020     		mov	r0, #32
+  58:Src/LQFP64_pinout.cpp ****         break;
+ 207              		.loc 1 58 0
+ 208 0054 59E0     		b	.L3
+ 209              	.LVL18:
+ 210              	.L21:
+  59:Src/LQFP64_pinout.cpp ****     case PA6:
+  60:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_6;
+ 211              		.loc 1 60 0
+ 212 0056 4020     		mov	r0, #64
+  61:Src/LQFP64_pinout.cpp ****         break;
+ 213              		.loc 1 61 0
+ 214 0058 57E0     		b	.L3
+ 215              	.LVL19:
+ 216              	.L22:
+  62:Src/LQFP64_pinout.cpp ****     case PA7:
+  63:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_7;
+ 217              		.loc 1 63 0
+ 218 005a 8020     		mov	r0, #128
+  64:Src/LQFP64_pinout.cpp ****         break;
+ 219              		.loc 1 64 0
+ 220 005c 55E0     		b	.L3
+ 221              	.LVL20:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 6
+
+
+ 222              	.L23:
+  65:Src/LQFP64_pinout.cpp ****     case PC4:
+  66:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_4;
+ 223              		.loc 1 66 0
+ 224 005e 1020     		mov	r0, #16
+  67:Src/LQFP64_pinout.cpp ****         break;
+ 225              		.loc 1 67 0
+ 226 0060 53E0     		b	.L3
+ 227              	.LVL21:
+ 228              	.L24:
+  68:Src/LQFP64_pinout.cpp ****     case PC5:
+  69:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_5;
+ 229              		.loc 1 69 0
+ 230 0062 2020     		mov	r0, #32
+  70:Src/LQFP64_pinout.cpp ****         break;
+ 231              		.loc 1 70 0
+ 232 0064 51E0     		b	.L3
+ 233              	.LVL22:
+ 234              	.L25:
+  71:Src/LQFP64_pinout.cpp ****     case PB0:
+  72:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_0;
+ 235              		.loc 1 72 0
+ 236 0066 0120     		mov	r0, #1
+  73:Src/LQFP64_pinout.cpp ****         break;
+ 237              		.loc 1 73 0
+ 238 0068 4FE0     		b	.L3
+ 239              	.LVL23:
+ 240              	.L26:
+  74:Src/LQFP64_pinout.cpp ****     case PB1:
+  75:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_1;
+ 241              		.loc 1 75 0
+ 242 006a 0220     		mov	r0, #2
+  76:Src/LQFP64_pinout.cpp ****         break;
+ 243              		.loc 1 76 0
+ 244 006c 4DE0     		b	.L3
+ 245              	.LVL24:
+ 246              	.L27:
+  77:Src/LQFP64_pinout.cpp ****     case PB2:
+  78:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_2;
+ 247              		.loc 1 78 0
+ 248 006e 0420     		mov	r0, #4
+  79:Src/LQFP64_pinout.cpp ****         break;
+ 249              		.loc 1 79 0
+ 250 0070 4BE0     		b	.L3
+ 251              	.LVL25:
+ 252              	.L28:
+  80:Src/LQFP64_pinout.cpp ****     case PB10:
+  81:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_10;
+ 253              		.loc 1 81 0
+ 254 0072 8020     		mov	r0, #128
+ 255 0074 C000     		lsl	r0, r0, #3
+  82:Src/LQFP64_pinout.cpp ****         break;
+ 256              		.loc 1 82 0
+ 257 0076 48E0     		b	.L3
+ 258              	.LVL26:
+ 259              	.L29:
+  83:Src/LQFP64_pinout.cpp ****     case PB11:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 7
+
+
+  84:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_11;
+ 260              		.loc 1 84 0
+ 261 0078 8020     		mov	r0, #128
+ 262 007a 0001     		lsl	r0, r0, #4
+  85:Src/LQFP64_pinout.cpp ****         break;
+ 263              		.loc 1 85 0
+ 264 007c 45E0     		b	.L3
+ 265              	.LVL27:
+ 266              	.L30:
+  86:Src/LQFP64_pinout.cpp ****     case PB12:
+  87:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_12;
+ 267              		.loc 1 87 0
+ 268 007e 8020     		mov	r0, #128
+ 269 0080 4001     		lsl	r0, r0, #5
+  88:Src/LQFP64_pinout.cpp ****         break;
+ 270              		.loc 1 88 0
+ 271 0082 42E0     		b	.L3
+ 272              	.LVL28:
+ 273              	.L31:
+  89:Src/LQFP64_pinout.cpp ****     case PB13:
+  90:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_13;
+  91:Src/LQFP64_pinout.cpp ****         break;
+  92:Src/LQFP64_pinout.cpp ****     case PB14:
+  93:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_14;
+ 274              		.loc 1 93 0
+ 275 0084 8020     		mov	r0, #128
+ 276 0086 C001     		lsl	r0, r0, #7
+  94:Src/LQFP64_pinout.cpp ****         break;
+ 277              		.loc 1 94 0
+ 278 0088 3FE0     		b	.L3
+ 279              	.LVL29:
+ 280              	.L32:
+  95:Src/LQFP64_pinout.cpp ****     case PB15:
+  96:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_15;
+ 281              		.loc 1 96 0
+ 282 008a 8020     		mov	r0, #128
+ 283 008c 0002     		lsl	r0, r0, #8
+  97:Src/LQFP64_pinout.cpp ****         break;
+ 284              		.loc 1 97 0
+ 285 008e 3CE0     		b	.L3
+ 286              	.LVL30:
+ 287              	.L33:
+  98:Src/LQFP64_pinout.cpp ****     case PC6:
+  99:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_6;
+ 288              		.loc 1 99 0
+ 289 0090 4020     		mov	r0, #64
+ 100:Src/LQFP64_pinout.cpp ****         break;
+ 290              		.loc 1 100 0
+ 291 0092 3AE0     		b	.L3
+ 292              	.LVL31:
+ 293              	.L34:
+ 101:Src/LQFP64_pinout.cpp ****     case PC7:
+ 102:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_7;
+ 294              		.loc 1 102 0
+ 295 0094 8020     		mov	r0, #128
+ 103:Src/LQFP64_pinout.cpp ****         break;
+ 296              		.loc 1 103 0
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 8
+
+
+ 297 0096 38E0     		b	.L3
+ 298              	.LVL32:
+ 299              	.L35:
+ 104:Src/LQFP64_pinout.cpp ****     case PC8:
+ 105:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_8;
+ 300              		.loc 1 105 0
+ 301 0098 8020     		mov	r0, #128
+ 302 009a 4000     		lsl	r0, r0, #1
+ 106:Src/LQFP64_pinout.cpp ****         break;
+ 303              		.loc 1 106 0
+ 304 009c 35E0     		b	.L3
+ 305              	.LVL33:
+ 306              	.L36:
+ 107:Src/LQFP64_pinout.cpp ****     case PC9:
+ 108:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_9;
+ 307              		.loc 1 108 0
+ 308 009e 8020     		mov	r0, #128
+ 309 00a0 8000     		lsl	r0, r0, #2
+ 109:Src/LQFP64_pinout.cpp ****         break;
+ 310              		.loc 1 109 0
+ 311 00a2 32E0     		b	.L3
+ 312              	.LVL34:
+ 313              	.L37:
+ 110:Src/LQFP64_pinout.cpp ****     case PA8:
+ 111:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_8;
+ 314              		.loc 1 111 0
+ 315 00a4 8020     		mov	r0, #128
+ 316 00a6 4000     		lsl	r0, r0, #1
+ 112:Src/LQFP64_pinout.cpp ****         break;
+ 317              		.loc 1 112 0
+ 318 00a8 2FE0     		b	.L3
+ 319              	.LVL35:
+ 320              	.L38:
+ 113:Src/LQFP64_pinout.cpp ****     case PA9:
+ 114:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_9;
+ 321              		.loc 1 114 0
+ 322 00aa 8020     		mov	r0, #128
+ 323 00ac 8000     		lsl	r0, r0, #2
+ 115:Src/LQFP64_pinout.cpp ****         break;
+ 324              		.loc 1 115 0
+ 325 00ae 2CE0     		b	.L3
+ 326              	.LVL36:
+ 327              	.L39:
+ 116:Src/LQFP64_pinout.cpp ****     case PA10:
+ 117:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_10;
+ 328              		.loc 1 117 0
+ 329 00b0 8020     		mov	r0, #128
+ 330 00b2 C000     		lsl	r0, r0, #3
+ 118:Src/LQFP64_pinout.cpp ****         break;
+ 331              		.loc 1 118 0
+ 332 00b4 29E0     		b	.L3
+ 333              	.LVL37:
+ 334              	.L40:
+ 119:Src/LQFP64_pinout.cpp ****     case PA11:
+ 120:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_11;
+ 335              		.loc 1 120 0
+ 336 00b6 8020     		mov	r0, #128
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 9
+
+
+ 337 00b8 0001     		lsl	r0, r0, #4
+ 121:Src/LQFP64_pinout.cpp ****         break;
+ 338              		.loc 1 121 0
+ 339 00ba 26E0     		b	.L3
+ 340              	.LVL38:
+ 341              	.L41:
+ 122:Src/LQFP64_pinout.cpp ****     case PA12:
+ 123:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_12;
+ 342              		.loc 1 123 0
+ 343 00bc 8020     		mov	r0, #128
+ 344 00be 4001     		lsl	r0, r0, #5
+ 124:Src/LQFP64_pinout.cpp ****         break;
+ 345              		.loc 1 124 0
+ 346 00c0 23E0     		b	.L3
+ 347              	.LVL39:
+ 348              	.L42:
+ 125:Src/LQFP64_pinout.cpp ****     case PF6:
+ 126:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_6;
+ 349              		.loc 1 126 0
+ 350 00c2 4020     		mov	r0, #64
+ 127:Src/LQFP64_pinout.cpp ****         break;
+ 351              		.loc 1 127 0
+ 352 00c4 21E0     		b	.L3
+ 353              	.LVL40:
+ 354              	.L43:
+ 128:Src/LQFP64_pinout.cpp ****     case PF7:
+ 129:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_7;
+ 355              		.loc 1 129 0
+ 356 00c6 8020     		mov	r0, #128
+ 130:Src/LQFP64_pinout.cpp ****         break;
+ 357              		.loc 1 130 0
+ 358 00c8 1FE0     		b	.L3
+ 359              	.LVL41:
+ 360              	.L44:
+ 131:Src/LQFP64_pinout.cpp ****     case PA15:
+ 132:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_15;
+ 361              		.loc 1 132 0
+ 362 00ca 8020     		mov	r0, #128
+ 363 00cc 0002     		lsl	r0, r0, #8
+ 133:Src/LQFP64_pinout.cpp ****         break;
+ 364              		.loc 1 133 0
+ 365 00ce 1CE0     		b	.L3
+ 366              	.LVL42:
+ 367              	.L45:
+ 134:Src/LQFP64_pinout.cpp ****     case PC10:
+ 135:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_10;
+ 368              		.loc 1 135 0
+ 369 00d0 8020     		mov	r0, #128
+ 370 00d2 C000     		lsl	r0, r0, #3
+ 136:Src/LQFP64_pinout.cpp ****         break;
+ 371              		.loc 1 136 0
+ 372 00d4 19E0     		b	.L3
+ 373              	.LVL43:
+ 374              	.L46:
+ 137:Src/LQFP64_pinout.cpp ****     case PC11:
+ 138:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_11;
+ 375              		.loc 1 138 0
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 10
+
+
+ 376 00d6 8020     		mov	r0, #128
+ 377 00d8 0001     		lsl	r0, r0, #4
+ 139:Src/LQFP64_pinout.cpp ****         break;
+ 378              		.loc 1 139 0
+ 379 00da 16E0     		b	.L3
+ 380              	.LVL44:
+ 381              	.L47:
+ 140:Src/LQFP64_pinout.cpp ****     case PC12:
+ 141:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_12;
+ 382              		.loc 1 141 0
+ 383 00dc 8020     		mov	r0, #128
+ 384 00de 4001     		lsl	r0, r0, #5
+ 142:Src/LQFP64_pinout.cpp ****         break;
+ 385              		.loc 1 142 0
+ 386 00e0 13E0     		b	.L3
+ 387              	.LVL45:
+ 388              	.L48:
+ 143:Src/LQFP64_pinout.cpp ****     case PD2:
+ 144:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_2;
+ 389              		.loc 1 144 0
+ 390 00e2 0420     		mov	r0, #4
+ 145:Src/LQFP64_pinout.cpp ****         break;
+ 391              		.loc 1 145 0
+ 392 00e4 11E0     		b	.L3
+ 393              	.LVL46:
+ 394              	.L49:
+ 146:Src/LQFP64_pinout.cpp ****     case PB3:
+ 147:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_3;
+ 395              		.loc 1 147 0
+ 396 00e6 0820     		mov	r0, #8
+ 148:Src/LQFP64_pinout.cpp ****         break;
+ 397              		.loc 1 148 0
+ 398 00e8 0FE0     		b	.L3
+ 399              	.LVL47:
+ 400              	.L50:
+ 149:Src/LQFP64_pinout.cpp ****     case PB4:
+ 150:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_4;
+ 401              		.loc 1 150 0
+ 402 00ea 1020     		mov	r0, #16
+ 151:Src/LQFP64_pinout.cpp ****         break;
+ 403              		.loc 1 151 0
+ 404 00ec 0DE0     		b	.L3
+ 405              	.LVL48:
+ 406              	.L51:
+ 152:Src/LQFP64_pinout.cpp ****     case PB5:
+ 153:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_5;
+ 407              		.loc 1 153 0
+ 408 00ee 2020     		mov	r0, #32
+ 154:Src/LQFP64_pinout.cpp ****         break;
+ 409              		.loc 1 154 0
+ 410 00f0 0BE0     		b	.L3
+ 411              	.LVL49:
+ 412              	.L52:
+ 155:Src/LQFP64_pinout.cpp ****     case PB6:
+ 156:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_6;
+ 413              		.loc 1 156 0
+ 414 00f2 4020     		mov	r0, #64
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 11
+
+
+ 157:Src/LQFP64_pinout.cpp ****         break;
+ 415              		.loc 1 157 0
+ 416 00f4 09E0     		b	.L3
+ 417              	.LVL50:
+ 418              	.L53:
+ 158:Src/LQFP64_pinout.cpp ****     case PB7:
+ 159:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_7;
+ 419              		.loc 1 159 0
+ 420 00f6 8020     		mov	r0, #128
+ 160:Src/LQFP64_pinout.cpp ****         break;
+ 421              		.loc 1 160 0
+ 422 00f8 07E0     		b	.L3
+ 423              	.LVL51:
+ 424              	.L54:
+ 161:Src/LQFP64_pinout.cpp ****     case PB8:
+ 162:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_8;
+ 425              		.loc 1 162 0
+ 426 00fa 8020     		mov	r0, #128
+ 427 00fc 4000     		lsl	r0, r0, #1
+ 163:Src/LQFP64_pinout.cpp ****         break;
+ 428              		.loc 1 163 0
+ 429 00fe 04E0     		b	.L3
+ 430              	.LVL52:
+ 431              	.L55:
+ 164:Src/LQFP64_pinout.cpp ****     case PB9:
+ 165:Src/LQFP64_pinout.cpp ****         result = GPIO_PIN_9;
+ 432              		.loc 1 165 0
+ 433 0100 8020     		mov	r0, #128
+ 434 0102 8000     		lsl	r0, r0, #2
+ 166:Src/LQFP64_pinout.cpp ****         break;
+ 435              		.loc 1 166 0
+ 436 0104 01E0     		b	.L3
+ 437              	.LVL53:
+ 438              	.L56:
+   9:Src/LQFP64_pinout.cpp ****         break;
+ 439              		.loc 1 9 0
+ 440 0106 8020     		mov	r0, #128
+ 441 0108 8001     		lsl	r0, r0, #6
+ 442              	.LVL54:
+ 443              	.L3:
+ 444              	.LBE97:
+ 167:Src/LQFP64_pinout.cpp ****     default:
+ 168:Src/LQFP64_pinout.cpp ****         break;
+ 169:Src/LQFP64_pinout.cpp ****     }
+ 170:Src/LQFP64_pinout.cpp ****     return result;
+ 171:Src/LQFP64_pinout.cpp **** }
+ 445              		.loc 1 171 0
+ 446              		@ sp needed
+ 447 010a 7047     		bx	lr
+ 448              	.L58:
+ 449              		.align	2
+ 450              	.L57:
+ 451 010c 00000000 		.word	.L4
+ 452              		.cfi_endproc
+ 453              	.LFE616:
+ 454              		.cantunwind
+ 455              		.fnend
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 12
+
+
+ 457              		.section	.text._Z12isPowerOfTwoj,"ax",%progbits
+ 458              		.align	2
+ 459              		.global	_Z12isPowerOfTwoj
+ 460              		.code	16
+ 461              		.thumb_func
+ 463              	_Z12isPowerOfTwoj:
+ 464              		.fnstart
+ 465              	.LFB617:
+ 172:Src/LQFP64_pinout.cpp **** 
+ 173:Src/LQFP64_pinout.cpp **** // A utility function to check whether n is power of 2 or not. See http://goo.gl/17Arj
+ 174:Src/LQFP64_pinout.cpp **** int isPowerOfTwo(unsigned n)
+ 175:Src/LQFP64_pinout.cpp **** {
+ 466              		.loc 1 175 0
+ 467              		.cfi_startproc
+ 468              	.LVL55:
+ 176:Src/LQFP64_pinout.cpp ****     return n && (!(n & (n - 1)));
+ 469              		.loc 1 176 0
+ 470 0000 0028     		cmp	r0, #0
+ 471 0002 04D0     		beq	.L61
+ 472              		.loc 1 176 0 is_stmt 0 discriminator 1
+ 473 0004 431E     		sub	r3, r0, #1
+ 474 0006 1842     		tst	r0, r3
+ 475 0008 03D0     		beq	.L62
+ 476              		.loc 1 176 0
+ 477 000a 0020     		mov	r0, #0
+ 478              	.LVL56:
+ 479 000c 02E0     		b	.L60
+ 480              	.LVL57:
+ 481              	.L61:
+ 482 000e 0020     		mov	r0, #0
+ 483              	.LVL58:
+ 484 0010 00E0     		b	.L60
+ 485              	.LVL59:
+ 486              	.L62:
+ 487 0012 0120     		mov	r0, #1
+ 488              	.LVL60:
+ 489              	.L60:
+ 177:Src/LQFP64_pinout.cpp **** }
+ 490              		.loc 1 177 0 is_stmt 1 discriminator 6
+ 491              		@ sp needed
+ 492 0014 7047     		bx	lr
+ 493              		.cfi_endproc
+ 494              	.LFE617:
+ 495              		.cantunwind
+ 496              		.fnend
+ 498 0016 C046     		.section	.text._Z14GetBitPositionj,"ax",%progbits
+ 499              		.align	2
+ 500              		.global	_Z14GetBitPositionj
+ 501              		.code	16
+ 502              		.thumb_func
+ 504              	_Z14GetBitPositionj:
+ 505              		.fnstart
+ 506              	.LFB618:
+ 178:Src/LQFP64_pinout.cpp **** //https://www.geeksforgeeks.org/find-position-of-the-only-set-bit/
+ 179:Src/LQFP64_pinout.cpp **** int GetBitPosition(unsigned number)
+ 180:Src/LQFP64_pinout.cpp **** {
+ 507              		.loc 1 180 0
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 13
+
+
+ 508              		.cfi_startproc
+ 509              	.LVL61:
+ 510 0000 10B5     		push	{r4, lr}
+ 511              	.LCFI0:
+ 512              		.cfi_def_cfa_offset 8
+ 513              		.cfi_offset 4, -8
+ 514              		.cfi_offset 14, -4
+ 515 0002 041C     		mov	r4, r0
+ 516              	.LBB98:
+ 181:Src/LQFP64_pinout.cpp ****     if (!isPowerOfTwo(number))
+ 517              		.loc 1 181 0
+ 518 0004 FFF7FEFF 		bl	_Z12isPowerOfTwoj
+ 519              	.LVL62:
+ 520 0008 0028     		cmp	r0, #0
+ 521 000a 07D0     		beq	.L67
+ 522 000c 0020     		mov	r0, #0
+ 523 000e 0123     		mov	r3, #1
+ 524 0010 01E0     		b	.L65
+ 525              	.LVL63:
+ 526              	.L66:
+ 182:Src/LQFP64_pinout.cpp ****         return -1;
+ 183:Src/LQFP64_pinout.cpp ****     unsigned i = 1, pos = 0;
+ 184:Src/LQFP64_pinout.cpp ****     // Iterate through bits of n till we find a set bit
+ 185:Src/LQFP64_pinout.cpp ****     // i&n will be non-zero only when 'i' and 'n' have a set bit
+ 186:Src/LQFP64_pinout.cpp ****     // at same position
+ 187:Src/LQFP64_pinout.cpp ****     while (!(i & number))
+ 188:Src/LQFP64_pinout.cpp ****     {
+ 189:Src/LQFP64_pinout.cpp ****         // Unset current bit and set the next bit in 'i'
+ 190:Src/LQFP64_pinout.cpp ****         i = i << 1;
+ 527              		.loc 1 190 0
+ 528 0012 5B00     		lsl	r3, r3, #1
+ 529              	.LVL64:
+ 191:Src/LQFP64_pinout.cpp **** 
+ 192:Src/LQFP64_pinout.cpp ****         // increment position
+ 193:Src/LQFP64_pinout.cpp ****         ++pos;
+ 530              		.loc 1 193 0
+ 531 0014 0130     		add	r0, r0, #1
+ 532              	.LVL65:
+ 533              	.L65:
+ 187:Src/LQFP64_pinout.cpp ****     {
+ 534              		.loc 1 187 0
+ 535 0016 1C42     		tst	r4, r3
+ 536 0018 FBD0     		beq	.L66
+ 194:Src/LQFP64_pinout.cpp ****     }
+ 195:Src/LQFP64_pinout.cpp **** 
+ 196:Src/LQFP64_pinout.cpp ****     return pos;
+ 537              		.loc 1 196 0
+ 538 001a 01E0     		b	.L64
+ 539              	.LVL66:
+ 540              	.L67:
+ 182:Src/LQFP64_pinout.cpp ****     unsigned i = 1, pos = 0;
+ 541              		.loc 1 182 0
+ 542 001c 0120     		mov	r0, #1
+ 543 001e 4042     		neg	r0, r0
+ 544              	.L64:
+ 545              	.LBE98:
+ 197:Src/LQFP64_pinout.cpp **** }
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 14
+
+
+ 546              		.loc 1 197 0
+ 547              		@ sp needed
+ 548              	.LVL67:
+ 549 0020 10BD     		pop	{r4, pc}
+ 550              		.cfi_endproc
+ 551              	.LFE618:
+ 552              		.cantunwind
+ 553              		.fnend
+ 555 0022 C046     		.section	.text._Z12GetPinNumberh,"ax",%progbits
+ 556              		.align	2
+ 557              		.global	_Z12GetPinNumberh
+ 558              		.code	16
+ 559              		.thumb_func
+ 561              	_Z12GetPinNumberh:
+ 562              		.fnstart
+ 563              	.LFB619:
+ 198:Src/LQFP64_pinout.cpp **** 
+ 199:Src/LQFP64_pinout.cpp **** int GetPinNumber(uint8_t pinName)
+ 200:Src/LQFP64_pinout.cpp **** {
+ 564              		.loc 1 200 0
+ 565              		.cfi_startproc
+ 566              	.LVL68:
+ 567 0000 08B5     		push	{r3, lr}
+ 568              	.LCFI1:
+ 569              		.cfi_def_cfa_offset 8
+ 570              		.cfi_offset 3, -8
+ 571              		.cfi_offset 14, -4
+ 572              	.LBB99:
+ 201:Src/LQFP64_pinout.cpp ****     int pinMask = GetPinMask(pinName);
+ 573              		.loc 1 201 0
+ 574 0002 FFF7FEFF 		bl	_Z10GetPinMaskh
+ 575              	.LVL69:
+ 202:Src/LQFP64_pinout.cpp ****     if (pinMask == -1)
+ 576              		.loc 1 202 0
+ 577 0006 431C     		add	r3, r0, #1
+ 578 0008 02D0     		beq	.L70
+ 203:Src/LQFP64_pinout.cpp ****         return -1;
+ 204:Src/LQFP64_pinout.cpp ****     int bitPos = GetBitPosition(pinMask);
+ 579              		.loc 1 204 0
+ 580 000a FFF7FEFF 		bl	_Z14GetBitPositionj
+ 581              	.LVL70:
+ 582 000e 01E0     		b	.L69
+ 583              	.LVL71:
+ 584              	.L70:
+ 203:Src/LQFP64_pinout.cpp ****         return -1;
+ 585              		.loc 1 203 0
+ 586 0010 0120     		mov	r0, #1
+ 587              	.LVL72:
+ 588 0012 4042     		neg	r0, r0
+ 589              	.L69:
+ 590              	.LBE99:
+ 205:Src/LQFP64_pinout.cpp ****     if (bitPos == -1)
+ 206:Src/LQFP64_pinout.cpp ****         return -1;
+ 207:Src/LQFP64_pinout.cpp ****     return bitPos;
+ 208:Src/LQFP64_pinout.cpp **** }
+ 591              		.loc 1 208 0
+ 592              		@ sp needed
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 15
+
+
+ 593 0014 08BD     		pop	{r3, pc}
+ 594              		.cfi_endproc
+ 595              	.LFE619:
+ 596              		.cantunwind
+ 597              		.fnend
+ 599 0016 C046     		.section	.text._Z7GetPorth,"ax",%progbits
+ 600              		.align	2
+ 601              		.global	_Z7GetPorth
+ 602              		.code	16
+ 603              		.thumb_func
+ 605              	_Z7GetPorth:
+ 606              		.fnstart
+ 607              	.LFB620:
+ 209:Src/LQFP64_pinout.cpp **** 
+ 210:Src/LQFP64_pinout.cpp **** GPIO_TypeDef * GetPort(uint8_t pinName)
+ 211:Src/LQFP64_pinout.cpp **** {
+ 608              		.loc 1 211 0
+ 609              		.cfi_startproc
+ 610              		.cfi_personality 0,__gxx_personality_v0
+ 611              		.cfi_lsda 0,.LLSDA620
+ 612              	.LVL73:
+ 613 0000 10B5     		push	{r4, lr}
+ 614              		.save {r4, lr}
+ 615              	.LCFI2:
+ 616              		.cfi_def_cfa_offset 8
+ 617              		.cfi_offset 4, -8
+ 618              		.cfi_offset 14, -4
+ 619              		.pad #16
+ 620 0002 84B0     		sub	sp, sp, #16
+ 621              	.LCFI3:
+ 622              		.cfi_def_cfa_offset 24
+ 212:Src/LQFP64_pinout.cpp ****     if(pinName == PA0 || pinName == PA1 || pinName == PA2 
+ 213:Src/LQFP64_pinout.cpp ****         || pinName == PA3 || pinName == PA4 || pinName == PA5 
+ 623              		.loc 1 213 0
+ 624 0004 031C     		mov	r3, r0
+ 625 0006 0E3B     		sub	r3, r3, #14
+ 212:Src/LQFP64_pinout.cpp ****     if(pinName == PA0 || pinName == PA1 || pinName == PA2 
+ 626              		.loc 1 212 0
+ 627 0008 032B     		cmp	r3, #3
+ 628 000a 73D9     		bls	.L76
+ 629              		.loc 1 213 0
+ 630 000c 1428     		cmp	r0, #20
+ 631 000e 74D0     		beq	.L77
+ 632              		.loc 1 213 0 is_stmt 0 discriminator 1
+ 633 0010 1528     		cmp	r0, #21
+ 634 0012 75D0     		beq	.L78
+ 214:Src/LQFP64_pinout.cpp ****         || pinName == PA6 || pinName == PA7 || pinName == PA8 
+ 635              		.loc 1 214 0 is_stmt 1
+ 636 0014 1628     		cmp	r0, #22
+ 637 0016 76D0     		beq	.L79
+ 638              		.loc 1 214 0 is_stmt 0 discriminator 1
+ 639 0018 1728     		cmp	r0, #23
+ 640 001a 77D0     		beq	.L80
+ 641              		.loc 1 214 0 discriminator 2
+ 642 001c 2928     		cmp	r0, #41
+ 643 001e 78D0     		beq	.L81
+ 215:Src/LQFP64_pinout.cpp ****         || pinName == PA9 || pinName == PA10 || pinName == PA11
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 16
+
+
+ 644              		.loc 1 215 0 is_stmt 1
+ 645 0020 2A28     		cmp	r0, #42
+ 646 0022 79D0     		beq	.L82
+ 647              		.loc 1 215 0 is_stmt 0 discriminator 1
+ 648 0024 2B28     		cmp	r0, #43
+ 649 0026 7AD0     		beq	.L83
+ 650              		.loc 1 215 0 discriminator 2
+ 651 0028 2C28     		cmp	r0, #44
+ 652 002a 7BD0     		beq	.L84
+ 216:Src/LQFP64_pinout.cpp ****         || pinName == PA12 || pinName == PA13 || pinName == PA14 
+ 653              		.loc 1 216 0 is_stmt 1
+ 654 002c 2D28     		cmp	r0, #45
+ 655 002e 7CD0     		beq	.L85
+ 656              		.loc 1 216 0 is_stmt 0 discriminator 1
+ 657 0030 2E28     		cmp	r0, #46
+ 658 0032 7DD0     		beq	.L86
+ 659              		.loc 1 216 0 discriminator 2
+ 660 0034 3128     		cmp	r0, #49
+ 661 0036 7ED0     		beq	.L87
+ 217:Src/LQFP64_pinout.cpp ****         || pinName == PA15 )
+ 662              		.loc 1 217 0 is_stmt 1
+ 663 0038 3228     		cmp	r0, #50
+ 664 003a 7FD0     		beq	.L88
+ 218:Src/LQFP64_pinout.cpp ****     {
+ 219:Src/LQFP64_pinout.cpp ****         return GPIOA;
+ 220:Src/LQFP64_pinout.cpp ****     }
+ 221:Src/LQFP64_pinout.cpp ****     else if (pinName == PB0 || pinName == PB1 || pinName == PB2 
+ 665              		.loc 1 221 0
+ 666 003c 0C3B     		sub	r3, r3, #12
+ 667 003e 022B     		cmp	r3, #2
+ 668 0040 7FD9     		bls	.L89
+ 222:Src/LQFP64_pinout.cpp ****         || pinName == PB3 || pinName == PB4 || pinName == PB5 
+ 669              		.loc 1 222 0
+ 670 0042 3728     		cmp	r0, #55
+ 671 0044 7FD0     		beq	.L90
+ 672              		.loc 1 222 0 is_stmt 0 discriminator 1
+ 673 0046 3828     		cmp	r0, #56
+ 674 0048 7FD0     		beq	.L91
+ 675              		.loc 1 222 0 discriminator 2
+ 676 004a 3928     		cmp	r0, #57
+ 677 004c 7FD0     		beq	.L92
+ 223:Src/LQFP64_pinout.cpp ****         || pinName == PB6 || pinName == PB7 || pinName == PB8 
+ 678              		.loc 1 223 0 is_stmt 1
+ 679 004e 3A28     		cmp	r0, #58
+ 680 0050 7FD0     		beq	.L93
+ 681              		.loc 1 223 0 is_stmt 0 discriminator 1
+ 682 0052 3B28     		cmp	r0, #59
+ 683 0054 7FD0     		beq	.L94
+ 684              		.loc 1 223 0 discriminator 2
+ 685 0056 3D28     		cmp	r0, #61
+ 686 0058 7FD0     		beq	.L95
+ 224:Src/LQFP64_pinout.cpp ****         || pinName == PB9 || pinName == PB10 || pinName == PB11
+ 687              		.loc 1 224 0 is_stmt 1
+ 688 005a 3E28     		cmp	r0, #62
+ 689 005c 7FD0     		beq	.L96
+ 690              		.loc 1 224 0 is_stmt 0 discriminator 1
+ 691 005e 1D28     		cmp	r0, #29
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 17
+
+
+ 692 0060 7FD0     		beq	.L97
+ 693              		.loc 1 224 0 discriminator 2
+ 694 0062 1E28     		cmp	r0, #30
+ 695 0064 7FD0     		beq	.L98
+ 225:Src/LQFP64_pinout.cpp ****         || pinName == PB12 || pinName == PB13 || pinName == PB14 
+ 696              		.loc 1 225 0 is_stmt 1
+ 697 0066 2128     		cmp	r0, #33
+ 698 0068 7FD0     		beq	.L99
+ 699              		.loc 1 225 0 is_stmt 0 discriminator 1
+ 700 006a 2228     		cmp	r0, #34
+ 701 006c 7FD0     		beq	.L100
+ 702              		.loc 1 225 0 discriminator 2
+ 703 006e 2328     		cmp	r0, #35
+ 704 0070 7FD0     		beq	.L101
+ 226:Src/LQFP64_pinout.cpp ****         || pinName == PB15 )
+ 705              		.loc 1 226 0 is_stmt 1
+ 706 0072 2428     		cmp	r0, #36
+ 707 0074 7FD0     		beq	.L102
+ 227:Src/LQFP64_pinout.cpp ****     {
+ 228:Src/LQFP64_pinout.cpp ****         return GPIOB;
+ 229:Src/LQFP64_pinout.cpp ****     }
+ 230:Src/LQFP64_pinout.cpp ****     else if (pinName == PC0 || pinName == PC1 || pinName == PC2 
+ 231:Src/LQFP64_pinout.cpp ****         || pinName == PC3 || pinName == PC4 || pinName == PC5 
+ 708              		.loc 1 231 0
+ 709 0076 1233     		add	r3, r3, #18
+ 230:Src/LQFP64_pinout.cpp ****         || pinName == PC3 || pinName == PC4 || pinName == PC5 
+ 710              		.loc 1 230 0
+ 711 0078 032B     		cmp	r3, #3
+ 712 007a 7ED9     		bls	.L103
+ 713              		.loc 1 231 0
+ 714 007c 1828     		cmp	r0, #24
+ 715 007e 7ED0     		beq	.L104
+ 716              		.loc 1 231 0 is_stmt 0 discriminator 1
+ 717 0080 1928     		cmp	r0, #25
+ 718 0082 7ED0     		beq	.L105
+ 232:Src/LQFP64_pinout.cpp ****         || pinName == PC6 || pinName == PC7 || pinName == PC8 
+ 719              		.loc 1 232 0 is_stmt 1
+ 720 0084 2528     		cmp	r0, #37
+ 721 0086 7ED0     		beq	.L106
+ 722              		.loc 1 232 0 is_stmt 0 discriminator 1
+ 723 0088 2628     		cmp	r0, #38
+ 724 008a 7ED0     		beq	.L107
+ 725              		.loc 1 232 0 discriminator 2
+ 726 008c 2728     		cmp	r0, #39
+ 727 008e 7ED0     		beq	.L108
+ 233:Src/LQFP64_pinout.cpp ****         || pinName == PC9 || pinName == PC10 || pinName == PC11
+ 728              		.loc 1 233 0 is_stmt 1
+ 729 0090 2828     		cmp	r0, #40
+ 730 0092 7ED0     		beq	.L109
+ 731              		.loc 1 233 0 is_stmt 0 discriminator 1
+ 732 0094 3328     		cmp	r0, #51
+ 733 0096 7ED0     		beq	.L110
+ 734              		.loc 1 233 0 discriminator 2
+ 735 0098 3428     		cmp	r0, #52
+ 736 009a 7ED0     		beq	.L111
+ 234:Src/LQFP64_pinout.cpp ****         || pinName == PC12 || pinName == PC13 || pinName == PC14 
+ 737              		.loc 1 234 0 is_stmt 1
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 18
+
+
+ 738 009c 3528     		cmp	r0, #53
+ 739 009e 7ED0     		beq	.L112
+ 740              		.loc 1 234 0 is_stmt 0 discriminator 1
+ 741 00a0 0228     		cmp	r0, #2
+ 742 00a2 7ED0     		beq	.L113
+ 743              		.loc 1 234 0 discriminator 2
+ 744 00a4 0328     		cmp	r0, #3
+ 745 00a6 7ED0     		beq	.L114
+ 235:Src/LQFP64_pinout.cpp ****         || pinName == PC15 )
+ 746              		.loc 1 235 0 is_stmt 1
+ 747 00a8 0428     		cmp	r0, #4
+ 748 00aa 7ED0     		beq	.L115
+ 236:Src/LQFP64_pinout.cpp ****     {
+ 237:Src/LQFP64_pinout.cpp ****         return GPIOC;
+ 238:Src/LQFP64_pinout.cpp ****     }
+ 239:Src/LQFP64_pinout.cpp ****     else if (pinName == PD2 )
+ 749              		.loc 1 239 0
+ 750 00ac 3628     		cmp	r0, #54
+ 751 00ae 7ED0     		beq	.L116
+ 240:Src/LQFP64_pinout.cpp ****     {
+ 241:Src/LQFP64_pinout.cpp ****         return GPIOD;
+ 242:Src/LQFP64_pinout.cpp ****     }
+ 243:Src/LQFP64_pinout.cpp ****     else if (pinName == PF0 || pinName == PF1 || pinName == PF4 
+ 752              		.loc 1 243 0
+ 753 00b0 431F     		sub	r3, r0, #5
+ 754 00b2 012B     		cmp	r3, #1
+ 755 00b4 7DD9     		bls	.L117
+ 756              		.loc 1 243 0 is_stmt 0 discriminator 1
+ 757 00b6 1228     		cmp	r0, #18
+ 758 00b8 7DD0     		beq	.L118
+ 244:Src/LQFP64_pinout.cpp ****         || pinName == PF5 || pinName == PF6 || pinName == PF7 )
+ 759              		.loc 1 244 0 is_stmt 1
+ 760 00ba 1328     		cmp	r0, #19
+ 761 00bc 7DD0     		beq	.L119
+ 762              		.loc 1 244 0 is_stmt 0 discriminator 1
+ 763 00be 2F28     		cmp	r0, #47
+ 764 00c0 7DD0     		beq	.L120
+ 765              		.loc 1 244 0 discriminator 2
+ 766 00c2 3028     		cmp	r0, #48
+ 767 00c4 7DD0     		beq	.L121
+ 245:Src/LQFP64_pinout.cpp ****     {
+ 246:Src/LQFP64_pinout.cpp ****         return GPIOF;
+ 247:Src/LQFP64_pinout.cpp ****     }
+ 248:Src/LQFP64_pinout.cpp ****     else
+ 249:Src/LQFP64_pinout.cpp ****     {
+ 250:Src/LQFP64_pinout.cpp ****         throw std::invalid_argument("pinName is not a valid pin.");
+ 768              		.loc 1 250 0 is_stmt 1
+ 769 00c6 0820     		mov	r0, #8
+ 770              	.LVL74:
+ 771 00c8 FFF7FEFF 		bl	__cxa_allocate_exception
+ 772              	.LVL75:
+ 773 00cc 041C     		mov	r4, r0
+ 774              	.LVL76:
+ 775 00ce 6846     		mov	r0, sp
+ 776 00d0 4349     		ldr	r1, .L125
+ 777 00d2 01AA     		add	r2, sp, #4
+ 778              	.LVL77:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 19
+
+
+ 779              	.LEHB0:
+ 780 00d4 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 781              	.LEHE0:
+ 782              	.LVL78:
+ 783              		.loc 1 250 0 is_stmt 0 discriminator 2
+ 784 00d8 201C     		mov	r0, r4
+ 785 00da 6946     		mov	r1, sp
+ 786              	.LEHB1:
+ 787 00dc FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 788              	.LEHE1:
+ 789              	.LVL79:
+ 790              	.LBB100:
+ 791              	.LBB101:
+ 792              	.LBB102:
+ 793              	.LBB103:
+ 794              		.file 2 "/usr/include/newlib/c++/4.9.3/bits/basic_string.h"
+   1:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Components for manipulating sequences of characters -*- C++ -*-
+   2:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+   3:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Copyright (C) 1997-2014 Free Software Foundation, Inc.
+   4:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+   5:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // terms of the GNU General Public License as published by the
+   8:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // any later version.
+  10:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  11:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // GNU General Public License for more details.
+  15:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  16:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  20:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  25:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** /** @file bits/basic_string.h
+  26:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  *  This is an internal header file, included by other library headers.
+  27:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  *  Do not attempt to use it directly. @headername{string}
+  28:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  */
+  29:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  30:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+  31:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // ISO C++ 14882: 21 Strings library
+  32:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+  33:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  34:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #ifndef _BASIC_STRING_H
+  35:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #define _BASIC_STRING_H 1
+  36:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  37:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #pragma GCC system_header
+  38:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  39:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <ext/atomicity.h>
+  40:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <debug/debug.h>
+  41:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if __cplusplus >= 201103L
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 20
+
+
+  42:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <initializer_list>
+  43:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+  44:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  45:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** namespace std _GLIBCXX_VISIBILITY(default)
+  46:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** {
+  47:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  48:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  49:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   /**
+  50:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @class basic_string basic_string.h <string>
+  51:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @brief  Managing sequences of characters and character-like objects.
+  52:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  53:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @ingroup strings
+  54:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @ingroup sequences
+  55:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  56:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _CharT  Type of character
+  57:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _Traits  Traits for character type, defaults to
+  58:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                   char_traits<_CharT>.
+  59:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _Alloc  Allocator type, defaults to allocator<_CharT>.
+  60:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  61:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
+  62:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#66">reversible container</a>, and a
+  63:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#67">sequence</a>.  Of the
+  64:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#68">optional sequence requirements</a>, only
+  65:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @c push_back, @c at, and @c %array access are supported.
+  66:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  67:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @doctodo
+  68:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  69:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  70:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Documentation?  What's that?
+  71:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Nathan Myers <ncm@cantrip.org>.
+  72:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  73:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  A string looks like this:
+  74:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  75:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @code
+  76:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                                        [_Rep]
+  77:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                                        _M_length
+  78:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   [basic_string<char_type>]            _M_capacity
+  79:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   _M_dataplus                          _M_refcount
+  80:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   _M_p ---------------->               unnamed array of char_type
+  81:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @endcode
+  82:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  83:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Where the _M_p points to the first character in the string, and
+  84:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  you cast it to a pointer-to-_Rep and subtract 1 to get a
+  85:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  pointer to the header.
+  86:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  87:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  This approach has the enormous advantage that a string object
+  88:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  requires only one allocation.  All the ugliness is confined
+  89:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  within a single %pair of inline functions, which each compile to
+  90:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  a single @a add instruction: _Rep::_M_data(), and
+  91:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  string::_M_rep(); and the allocation function which gets a
+  92:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  block of raw bytes and with room enough and constructs a _Rep
+  93:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  object at the front.
+  94:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  95:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  The reason you want _M_data pointing to the character %array and
+  96:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  not the _Rep is so that the debugger can see the string
+  97:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  contents. (Probably we should add a non-inline member to get
+  98:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  the _Rep for the debugger to use, so users can check the actual
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 21
+
+
+  99:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  string length.)
+ 100:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+ 101:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Note that the _Rep object is a POD so that you can have a
+ 102:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  static <em>empty string</em> _Rep object already @a constructed before
+ 103:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  static constructors have run.  The reference-count encoding is
+ 104:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  chosen so that a 0 indicates one reference, so you never try to
+ 105:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  destroy the empty-string _Rep object.
+ 106:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+ 107:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  All but the last paragraph is considered pretty conventional
+ 108:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  for a C++ string implementation.
+ 109:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   */
+ 110:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   // 21.3  Template class basic_string
+ 111:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   template<typename _CharT, typename _Traits, typename _Alloc>
+ 112:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     class basic_string
+ 113:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     {
+ 114:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _Alloc::template rebind<_CharT>::other _CharT_alloc_type;
+ 115:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 116:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Types:
+ 117:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ 118:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef _Traits					    traits_type;
+ 119:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _Traits::char_type		    value_type;
+ 120:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef _Alloc					    allocator_type;
+ 121:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::size_type	    size_type;
+ 122:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::difference_type   difference_type;
+ 123:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::reference	    reference;
+ 124:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::const_reference   const_reference;
+ 125:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::pointer	    pointer;
+ 126:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::const_pointer	    const_pointer;
+ 127:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef __gnu_cxx::__normal_iterator<pointer, basic_string>  iterator;
+ 128:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef __gnu_cxx::__normal_iterator<const_pointer, basic_string>
+ 129:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****                                                             const_iterator;
+ 130:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef std::reverse_iterator<const_iterator>	const_reverse_iterator;
+ 131:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef std::reverse_iterator<iterator>		    reverse_iterator;
+ 132:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 133:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     private:
+ 134:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // _Rep: string representation
+ 135:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   Invariants:
+ 136:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   1. String really contains _M_length + 1 characters: due to 21.3.4
+ 137:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      must be kept null-terminated.
+ 138:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   2. _M_capacity >= _M_length
+ 139:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      Allocated memory is always (_M_capacity + 1) * sizeof(_CharT).
+ 140:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   3. _M_refcount has three states:
+ 141:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      -1: leaked, one reference, no ref-copies allowed, non-const.
+ 142:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //       0: one reference, non-const.
+ 143:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //     n>0: n + 1 references, operations require a lock, const.
+ 144:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   4. All fields==0 is an empty string, given the extra storage
+ 145:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      beyond-the-end for a null terminator; thus, the shared
+ 146:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      empty string representation needs no constructor.
+ 147:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 148:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Rep_base
+ 149:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 150:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	size_type		_M_length;
+ 151:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	size_type		_M_capacity;
+ 152:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_Atomic_word		_M_refcount;
+ 153:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ 154:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 155:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Rep : _Rep_base
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 22
+
+
+ 156:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 157:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Types:
+ 158:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	typedef typename _Alloc::template rebind<char>::other _Raw_bytes_alloc;
+ 159:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 160:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// (Public) Data members:
+ 161:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 162:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// The maximum number of individual char_type elements of an
+ 163:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// individual string is determined by _S_max_size. This is the
+ 164:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// value that will be returned by max_size().  (Whereas npos
+ 165:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// is the maximum number of bytes the allocator can allocate.)
+ 166:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// If one was to divvy up the theoretical largest size string,
+ 167:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// with a terminating character and m _CharT elements, it'd
+ 168:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// look like this:
+ 169:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// npos = sizeof(_Rep) + (m * sizeof(_CharT)) + sizeof(_CharT)
+ 170:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Solving for m:
+ 171:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// m = ((npos - sizeof(_Rep))/sizeof(CharT)) - 1
+ 172:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// In addition, this implementation quarters this amount.
+ 173:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static const size_type	_S_max_size;
+ 174:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static const _CharT	_S_terminal;
+ 175:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 176:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// The following storage is init'd to 0 by the linker, resulting
+ 177:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         // (carefully) in an empty string with one reference.
+ 178:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static size_type _S_empty_rep_storage[];
+ 179:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 180:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static _Rep&
+ 181:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         _S_empty_rep() _GLIBCXX_NOEXCEPT
+ 182:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { 
+ 183:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // NB: Mild hack to avoid strict-aliasing warnings.  Note that
+ 184:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // _S_empty_rep_storage is never modified and the punning should
+ 185:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // be reasonably safe in this case.
+ 186:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  void* __p = reinterpret_cast<void*>(&_S_empty_rep_storage);
+ 187:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return *reinterpret_cast<_Rep*>(__p);
+ 188:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 189:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 190:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         bool
+ 191:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_is_leaked() const _GLIBCXX_NOEXCEPT
+ 192:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { return this->_M_refcount < 0; }
+ 193:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 194:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         bool
+ 195:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_is_shared() const _GLIBCXX_NOEXCEPT
+ 196:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { return this->_M_refcount > 0; }
+ 197:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 198:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         void
+ 199:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_leaked() _GLIBCXX_NOEXCEPT
+ 200:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { this->_M_refcount = -1; }
+ 201:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 202:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         void
+ 203:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_sharable() _GLIBCXX_NOEXCEPT
+ 204:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { this->_M_refcount = 0; }
+ 205:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 206:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 207:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_length_and_sharable(size_type __n) _GLIBCXX_NOEXCEPT
+ 208:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 209:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 210:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 211:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 212:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    {
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 23
+
+
+ 213:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      this->_M_set_sharable();  // One reference.
+ 214:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      this->_M_length = __n;
+ 215:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      traits_type::assign(this->_M_refdata()[__n], _S_terminal);
+ 216:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // grrr. (per 21.3.4)
+ 217:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // You cannot leave those LWG people alone for a second.
+ 218:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    }
+ 219:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 220:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 221:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 222:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_refdata() throw()
+ 223:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{ return reinterpret_cast<_CharT*>(this + 1); }
+ 224:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 225:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 226:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_grab(const _Alloc& __alloc1, const _Alloc& __alloc2)
+ 227:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 228:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return (!_M_is_leaked() && __alloc1 == __alloc2)
+ 229:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	          ? _M_refcopy() : _M_clone(__alloc1);
+ 230:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 231:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 232:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Create & Destroy
+ 233:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static _Rep*
+ 234:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_S_create(size_type, size_type, const _Alloc&);
+ 235:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 236:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 237:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_dispose(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+ 238:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 239:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 240:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 241:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 242:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    {
+ 243:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // Be race-detector-friendly.  For more info see bits/c++config.
+ 244:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&this->_M_refcount);
+ 245:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      if (__gnu_cxx::__exchange_and_add_dispatch(&this->_M_refcount,
+ 246:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 							 -1) <= 0)
+ 247:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		{
+ 248:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		  _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&this->_M_refcount);
+ 249:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		  _M_destroy(__a);
+ 250:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		}
+ 251:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    }
+ 252:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}  // XXX MT
+ 253:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 254:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 255:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_destroy(const _Alloc&) throw();
+ 256:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 257:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 258:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_refcopy() throw()
+ 259:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 260:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 261:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 262:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 263:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****             __gnu_cxx::__atomic_add_dispatch(&this->_M_refcount, 1);
+ 264:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return _M_refdata();
+ 265:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}  // XXX MT
+ 266:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 267:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 268:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_clone(const _Alloc&, size_type __res = 0);
+ 269:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 24
+
+
+ 270:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 271:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Use empty-base optimization: http://www.cantrip.org/emptyopt.html
+ 272:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Alloc_hider : _Alloc
+ 273:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 274:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_Alloc_hider(_CharT* __dat, const _Alloc& __a) _GLIBCXX_NOEXCEPT
+ 275:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	: _Alloc(__a), _M_p(__dat) { }
+ 276:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 277:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT* _M_p; // The actual data.
+ 278:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ 279:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 280:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ 281:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Data Members (public):
+ 282:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: This is an unsigned type, and thus represents the maximum
+ 283:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // size that the allocator can hold.
+ 284:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       ///  Value returned by various member functions when they fail.
+ 285:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static const size_type	npos = static_cast<size_type>(-1);
+ 286:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 287:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     private:
+ 288:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Data Members (private):
+ 289:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       mutable _Alloc_hider	_M_dataplus;
+ 290:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 291:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _CharT*
+ 292:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_data() const _GLIBCXX_NOEXCEPT
+ 293:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return  _M_dataplus._M_p; }
+ 294:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 295:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _CharT*
+ 296:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_data(_CharT* __p) _GLIBCXX_NOEXCEPT
+ 297:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return (_M_dataplus._M_p = __p); }
+ 298:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 299:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _Rep*
+ 300:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_rep() const _GLIBCXX_NOEXCEPT
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return &((reinterpret_cast<_Rep*> (_M_data()))[-1]); }
+ 795              		.loc 2 301 0 is_stmt 1
+ 796 00e0 0098     		ldr	r0, [sp]
+ 797 00e2 0C38     		sub	r0, r0, #12
+ 798              	.LVL80:
+ 799              	.LBE103:
+ 800              	.LBE102:
+ 302:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 303:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // For the internal use we have functions similar to `begin'/`end'
+ 304:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // but they do not call _M_leak.
+ 305:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       iterator
+ 306:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_ibegin() const _GLIBCXX_NOEXCEPT
+ 307:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return iterator(_M_data()); }
+ 308:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 309:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       iterator
+ 310:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_iend() const _GLIBCXX_NOEXCEPT
+ 311:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return iterator(_M_data() + this->size()); }
+ 312:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 313:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 314:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_leak()    // for use in begin() & non-const op[]
+ 315:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 316:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (!_M_rep()->_M_is_leaked())
+ 317:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  _M_leak_hard();
+ 318:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 319:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 320:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       size_type
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 25
+
+
+ 321:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_check(size_type __pos, const char* __s) const
+ 322:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 323:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__pos > this->size())
+ 324:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+ 325:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 				       "this->size() (which is %zu)"),
+ 326:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 				   __s, __pos, this->size());
+ 327:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return __pos;
+ 328:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 329:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 330:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 331:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_check_length(size_type __n1, size_type __n2, const char* __s) const
+ 332:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 333:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (this->max_size() - (this->size() - __n1) < __n2)
+ 334:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  __throw_length_error(__N(__s));
+ 335:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 336:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 337:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: _M_limit doesn't check for a bad __pos value.
+ 338:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       size_type
+ 339:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
+ 340:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 341:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	const bool __testoff =  __off < this->size() - __pos;
+ 342:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return __testoff ? __off : this->size() - __pos;
+ 343:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 344:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 345:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // True if _Rep and source do not overlap.
+ 346:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       bool
+ 347:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+ 348:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 349:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return (less<const _CharT*>()(__s, _M_data())
+ 350:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+ 351:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 352:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 353:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // When __n = 1 way faster than the general multichar
+ 354:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // traits_type::copy/move/assign.
+ 355:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 356:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_copy(_CharT* __d, const _CharT* __s, size_type __n) _GLIBCXX_NOEXCEPT
+ 357:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 358:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 359:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, *__s);
+ 360:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 361:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::copy(__d, __s, __n);
+ 362:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 363:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 364:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 365:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_move(_CharT* __d, const _CharT* __s, size_type __n) _GLIBCXX_NOEXCEPT
+ 366:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 367:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 368:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, *__s);
+ 369:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 370:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::move(__d, __s, __n);	  
+ 371:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 372:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 373:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 374:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_assign(_CharT* __d, size_type __n, _CharT __c) _GLIBCXX_NOEXCEPT
+ 375:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 376:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 377:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, __c);
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 26
+
+
+ 378:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 379:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(__d, __n, __c);	  
+ 380:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 381:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 382:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // _S_copy_chars is a separate template to permit specialization
+ 383:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // to optimize for the common case of pointers as iterators.
+ 384:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       template<class _Iterator>
+ 385:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static void
+ 386:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         _S_copy_chars(_CharT* __p, _Iterator __k1, _Iterator __k2)
+ 387:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_GLIBCXX_NOEXCEPT
+ 388:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         {
+ 389:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  for (; __k1 != __k2; ++__k1, ++__p)
+ 390:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    traits_type::assign(*__p, *__k1); // These types are off.
+ 391:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 392:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 393:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 394:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, iterator __k1, iterator __k2) _GLIBCXX_NOEXCEPT
+ 395:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _S_copy_chars(__p, __k1.base(), __k2.base()); }
+ 396:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 397:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 398:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, const_iterator __k1, const_iterator __k2)
+ 399:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _GLIBCXX_NOEXCEPT
+ 400:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _S_copy_chars(__p, __k1.base(), __k2.base()); }
+ 401:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 402:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 403:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
+ 404:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_copy(__p, __k1, __k2 - __k1); }
+ 405:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 406:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 407:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
+ 408:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _GLIBCXX_NOEXCEPT
+ 409:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_copy(__p, __k1, __k2 - __k1); }
+ 410:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 411:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static int
+ 412:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_compare(size_type __n1, size_type __n2) _GLIBCXX_NOEXCEPT
+ 413:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 414:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	const difference_type __d = difference_type(__n1 - __n2);
+ 415:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 416:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__d > __gnu_cxx::__numeric_traits<int>::__max)
+ 417:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return __gnu_cxx::__numeric_traits<int>::__max;
+ 418:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else if (__d < __gnu_cxx::__numeric_traits<int>::__min)
+ 419:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return __gnu_cxx::__numeric_traits<int>::__min;
+ 420:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 421:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return int(__d);
+ 422:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 423:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 424:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 425:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_mutate(size_type __pos, size_type __len1, size_type __len2);
+ 426:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 427:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 428:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_leak_hard();
+ 429:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 430:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static _Rep&
+ 431:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_empty_rep() _GLIBCXX_NOEXCEPT
+ 432:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return _Rep::_S_empty_rep(); }
+ 433:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 434:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 27
+
+
+ 435:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Construct/copy/destroy:
+ 436:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: We overload ctors in some cases instead of using default
+ 437:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // arguments, per 17.4.4.4 para. 2 item 2.
+ 438:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 439:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 440:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Default constructor creates an empty string.
+ 441:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 442:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string()
+ 443:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 444:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(_S_empty_rep()._M_refdata(), _Alloc()) { }
+ 445:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #else
+ 446:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(_S_construct(size_type(), _CharT(), _Alloc()), _Alloc()){ }
+ 447:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 448:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 449:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 450:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct an empty string using allocator @a a.
+ 451:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 452:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       explicit
+ 453:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _Alloc& __a);
+ 454:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 455:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: per LWG issue 42, semantics different from IS:
+ 456:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 457:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string with copy of value of @a str.
+ 458:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 459:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 460:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str);
+ 461:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 462:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a substring.
+ 463:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 464:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __pos  Index of first character to copy from.
+ 465:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy (default remainder).
+ 466:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 467:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str, size_type __pos,
+ 468:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   size_type __n = npos);
+ 469:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 470:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a substring.
+ 471:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 472:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __pos  Index of first character to copy from.
+ 473:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy.
+ 474:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use.
+ 475:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 476:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str, size_type __pos,
+ 477:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   size_type __n, const _Alloc& __a);
+ 478:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 479:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 480:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string initialized by a character %array.
+ 481:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __s  Source character %array.
+ 482:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy.
+ 483:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 484:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *
+ 485:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  NB: @a __s must have at least @a __n characters, &apos;\\0&apos;
+ 486:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  has no special meaning.
+ 487:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 488:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _CharT* __s, size_type __n,
+ 489:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   const _Alloc& __a = _Alloc());
+ 490:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 491:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a C string.
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 28
+
+
+ 492:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __s  Source C string.
+ 493:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 494:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 495:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc());
+ 496:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 497:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as multiple characters.
+ 498:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters.
+ 499:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __c  Character to use.
+ 500:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 501:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 502:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc());
+ 503:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 504:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if __cplusplus >= 201103L
+ 505:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 506:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Move construct string.
+ 507:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 508:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *
+ 509:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  The newly-created string contains the exact contents of @a __str.
+ 510:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @a __str is a valid, but unspecified string.
+ 511:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        **/
+ 512:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(basic_string&& __str)
+ 513:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 514:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       noexcept // FIXME C++11: should always be noexcept.
+ 515:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 516:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(__str._M_dataplus)
+ 517:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 518:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 519:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	__str._M_data(_S_empty_rep()._M_refdata());
+ 520:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #else
+ 521:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	__str._M_data(_S_construct(size_type(), _CharT(), get_allocator()));
+ 522:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 523:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 524:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 525:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 526:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string from an initializer %list.
+ 527:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __l  std::initializer_list of characters.
+ 528:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 529:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 530:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc());
+ 531:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif // C++11
+ 532:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 533:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 534:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a range.
+ 535:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __beg  Start of range.
+ 536:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __end  End of range.
+ 537:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 538:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 539:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       template<class _InputIterator>
+ 540:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         basic_string(_InputIterator __beg, _InputIterator __end,
+ 541:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		     const _Alloc& __a = _Alloc());
+ 542:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 543:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 544:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Destroy the string instance.
+ 545:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 546:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       ~basic_string() _GLIBCXX_NOEXCEPT
+ 547:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_rep()->_M_dispose(this->get_allocator()); }
+ 801              		.loc 2 547 0
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 29
+
+
+ 802 00e4 02A9     		add	r1, sp, #8
+ 803 00e6 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 804              	.LVL81:
+ 805              	.LBE101:
+ 806              	.LBE100:
+ 807              		.loc 1 250 0
+ 808 00ea 201C     		mov	r0, r4
+ 809 00ec 3D49     		ldr	r1, .L125+4
+ 810 00ee 3E4A     		ldr	r2, .L125+8
+ 811              	.LEHB2:
+ 812 00f0 FFF7FEFF 		bl	__cxa_throw
+ 813              	.LVL82:
+ 814              	.L76:
+ 219:Src/LQFP64_pinout.cpp ****     }
+ 815              		.loc 1 219 0
+ 816 00f4 9020     		mov	r0, #144
+ 817              	.LVL83:
+ 818 00f6 C005     		lsl	r0, r0, #23
+ 819 00f8 70E0     		b	.L124
+ 820              	.LVL84:
+ 821              	.L77:
+ 822 00fa 9020     		mov	r0, #144
+ 823              	.LVL85:
+ 824 00fc C005     		lsl	r0, r0, #23
+ 825 00fe 6DE0     		b	.L124
+ 826              	.LVL86:
+ 827              	.L78:
+ 828 0100 9020     		mov	r0, #144
+ 829              	.LVL87:
+ 830 0102 C005     		lsl	r0, r0, #23
+ 831 0104 6AE0     		b	.L124
+ 832              	.LVL88:
+ 833              	.L79:
+ 834 0106 9020     		mov	r0, #144
+ 835              	.LVL89:
+ 836 0108 C005     		lsl	r0, r0, #23
+ 837 010a 67E0     		b	.L124
+ 838              	.LVL90:
+ 839              	.L80:
+ 840 010c 9020     		mov	r0, #144
+ 841              	.LVL91:
+ 842 010e C005     		lsl	r0, r0, #23
+ 843 0110 64E0     		b	.L124
+ 844              	.LVL92:
+ 845              	.L81:
+ 846 0112 9020     		mov	r0, #144
+ 847              	.LVL93:
+ 848 0114 C005     		lsl	r0, r0, #23
+ 849 0116 61E0     		b	.L124
+ 850              	.LVL94:
+ 851              	.L82:
+ 852 0118 9020     		mov	r0, #144
+ 853              	.LVL95:
+ 854 011a C005     		lsl	r0, r0, #23
+ 855 011c 5EE0     		b	.L124
+ 856              	.LVL96:
+ 857              	.L83:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 30
+
+
+ 858 011e 9020     		mov	r0, #144
+ 859              	.LVL97:
+ 860 0120 C005     		lsl	r0, r0, #23
+ 861 0122 5BE0     		b	.L124
+ 862              	.LVL98:
+ 863              	.L84:
+ 864 0124 9020     		mov	r0, #144
+ 865              	.LVL99:
+ 866 0126 C005     		lsl	r0, r0, #23
+ 867 0128 58E0     		b	.L124
+ 868              	.LVL100:
+ 869              	.L85:
+ 870 012a 9020     		mov	r0, #144
+ 871              	.LVL101:
+ 872 012c C005     		lsl	r0, r0, #23
+ 873 012e 55E0     		b	.L124
+ 874              	.LVL102:
+ 875              	.L86:
+ 876 0130 9020     		mov	r0, #144
+ 877              	.LVL103:
+ 878 0132 C005     		lsl	r0, r0, #23
+ 879 0134 52E0     		b	.L124
+ 880              	.LVL104:
+ 881              	.L87:
+ 882 0136 9020     		mov	r0, #144
+ 883              	.LVL105:
+ 884 0138 C005     		lsl	r0, r0, #23
+ 885 013a 4FE0     		b	.L124
+ 886              	.LVL106:
+ 887              	.L88:
+ 888 013c 9020     		mov	r0, #144
+ 889              	.LVL107:
+ 890 013e C005     		lsl	r0, r0, #23
+ 891 0140 4CE0     		b	.L124
+ 892              	.LVL108:
+ 893              	.L89:
+ 228:Src/LQFP64_pinout.cpp ****     }
+ 894              		.loc 1 228 0
+ 895 0142 2A48     		ldr	r0, .L125+12
+ 896              	.LVL109:
+ 897 0144 4AE0     		b	.L124
+ 898              	.LVL110:
+ 899              	.L90:
+ 900 0146 2948     		ldr	r0, .L125+12
+ 901              	.LVL111:
+ 902 0148 48E0     		b	.L124
+ 903              	.LVL112:
+ 904              	.L91:
+ 905 014a 2848     		ldr	r0, .L125+12
+ 906              	.LVL113:
+ 907 014c 46E0     		b	.L124
+ 908              	.LVL114:
+ 909              	.L92:
+ 910 014e 2748     		ldr	r0, .L125+12
+ 911              	.LVL115:
+ 912 0150 44E0     		b	.L124
+ 913              	.LVL116:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 31
+
+
+ 914              	.L93:
+ 915 0152 2648     		ldr	r0, .L125+12
+ 916              	.LVL117:
+ 917 0154 42E0     		b	.L124
+ 918              	.LVL118:
+ 919              	.L94:
+ 920 0156 2548     		ldr	r0, .L125+12
+ 921              	.LVL119:
+ 922 0158 40E0     		b	.L124
+ 923              	.LVL120:
+ 924              	.L95:
+ 925 015a 2448     		ldr	r0, .L125+12
+ 926              	.LVL121:
+ 927 015c 3EE0     		b	.L124
+ 928              	.LVL122:
+ 929              	.L96:
+ 930 015e 2348     		ldr	r0, .L125+12
+ 931              	.LVL123:
+ 932 0160 3CE0     		b	.L124
+ 933              	.LVL124:
+ 934              	.L97:
+ 935 0162 2248     		ldr	r0, .L125+12
+ 936              	.LVL125:
+ 937 0164 3AE0     		b	.L124
+ 938              	.LVL126:
+ 939              	.L98:
+ 940 0166 2148     		ldr	r0, .L125+12
+ 941              	.LVL127:
+ 942 0168 38E0     		b	.L124
+ 943              	.LVL128:
+ 944              	.L99:
+ 945 016a 2048     		ldr	r0, .L125+12
+ 946              	.LVL129:
+ 947 016c 36E0     		b	.L124
+ 948              	.LVL130:
+ 949              	.L100:
+ 950 016e 1F48     		ldr	r0, .L125+12
+ 951              	.LVL131:
+ 952 0170 34E0     		b	.L124
+ 953              	.LVL132:
+ 954              	.L101:
+ 955 0172 1E48     		ldr	r0, .L125+12
+ 956              	.LVL133:
+ 957 0174 32E0     		b	.L124
+ 958              	.LVL134:
+ 959              	.L102:
+ 960 0176 1D48     		ldr	r0, .L125+12
+ 961              	.LVL135:
+ 962 0178 30E0     		b	.L124
+ 963              	.LVL136:
+ 964              	.L103:
+ 237:Src/LQFP64_pinout.cpp ****     }
+ 965              		.loc 1 237 0
+ 966 017a 1D48     		ldr	r0, .L125+16
+ 967              	.LVL137:
+ 968 017c 2EE0     		b	.L124
+ 969              	.LVL138:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 32
+
+
+ 970              	.L104:
+ 971 017e 1C48     		ldr	r0, .L125+16
+ 972              	.LVL139:
+ 973 0180 2CE0     		b	.L124
+ 974              	.LVL140:
+ 975              	.L105:
+ 976 0182 1B48     		ldr	r0, .L125+16
+ 977              	.LVL141:
+ 978 0184 2AE0     		b	.L124
+ 979              	.LVL142:
+ 980              	.L106:
+ 981 0186 1A48     		ldr	r0, .L125+16
+ 982              	.LVL143:
+ 983 0188 28E0     		b	.L124
+ 984              	.LVL144:
+ 985              	.L107:
+ 986 018a 1948     		ldr	r0, .L125+16
+ 987              	.LVL145:
+ 988 018c 26E0     		b	.L124
+ 989              	.LVL146:
+ 990              	.L108:
+ 991 018e 1848     		ldr	r0, .L125+16
+ 992              	.LVL147:
+ 993 0190 24E0     		b	.L124
+ 994              	.LVL148:
+ 995              	.L109:
+ 996 0192 1748     		ldr	r0, .L125+16
+ 997              	.LVL149:
+ 998 0194 22E0     		b	.L124
+ 999              	.LVL150:
+ 1000              	.L110:
+ 1001 0196 1648     		ldr	r0, .L125+16
+ 1002              	.LVL151:
+ 1003 0198 20E0     		b	.L124
+ 1004              	.LVL152:
+ 1005              	.L111:
+ 1006 019a 1548     		ldr	r0, .L125+16
+ 1007              	.LVL153:
+ 1008 019c 1EE0     		b	.L124
+ 1009              	.LVL154:
+ 1010              	.L112:
+ 1011 019e 1448     		ldr	r0, .L125+16
+ 1012              	.LVL155:
+ 1013 01a0 1CE0     		b	.L124
+ 1014              	.LVL156:
+ 1015              	.L113:
+ 1016 01a2 1348     		ldr	r0, .L125+16
+ 1017              	.LVL157:
+ 1018 01a4 1AE0     		b	.L124
+ 1019              	.LVL158:
+ 1020              	.L114:
+ 1021 01a6 1248     		ldr	r0, .L125+16
+ 1022              	.LVL159:
+ 1023 01a8 18E0     		b	.L124
+ 1024              	.LVL160:
+ 1025              	.L115:
+ 1026 01aa 1148     		ldr	r0, .L125+16
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 33
+
+
+ 1027              	.LVL161:
+ 1028 01ac 16E0     		b	.L124
+ 1029              	.LVL162:
+ 1030              	.L116:
+ 241:Src/LQFP64_pinout.cpp ****     }
+ 1031              		.loc 1 241 0
+ 1032 01ae 1148     		ldr	r0, .L125+20
+ 1033              	.LVL163:
+ 1034 01b0 14E0     		b	.L124
+ 1035              	.LVL164:
+ 1036              	.L117:
+ 246:Src/LQFP64_pinout.cpp ****     }
+ 1037              		.loc 1 246 0
+ 1038 01b2 1148     		ldr	r0, .L125+24
+ 1039              	.LVL165:
+ 1040 01b4 12E0     		b	.L124
+ 1041              	.LVL166:
+ 1042              	.L118:
+ 1043 01b6 1048     		ldr	r0, .L125+24
+ 1044              	.LVL167:
+ 1045 01b8 10E0     		b	.L124
+ 1046              	.LVL168:
+ 1047              	.L119:
+ 1048 01ba 0F48     		ldr	r0, .L125+24
+ 1049              	.LVL169:
+ 1050 01bc 0EE0     		b	.L124
+ 1051              	.LVL170:
+ 1052              	.L120:
+ 1053 01be 0E48     		ldr	r0, .L125+24
+ 1054              	.LVL171:
+ 1055 01c0 0CE0     		b	.L124
+ 1056              	.LVL172:
+ 1057              	.L121:
+ 1058 01c2 0D48     		ldr	r0, .L125+24
+ 1059              	.LVL173:
+ 1060 01c4 0AE0     		b	.L124
+ 1061              	.LVL174:
+ 1062              	.L123:
+ 1063              	.LBB104:
+ 1064              	.LBB105:
+ 1065              	.LBB106:
+ 1066              	.LBB107:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1067              		.loc 2 301 0
+ 1068 01c6 0098     		ldr	r0, [sp]
+ 1069 01c8 0C38     		sub	r0, r0, #12
+ 1070              	.LVL175:
+ 1071              	.LBE107:
+ 1072              	.LBE106:
+ 1073              		.loc 2 547 0
+ 1074 01ca 03A9     		add	r1, sp, #12
+ 1075 01cc FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1076              	.LVL176:
+ 1077 01d0 FFE7     		b	.L75
+ 1078              	.LVL177:
+ 1079              	.L122:
+ 1080              	.L75:
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 34
+
+
+ 1081              	.LBE105:
+ 1082              	.LBE104:
+ 1083              		.loc 1 250 0 discriminator 1
+ 1084 01d2 201C     		mov	r0, r4
+ 1085 01d4 FFF7FEFF 		bl	__cxa_free_exception
+ 1086              	.LVL178:
+ 1087 01d8 FFF7FEFF 		bl	__cxa_end_cleanup
+ 1088              	.LEHE2:
+ 1089              	.LVL179:
+ 1090              	.L124:
+ 251:Src/LQFP64_pinout.cpp ****     }
+ 252:Src/LQFP64_pinout.cpp **** }...
+ 1091              		.loc 1 252 0
+ 1092 01dc 04B0     		add	sp, sp, #16
+ 1093              		@ sp needed
+ 1094 01de 10BD     		pop	{r4, pc}
+ 1095              	.L126:
+ 1096              		.align	2
+ 1097              	.L125:
+ 1098 01e0 00000000 		.word	.LC1
+ 1099 01e4 00000000 		.word	_ZTISt16invalid_argument
+ 1100 01e8 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 1101 01ec 00040048 		.word	1207960576
+ 1102 01f0 00080048 		.word	1207961600
+ 1103 01f4 000C0048 		.word	1207962624
+ 1104 01f8 00140048 		.word	1207964672
+ 1105              		.cfi_endproc
+ 1106              	.LFE620:
+ 1107              		.global	__gxx_personality_v0
+ 1108              		.personality	__gxx_personality_v0
+ 1109              		.handlerdata
+ 1110              	.LLSDA620:
+ 1111 0008 FF       		.byte	0xff
+ 1112 0009 FF       		.byte	0xff
+ 1113 000a 01       		.byte	0x1
+ 1114 000b 12       		.uleb128 .LLSDACSE620-.LLSDACSB620
+ 1115              	.LLSDACSB620:
+ 1116 000c D401     		.uleb128 .LEHB0-.LFB620
+ 1117 000e 04       		.uleb128 .LEHE0-.LEHB0
+ 1118 000f D203     		.uleb128 .L122-.LFB620
+ 1119 0011 00       		.uleb128 0
+ 1120 0012 DC01     		.uleb128 .LEHB1-.LFB620
+ 1121 0014 04       		.uleb128 .LEHE1-.LEHB1
+ 1122 0015 C603     		.uleb128 .L123-.LFB620
+ 1123 0017 00       		.uleb128 0
+ 1124 0018 F001     		.uleb128 .LEHB2-.LFB620
+ 1125 001a EC01     		.uleb128 .LEHE2-.LEHB2
+ 1126 001c 00       		.uleb128 0
+ 1127 001d 00       		.uleb128 0
+ 1128              	.LLSDACSE620:
+ 1129              		.section	.text._Z7GetPorth
+ 1130              		.fnend
+ 1132              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1133              		.align	2
+ 1134              	.LC1:
+ 1135 0000 70696E4E 		.ascii	"pinName is not a valid pin.\000"
+ 1135      616D6520 
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 35
+
+
+ 1135      6973206E 
+ 1135      6F742061 
+ 1135      2076616C 
+ 1136              		.text
+ 1137              	.Letext0:
+ 1138              		.file 3 "/usr/include/newlib/machine/_default_types.h"
+ 1139              		.file 4 "/usr/include/newlib/sys/_stdint.h"
+ 1140              		.file 5 "/usr/include/newlib/c++/4.9.3/cwchar"
+ 1141              		.file 6 "/usr/include/newlib/c++/4.9.3/bits/char_traits.h"
+ 1142              		.file 7 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/c++config.h"
+ 1143              		.file 8 "/usr/include/newlib/c++/4.9.3/bits/allocator.h"
+ 1144              		.file 9 "/usr/include/newlib/c++/4.9.3/clocale"
+ 1145              		.file 10 "/usr/include/newlib/c++/4.9.3/bits/basic_string.tcc"
+ 1146              		.file 11 "/usr/include/newlib/c++/4.9.3/debug/debug.h"
+ 1147              		.file 12 "/usr/include/newlib/c++/4.9.3/bits/predefined_ops.h"
+ 1148              		.file 13 "/usr/include/newlib/c++/4.9.3/ext/new_allocator.h"
+ 1149              		.file 14 "/usr/include/newlib/c++/4.9.3/ext/numeric_traits.h"
+ 1150              		.file 15 "/usr/include/newlib/c++/4.9.3/exception"
+ 1151              		.file 16 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stddef.h"
+ 1152              		.file 17 "/usr/include/newlib/sys/lock.h"
+ 1153              		.file 18 "/usr/include/newlib/sys/_types.h"
+ 1154              		.file 19 "/usr/include/newlib/sys/reent.h"
+ 1155              		.file 20 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stdarg.h"
+ 1156              		.file 21 "<built-in>"
+ 1157              		.file 22 "/usr/include/newlib/wchar.h"
+ 1158              		.file 23 "/usr/include/newlib/locale.h"
+ 1159              		.file 24 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/atomic_word.h"
+ 1160              		.file 25 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
+ 1161              		.file 26 "/usr/include/newlib/c++/4.9.3/ext/atomicity.h"
+ARM GAS  /tmp/cc4Hf4Aj.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 LQFP64_pinout.cpp
+     /tmp/cc4Hf4Aj.s:18     .text._Z10GetPinMaskh:0000000000000000 $t
+     /tmp/cc4Hf4Aj.s:23     .text._Z10GetPinMaskh:0000000000000000 _Z10GetPinMaskh
+     /tmp/cc4Hf4Aj.s:40     .rodata._Z10GetPinMaskh:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:451    .text._Z10GetPinMaskh:000000000000010c $d
+  .ARM.exidx.text._Z10GetPinMaskh:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:458    .text._Z12isPowerOfTwoj:0000000000000000 $t
+     /tmp/cc4Hf4Aj.s:463    .text._Z12isPowerOfTwoj:0000000000000000 _Z12isPowerOfTwoj
+.ARM.exidx.text._Z12isPowerOfTwoj:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:499    .text._Z14GetBitPositionj:0000000000000000 $t
+     /tmp/cc4Hf4Aj.s:504    .text._Z14GetBitPositionj:0000000000000000 _Z14GetBitPositionj
+.ARM.exidx.text._Z14GetBitPositionj:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:556    .text._Z12GetPinNumberh:0000000000000000 $t
+     /tmp/cc4Hf4Aj.s:561    .text._Z12GetPinNumberh:0000000000000000 _Z12GetPinNumberh
+.ARM.exidx.text._Z12GetPinNumberh:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:600    .text._Z7GetPorth:0000000000000000 $t
+     /tmp/cc4Hf4Aj.s:605    .text._Z7GetPorth:0000000000000000 _Z7GetPorth
+     /tmp/cc4Hf4Aj.s:1098   .text._Z7GetPorth:00000000000001e0 $d
+      .ARM.extab.text._Z7GetPorth:0000000000000000 $d
+      .ARM.exidx.text._Z7GetPorth:0000000000000000 $d
+     /tmp/cc4Hf4Aj.s:1133   .rodata.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+__gxx_personality_v0
+__cxa_allocate_exception
+_ZNSsC1EPKcRKSaIcE
+_ZNSt16invalid_argumentC1ERKSs
+_ZNSs4_Rep10_M_disposeERKSaIcE
+__cxa_throw
+__cxa_free_exception
+__cxa_end_cleanup
+_ZTISt16invalid_argument
+_ZNSt16invalid_argumentD1Ev

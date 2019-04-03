@@ -1,0 +1,1920 @@
+ARM GAS  /tmp/ccmaqN2n.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"LCD.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN13LiquidCrystalC2Ehhhhhhhhhhh,"ax",%progbits
+  18              		.align	2
+  19              		.global	_ZN13LiquidCrystalC2Ehhhhhhhhhhh
+  20              		.code	16
+  21              		.thumb_func
+  23              	_ZN13LiquidCrystalC2Ehhhhhhhhhhh:
+  24              		.fnstart
+  25              	.LFB617:
+  26              		.file 1 "Src/LCD.cpp"
+   1:Src/LCD.cpp   **** #include "LCD.h"
+   2:Src/LCD.cpp   **** 
+   3:Src/LCD.cpp   **** LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
+  27              		.loc 1 3 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 20
+  33              		.cfi_offset 4, -20
+  34              		.cfi_offset 5, -16
+  35              		.cfi_offset 6, -12
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 5F46     		mov	r7, fp
+  39 0004 5646     		mov	r6, r10
+  40 0006 4D46     		mov	r5, r9
+  41 0008 4446     		mov	r4, r8
+  42 000a F0B4     		push	{r4, r5, r6, r7}
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 36
+  45              		.cfi_offset 8, -36
+  46              		.cfi_offset 9, -32
+  47              		.cfi_offset 10, -28
+  48              		.cfi_offset 11, -24
+  49 000c 8946     		mov	r9, r1
+  50 000e 9246     		mov	r10, r2
+  51 0010 9846     		mov	r8, r3
+  52 0012 09AB     		add	r3, sp, #36
+  53              	.LVL1:
+  54 0014 1B78     		ldrb	r3, [r3]
+  55              	.LVL2:
+ARM GAS  /tmp/ccmaqN2n.s 			page 2
+
+
+  56 0016 9C46     		mov	ip, r3
+  57 0018 0AAB     		add	r3, sp, #40
+  58              	.LVL3:
+  59 001a 1978     		ldrb	r1, [r3]
+  60              	.LVL4:
+  61 001c 0BAB     		add	r3, sp, #44
+  62              	.LVL5:
+  63 001e 1A78     		ldrb	r2, [r3]
+  64              	.LVL6:
+  65 0020 0CAB     		add	r3, sp, #48
+  66              	.LVL7:
+  67 0022 1B78     		ldrb	r3, [r3]
+  68              	.LVL8:
+  69 0024 9B46     		mov	fp, r3
+  70 0026 0DAC     		add	r4, sp, #52
+  71              	.LVL9:
+  72 0028 2778     		ldrb	r7, [r4]
+  73 002a 0EAC     		add	r4, sp, #56
+  74              	.LVL10:
+  75 002c 2678     		ldrb	r6, [r4]
+  76 002e 0FAC     		add	r4, sp, #60
+  77              	.LVL11:
+  78 0030 2578     		ldrb	r5, [r4]
+  79 0032 10AC     		add	r4, sp, #64
+  80              	.LVL12:
+  81 0034 2478     		ldrb	r4, [r4]
+  82              	.LVL13:
+  83              	.LBB2:
+   4:Src/LCD.cpp   ****                              uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
+   5:Src/LCD.cpp   ****                              uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
+   6:Src/LCD.cpp   ****     : rsPin(rs), rwPin(rw), enablePin(enable), displayMode(8)
+  84              		.loc 1 6 0
+  85 0036 4B46     		mov	r3, r9
+  86 0038 0370     		strb	r3, [r0]
+  87 003a 5346     		mov	r3, r10
+  88 003c 4370     		strb	r3, [r0, #1]
+  89 003e 4346     		mov	r3, r8
+  90 0040 8370     		strb	r3, [r0, #2]
+  91 0042 0823     		mov	r3, #8
+  92 0044 C372     		strb	r3, [r0, #11]
+   7:Src/LCD.cpp   **** {
+   8:Src/LCD.cpp   ****     dataPins[0] = d0;
+  93              		.loc 1 8 0
+  94 0046 6346     		mov	r3, ip
+  95 0048 C370     		strb	r3, [r0, #3]
+   9:Src/LCD.cpp   ****     dataPins[1] = d1;
+  96              		.loc 1 9 0
+  97 004a 0171     		strb	r1, [r0, #4]
+  10:Src/LCD.cpp   ****     dataPins[2] = d2;
+  98              		.loc 1 10 0
+  99 004c 4271     		strb	r2, [r0, #5]
+  11:Src/LCD.cpp   ****     dataPins[3] = d3;
+ 100              		.loc 1 11 0
+ 101 004e 5B46     		mov	r3, fp
+ 102 0050 8371     		strb	r3, [r0, #6]
+  12:Src/LCD.cpp   ****     dataPins[4] = d4;
+ 103              		.loc 1 12 0
+ARM GAS  /tmp/ccmaqN2n.s 			page 3
+
+
+ 104 0052 C771     		strb	r7, [r0, #7]
+  13:Src/LCD.cpp   ****     dataPins[5] = d5;
+ 105              		.loc 1 13 0
+ 106 0054 0672     		strb	r6, [r0, #8]
+  14:Src/LCD.cpp   ****     dataPins[6] = d6;
+ 107              		.loc 1 14 0
+ 108 0056 4572     		strb	r5, [r0, #9]
+  15:Src/LCD.cpp   ****     dataPins[7] = d7;
+ 109              		.loc 1 15 0
+ 110 0058 8472     		strb	r4, [r0, #10]
+ 111              	.LBE2:
+  16:Src/LCD.cpp   **** }
+ 112              		.loc 1 16 0
+ 113              		@ sp needed
+ 114 005a 3CBC     		pop	{r2, r3, r4, r5}
+ 115 005c 9046     		mov	r8, r2
+ 116 005e 9946     		mov	r9, r3
+ 117 0060 A246     		mov	r10, r4
+ 118 0062 AB46     		mov	fp, r5
+ 119 0064 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 120              		.cfi_endproc
+ 121              	.LFE617:
+ 122              		.cantunwind
+ 123              		.fnend
+ 125              		.global	_ZN13LiquidCrystalC1Ehhhhhhhhhhh
+ 126              		.thumb_set _ZN13LiquidCrystalC1Ehhhhhhhhhhh,_ZN13LiquidCrystalC2Ehhhhhhhhhhh
+ 127 0066 C046     		.section	.text._ZN13LiquidCrystal13nonExactDelayEi,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	_ZN13LiquidCrystal13nonExactDelayEi
+ 130              		.code	16
+ 131              		.thumb_func
+ 133              	_ZN13LiquidCrystal13nonExactDelayEi:
+ 134              		.fnstart
+ 135              	.LFB620:
+  17:Src/LCD.cpp   **** 
+  18:Src/LCD.cpp   **** void LiquidCrystal::begin(uint8_t cols, uint8_t lines)
+  19:Src/LCD.cpp   **** {
+  20:Src/LCD.cpp   ****     InitLCDPins();
+  21:Src/LCD.cpp   ****     SetupDisplay();
+  22:Src/LCD.cpp   **** }
+  23:Src/LCD.cpp   **** 
+  24:Src/LCD.cpp   **** void LiquidCrystal::nonExactDelay(int delay)
+  25:Src/LCD.cpp   **** {
+ 136              		.loc 1 25 0
+ 137              		.cfi_startproc
+ 138              	.LVL14:
+ 139 0000 82B0     		sub	sp, sp, #8
+ 140              	.LCFI2:
+ 141              		.cfi_def_cfa_offset 8
+ 142              	.LBB3:
+  26:Src/LCD.cpp   ****     volatile int i;
+  27:Src/LCD.cpp   ****     for (i = 0; i < delay; i++)
+ 143              		.loc 1 27 0
+ 144 0002 0023     		mov	r3, #0
+ 145 0004 0193     		str	r3, [sp, #4]
+ 146 0006 02E0     		b	.L3
+ 147              	.L4:
+ARM GAS  /tmp/ccmaqN2n.s 			page 4
+
+
+ 148              		.loc 1 27 0 is_stmt 0 discriminator 3
+ 149 0008 019B     		ldr	r3, [sp, #4]
+ 150 000a 0133     		add	r3, r3, #1
+ 151 000c 0193     		str	r3, [sp, #4]
+ 152              	.L3:
+ 153              		.loc 1 27 0 discriminator 1
+ 154 000e 019B     		ldr	r3, [sp, #4]
+ 155 0010 8B42     		cmp	r3, r1
+ 156 0012 F9DB     		blt	.L4
+ 157              	.LBE3:
+  28:Src/LCD.cpp   ****     {
+  29:Src/LCD.cpp   ****     }
+  30:Src/LCD.cpp   **** }
+ 158              		.loc 1 30 0 is_stmt 1
+ 159 0014 02B0     		add	sp, sp, #8
+ 160              		@ sp needed
+ 161 0016 7047     		bx	lr
+ 162              		.cfi_endproc
+ 163              	.LFE620:
+ 164              		.cantunwind
+ 165              		.fnend
+ 167              		.section	.text._ZN13LiquidCrystal11InitLCDPinsEv,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	_ZN13LiquidCrystal11InitLCDPinsEv
+ 170              		.code	16
+ 171              		.thumb_func
+ 173              	_ZN13LiquidCrystal11InitLCDPinsEv:
+ 174              		.fnstart
+ 175              	.LFB621:
+  31:Src/LCD.cpp   **** 
+  32:Src/LCD.cpp   **** void LiquidCrystal::InitLCDPins()
+  33:Src/LCD.cpp   **** {
+ 176              		.loc 1 33 0
+ 177              		.cfi_startproc
+ 178              	.LVL15:
+ 179 0000 38B5     		push	{r3, r4, r5, lr}
+ 180              		.save {r3, r4, r5, lr}
+ 181              	.LCFI3:
+ 182              		.cfi_def_cfa_offset 16
+ 183              		.cfi_offset 3, -16
+ 184              		.cfi_offset 4, -12
+ 185              		.cfi_offset 5, -8
+ 186              		.cfi_offset 14, -4
+ 187 0002 051C     		mov	r5, r0
+ 188              	.LVL16:
+ 189              	.LBB4:
+ 190              	.LBB5:
+  34:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; ++i)
+ 191              		.loc 1 34 0
+ 192 0004 0024     		mov	r4, #0
+ 193 0006 05E0     		b	.L6
+ 194              	.LVL17:
+ 195              	.L7:
+  35:Src/LCD.cpp   ****     {
+  36:Src/LCD.cpp   ****         pinMode(dataPins[i], OUTPUT);
+ 196              		.loc 1 36 0 discriminator 3
+ 197 0008 2B19     		add	r3, r5, r4
+ARM GAS  /tmp/ccmaqN2n.s 			page 5
+
+
+ 198 000a D878     		ldrb	r0, [r3, #3]
+ 199 000c 0121     		mov	r1, #1
+ 200 000e FFF7FEFF 		bl	_Z7pinModeh9GPIO_MODE
+ 201              	.LVL18:
+  34:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; ++i)
+ 202              		.loc 1 34 0 discriminator 3
+ 203 0012 0134     		add	r4, r4, #1
+ 204              	.LVL19:
+ 205              	.L6:
+  34:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; ++i)
+ 206              		.loc 1 34 0 is_stmt 0 discriminator 1
+ 207 0014 EB7A     		ldrb	r3, [r5, #11]
+ 208 0016 A342     		cmp	r3, r4
+ 209 0018 F6DC     		bgt	.L7
+ 210              	.LBE5:
+  37:Src/LCD.cpp   ****     }
+  38:Src/LCD.cpp   **** 
+  39:Src/LCD.cpp   ****     pinMode(rwPin, OUTPUT);
+ 211              		.loc 1 39 0 is_stmt 1
+ 212 001a 6878     		ldrb	r0, [r5, #1]
+ 213 001c 0121     		mov	r1, #1
+ 214 001e FFF7FEFF 		bl	_Z7pinModeh9GPIO_MODE
+ 215              	.LVL20:
+  40:Src/LCD.cpp   ****     pinMode(enablePin, OUTPUT);
+ 216              		.loc 1 40 0
+ 217 0022 A878     		ldrb	r0, [r5, #2]
+ 218 0024 0121     		mov	r1, #1
+ 219 0026 FFF7FEFF 		bl	_Z7pinModeh9GPIO_MODE
+ 220              	.LVL21:
+  41:Src/LCD.cpp   ****     pinMode(rsPin, OUTPUT);
+ 221              		.loc 1 41 0
+ 222 002a 2878     		ldrb	r0, [r5]
+ 223 002c 0121     		mov	r1, #1
+ 224 002e FFF7FEFF 		bl	_Z7pinModeh9GPIO_MODE
+ 225              	.LVL22:
+ 226              	.LBE4:
+  42:Src/LCD.cpp   **** }
+ 227              		.loc 1 42 0
+ 228              		@ sp needed
+ 229              	.LVL23:
+ 230              	.LVL24:
+ 231 0032 38BD     		pop	{r3, r4, r5, pc}
+ 232              		.cfi_endproc
+ 233              	.LFE621:
+ 234              		.fnend
+ 236              		.section	.text._ZN13LiquidCrystal6EnableEv,"ax",%progbits
+ 237              		.align	2
+ 238              		.global	_ZN13LiquidCrystal6EnableEv
+ 239              		.code	16
+ 240              		.thumb_func
+ 242              	_ZN13LiquidCrystal6EnableEv:
+ 243              		.fnstart
+ 244              	.LFB623:
+  43:Src/LCD.cpp   **** 
+  44:Src/LCD.cpp   **** void LiquidCrystal::SetupDisplay()
+  45:Src/LCD.cpp   **** {
+  46:Src/LCD.cpp   ****     SendCommand(LCD_CLEARDISPLAY);
+ARM GAS  /tmp/ccmaqN2n.s 			page 6
+
+
+  47:Src/LCD.cpp   ****     SendCommand(LCD_FUNCTIONSET | LCD_8BITMODE | LCD_2LINE | LCD_5x8DOTS); // 0b00111000 set to 8-b
+  48:Src/LCD.cpp   ****     SendCommand(LCD_DISPLAYCONTROL | LCD_DISPLAYON | LCD_CURSORON);        // 0b00001110 turning on
+  49:Src/LCD.cpp   ****     SendCommand(LCD_ENTRYMODESET | LCD_ENTRYLEFT);                         //0b00000110 set the mod
+  50:Src/LCD.cpp   **** }
+  51:Src/LCD.cpp   **** 
+  52:Src/LCD.cpp   **** void LiquidCrystal::Enable()
+  53:Src/LCD.cpp   **** {
+ 245              		.loc 1 53 0
+ 246              		.cfi_startproc
+ 247              	.LVL25:
+ 248 0000 10B5     		push	{r4, lr}
+ 249              		.save {r4, lr}
+ 250              	.LCFI4:
+ 251              		.cfi_def_cfa_offset 8
+ 252              		.cfi_offset 4, -8
+ 253              		.cfi_offset 14, -4
+ 254 0002 041C     		mov	r4, r0
+  54:Src/LCD.cpp   ****     nonExactDelay(TIME_DELAY_BEFORE_ENABLE);
+ 255              		.loc 1 54 0
+ 256 0004 C821     		mov	r1, #200
+ 257 0006 4900     		lsl	r1, r1, #1
+ 258 0008 FFF7FEFF 		bl	_ZN13LiquidCrystal13nonExactDelayEi
+ 259              	.LVL26:
+  55:Src/LCD.cpp   ****     digitalWrite(enablePin, HIGH);
+ 260              		.loc 1 55 0
+ 261 000c A078     		ldrb	r0, [r4, #2]
+ 262 000e 0121     		mov	r1, #1
+ 263 0010 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 264              	.LVL27:
+  56:Src/LCD.cpp   **** }
+ 265              		.loc 1 56 0
+ 266              		@ sp needed
+ 267              	.LVL28:
+ 268 0014 10BD     		pop	{r4, pc}
+ 269              		.cfi_endproc
+ 270              	.LFE623:
+ 271              		.fnend
+ 273 0016 C046     		.section	.text._ZN13LiquidCrystal10SetToWriteEv,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	_ZN13LiquidCrystal10SetToWriteEv
+ 276              		.code	16
+ 277              		.thumb_func
+ 279              	_ZN13LiquidCrystal10SetToWriteEv:
+ 280              		.fnstart
+ 281              	.LFB624:
+  57:Src/LCD.cpp   **** 
+  58:Src/LCD.cpp   **** void LiquidCrystal::SetToWrite()
+  59:Src/LCD.cpp   **** {
+ 282              		.loc 1 59 0
+ 283              		.cfi_startproc
+ 284              	.LVL29:
+ 285 0000 08B5     		push	{r3, lr}
+ 286              		.save {r3, lr}
+ 287              	.LCFI5:
+ 288              		.cfi_def_cfa_offset 8
+ 289              		.cfi_offset 3, -8
+ 290              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccmaqN2n.s 			page 7
+
+
+  60:Src/LCD.cpp   ****     digitalWrite(rwPin, LOW);
+ 291              		.loc 1 60 0
+ 292 0002 4078     		ldrb	r0, [r0, #1]
+ 293              	.LVL30:
+ 294 0004 0021     		mov	r1, #0
+ 295 0006 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 296              	.LVL31:
+  61:Src/LCD.cpp   **** }
+ 297              		.loc 1 61 0
+ 298              		@ sp needed
+ 299 000a 08BD     		pop	{r3, pc}
+ 300              		.cfi_endproc
+ 301              	.LFE624:
+ 302              		.fnend
+ 304              		.section	.text._ZN13LiquidCrystal9SetToReadEv,"ax",%progbits
+ 305              		.align	2
+ 306              		.global	_ZN13LiquidCrystal9SetToReadEv
+ 307              		.code	16
+ 308              		.thumb_func
+ 310              	_ZN13LiquidCrystal9SetToReadEv:
+ 311              		.fnstart
+ 312              	.LFB625:
+  62:Src/LCD.cpp   **** 
+  63:Src/LCD.cpp   **** void LiquidCrystal::SetToRead()
+  64:Src/LCD.cpp   **** {
+ 313              		.loc 1 64 0
+ 314              		.cfi_startproc
+ 315              	.LVL32:
+ 316 0000 08B5     		push	{r3, lr}
+ 317              		.save {r3, lr}
+ 318              	.LCFI6:
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 3, -8
+ 321              		.cfi_offset 14, -4
+  65:Src/LCD.cpp   ****     digitalWrite(rwPin, HIGH);
+ 322              		.loc 1 65 0
+ 323 0002 4078     		ldrb	r0, [r0, #1]
+ 324              	.LVL33:
+ 325 0004 0121     		mov	r1, #1
+ 326 0006 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 327              	.LVL34:
+  66:Src/LCD.cpp   **** }
+ 328              		.loc 1 66 0
+ 329              		@ sp needed
+ 330 000a 08BD     		pop	{r3, pc}
+ 331              		.cfi_endproc
+ 332              	.LFE625:
+ 333              		.fnend
+ 335              		.section	.text._ZN13LiquidCrystal11CommandModeEv,"ax",%progbits
+ 336              		.align	2
+ 337              		.global	_ZN13LiquidCrystal11CommandModeEv
+ 338              		.code	16
+ 339              		.thumb_func
+ 341              	_ZN13LiquidCrystal11CommandModeEv:
+ 342              		.fnstart
+ 343              	.LFB626:
+  67:Src/LCD.cpp   **** 
+ARM GAS  /tmp/ccmaqN2n.s 			page 8
+
+
+  68:Src/LCD.cpp   **** void LiquidCrystal::CommandMode()
+  69:Src/LCD.cpp   **** {
+ 344              		.loc 1 69 0
+ 345              		.cfi_startproc
+ 346              	.LVL35:
+ 347 0000 08B5     		push	{r3, lr}
+ 348              		.save {r3, lr}
+ 349              	.LCFI7:
+ 350              		.cfi_def_cfa_offset 8
+ 351              		.cfi_offset 3, -8
+ 352              		.cfi_offset 14, -4
+  70:Src/LCD.cpp   ****     digitalWrite(rsPin, LOW);
+ 353              		.loc 1 70 0
+ 354 0002 0078     		ldrb	r0, [r0]
+ 355              	.LVL36:
+ 356 0004 0021     		mov	r1, #0
+ 357 0006 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 358              	.LVL37:
+  71:Src/LCD.cpp   **** }
+ 359              		.loc 1 71 0
+ 360              		@ sp needed
+ 361 000a 08BD     		pop	{r3, pc}
+ 362              		.cfi_endproc
+ 363              	.LFE626:
+ 364              		.fnend
+ 366              		.section	.text._ZN13LiquidCrystal13CharacterModeEv,"ax",%progbits
+ 367              		.align	2
+ 368              		.global	_ZN13LiquidCrystal13CharacterModeEv
+ 369              		.code	16
+ 370              		.thumb_func
+ 372              	_ZN13LiquidCrystal13CharacterModeEv:
+ 373              		.fnstart
+ 374              	.LFB627:
+  72:Src/LCD.cpp   **** 
+  73:Src/LCD.cpp   **** void LiquidCrystal::CharacterMode()
+  74:Src/LCD.cpp   **** {
+ 375              		.loc 1 74 0
+ 376              		.cfi_startproc
+ 377              	.LVL38:
+ 378 0000 08B5     		push	{r3, lr}
+ 379              		.save {r3, lr}
+ 380              	.LCFI8:
+ 381              		.cfi_def_cfa_offset 8
+ 382              		.cfi_offset 3, -8
+ 383              		.cfi_offset 14, -4
+  75:Src/LCD.cpp   ****     digitalWrite(rsPin, HIGH);
+ 384              		.loc 1 75 0
+ 385 0002 0078     		ldrb	r0, [r0]
+ 386              	.LVL39:
+ 387 0004 0121     		mov	r1, #1
+ 388 0006 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 389              	.LVL40:
+  76:Src/LCD.cpp   **** }
+ 390              		.loc 1 76 0
+ 391              		@ sp needed
+ 392 000a 08BD     		pop	{r3, pc}
+ 393              		.cfi_endproc
+ARM GAS  /tmp/ccmaqN2n.s 			page 9
+
+
+ 394              	.LFE627:
+ 395              		.fnend
+ 397              		.section	.text._ZN13LiquidCrystal8SendByteEc,"ax",%progbits
+ 398              		.align	2
+ 399              		.global	_ZN13LiquidCrystal8SendByteEc
+ 400              		.code	16
+ 401              		.thumb_func
+ 403              	_ZN13LiquidCrystal8SendByteEc:
+ 404              		.fnstart
+ 405              	.LFB628:
+  77:Src/LCD.cpp   **** 
+  78:Src/LCD.cpp   **** void LiquidCrystal::SendByte(char byte)
+  79:Src/LCD.cpp   **** {
+ 406              		.loc 1 79 0
+ 407              		.cfi_startproc
+ 408              	.LVL41:
+ 409 0000 70B5     		push	{r4, r5, r6, lr}
+ 410              		.save {r4, r5, r6, lr}
+ 411              	.LCFI9:
+ 412              		.cfi_def_cfa_offset 16
+ 413              		.cfi_offset 4, -16
+ 414              		.cfi_offset 5, -12
+ 415              		.cfi_offset 6, -8
+ 416              		.cfi_offset 14, -4
+ 417 0002 051C     		mov	r5, r0
+ 418 0004 0E1C     		mov	r6, r1
+ 419              	.LVL42:
+ 420              	.LBB6:
+ 421              	.LBB7:
+  80:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; i++)
+ 422              		.loc 1 80 0
+ 423 0006 0024     		mov	r4, #0
+ 424 0008 08E0     		b	.L14
+ 425              	.LVL43:
+ 426              	.L15:
+  81:Src/LCD.cpp   ****     {
+  82:Src/LCD.cpp   ****         digitalWrite(dataPins[i], (byte >> i) & 0x01);
+ 427              		.loc 1 82 0 discriminator 3
+ 428 000a 2B19     		add	r3, r5, r4
+ 429 000c D878     		ldrb	r0, [r3, #3]
+ 430 000e 331C     		mov	r3, r6
+ 431 0010 2341     		asr	r3, r3, r4
+ 432 0012 0121     		mov	r1, #1
+ 433 0014 1940     		and	r1, r3
+ 434 0016 FFF7FEFF 		bl	_Z12digitalWritehm
+ 435              	.LVL44:
+  80:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; i++)
+ 436              		.loc 1 80 0 discriminator 3
+ 437 001a 0134     		add	r4, r4, #1
+ 438              	.LVL45:
+ 439              	.L14:
+  80:Src/LCD.cpp   ****     for (int i = 0; i < displayMode; i++)
+ 440              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 441 001c EB7A     		ldrb	r3, [r5, #11]
+ 442 001e A342     		cmp	r3, r4
+ 443 0020 F3DC     		bgt	.L15
+ 444              	.LBE7:
+ARM GAS  /tmp/ccmaqN2n.s 			page 10
+
+
+  83:Src/LCD.cpp   ****     }
+  84:Src/LCD.cpp   ****     /* digitalWrite(LCDD0, (byte & 0b00000001));
+  85:Src/LCD.cpp   ****     digitalWrite(LCDD1, (byte & 0b00000010));
+  86:Src/LCD.cpp   ****     digitalWrite(LCDD2, (byte & 0b00000100));
+  87:Src/LCD.cpp   ****     digitalWrite(LCDD3, (byte & 0b00001000));
+  88:Src/LCD.cpp   ****     digitalWrite(LCDD4, (byte & 0b00010000));
+  89:Src/LCD.cpp   ****     digitalWrite(LCDD5, (byte & 0b00100000));
+  90:Src/LCD.cpp   ****     digitalWrite(LCDD6, (byte & 0b01000000));
+  91:Src/LCD.cpp   ****     digitalWrite(LCDD7, (byte & 0b10000000));*/
+  92:Src/LCD.cpp   ****     nonExactDelay(TIME_DELAY_BEFORE_DISABLE);
+ 445              		.loc 1 92 0 is_stmt 1
+ 446 0022 281C     		mov	r0, r5
+ 447 0024 C821     		mov	r1, #200
+ 448 0026 8900     		lsl	r1, r1, #2
+ 449 0028 FFF7FEFF 		bl	_ZN13LiquidCrystal13nonExactDelayEi
+ 450              	.LVL46:
+  93:Src/LCD.cpp   ****     digitalWrite(enablePin, LOW);
+ 451              		.loc 1 93 0
+ 452 002c A878     		ldrb	r0, [r5, #2]
+ 453 002e 0021     		mov	r1, #0
+ 454 0030 FFF7FEFF 		bl	_Z12digitalWriteh8PinState
+ 455              	.LVL47:
+ 456              	.LBE6:
+  94:Src/LCD.cpp   **** }
+ 457              		.loc 1 94 0
+ 458              		@ sp needed
+ 459              	.LVL48:
+ 460              	.LVL49:
+ 461 0034 70BD     		pop	{r4, r5, r6, pc}
+ 462              		.cfi_endproc
+ 463              	.LFE628:
+ 464              		.fnend
+ 466 0036 C046     		.section	.text._ZN13LiquidCrystal13SendCharacterEc,"ax",%progbits
+ 467              		.align	2
+ 468              		.global	_ZN13LiquidCrystal13SendCharacterEc
+ 469              		.code	16
+ 470              		.thumb_func
+ 472              	_ZN13LiquidCrystal13SendCharacterEc:
+ 473              		.fnstart
+ 474              	.LFB629:
+  95:Src/LCD.cpp   **** 
+  96:Src/LCD.cpp   **** size_t LiquidCrystal::SendCharacter(char character)
+  97:Src/LCD.cpp   **** {
+ 475              		.loc 1 97 0
+ 476              		.cfi_startproc
+ 477              	.LVL50:
+ 478 0000 38B5     		push	{r3, r4, r5, lr}
+ 479              		.save {r3, r4, r5, lr}
+ 480              	.LCFI10:
+ 481              		.cfi_def_cfa_offset 16
+ 482              		.cfi_offset 3, -16
+ 483              		.cfi_offset 4, -12
+ 484              		.cfi_offset 5, -8
+ 485              		.cfi_offset 14, -4
+ 486 0002 041C     		mov	r4, r0
+ 487 0004 0D1C     		mov	r5, r1
+  98:Src/LCD.cpp   ****     SetToWrite();
+ARM GAS  /tmp/ccmaqN2n.s 			page 11
+
+
+ 488              		.loc 1 98 0
+ 489 0006 FFF7FEFF 		bl	_ZN13LiquidCrystal10SetToWriteEv
+ 490              	.LVL51:
+  99:Src/LCD.cpp   ****     CharacterMode();
+ 491              		.loc 1 99 0
+ 492 000a 201C     		mov	r0, r4
+ 493 000c FFF7FEFF 		bl	_ZN13LiquidCrystal13CharacterModeEv
+ 494              	.LVL52:
+ 100:Src/LCD.cpp   ****     Enable();
+ 495              		.loc 1 100 0
+ 496 0010 201C     		mov	r0, r4
+ 497 0012 FFF7FEFF 		bl	_ZN13LiquidCrystal6EnableEv
+ 498              	.LVL53:
+ 101:Src/LCD.cpp   ****     SendByte(character);
+ 499              		.loc 1 101 0
+ 500 0016 201C     		mov	r0, r4
+ 501 0018 291C     		mov	r1, r5
+ 502 001a FFF7FEFF 		bl	_ZN13LiquidCrystal8SendByteEc
+ 503              	.LVL54:
+ 102:Src/LCD.cpp   ****     return 1; //one char written
+ 103:Src/LCD.cpp   **** }
+ 504              		.loc 1 103 0
+ 505 001e 0120     		mov	r0, #1
+ 506              		@ sp needed
+ 507              	.LVL55:
+ 508 0020 38BD     		pop	{r3, r4, r5, pc}
+ 509              		.cfi_endproc
+ 510              	.LFE629:
+ 511              		.fnend
+ 513 0022 C046     		.section	.text._ZN13LiquidCrystal11SendCommandEc,"ax",%progbits
+ 514              		.align	2
+ 515              		.global	_ZN13LiquidCrystal11SendCommandEc
+ 516              		.code	16
+ 517              		.thumb_func
+ 519              	_ZN13LiquidCrystal11SendCommandEc:
+ 520              		.fnstart
+ 521              	.LFB630:
+ 104:Src/LCD.cpp   **** 
+ 105:Src/LCD.cpp   **** void LiquidCrystal::SendCommand(char command)
+ 106:Src/LCD.cpp   **** {
+ 522              		.loc 1 106 0
+ 523              		.cfi_startproc
+ 524              	.LVL56:
+ 525 0000 38B5     		push	{r3, r4, r5, lr}
+ 526              		.save {r3, r4, r5, lr}
+ 527              	.LCFI11:
+ 528              		.cfi_def_cfa_offset 16
+ 529              		.cfi_offset 3, -16
+ 530              		.cfi_offset 4, -12
+ 531              		.cfi_offset 5, -8
+ 532              		.cfi_offset 14, -4
+ 533 0002 041C     		mov	r4, r0
+ 534 0004 0D1C     		mov	r5, r1
+ 107:Src/LCD.cpp   ****     SetToWrite();
+ 535              		.loc 1 107 0
+ 536 0006 FFF7FEFF 		bl	_ZN13LiquidCrystal10SetToWriteEv
+ 537              	.LVL57:
+ARM GAS  /tmp/ccmaqN2n.s 			page 12
+
+
+ 108:Src/LCD.cpp   ****     CommandMode();
+ 538              		.loc 1 108 0
+ 539 000a 201C     		mov	r0, r4
+ 540 000c FFF7FEFF 		bl	_ZN13LiquidCrystal11CommandModeEv
+ 541              	.LVL58:
+ 109:Src/LCD.cpp   ****     Enable();
+ 542              		.loc 1 109 0
+ 543 0010 201C     		mov	r0, r4
+ 544 0012 FFF7FEFF 		bl	_ZN13LiquidCrystal6EnableEv
+ 545              	.LVL59:
+ 110:Src/LCD.cpp   ****     SendByte(command);
+ 546              		.loc 1 110 0
+ 547 0016 201C     		mov	r0, r4
+ 548 0018 291C     		mov	r1, r5
+ 549 001a FFF7FEFF 		bl	_ZN13LiquidCrystal8SendByteEc
+ 550              	.LVL60:
+ 111:Src/LCD.cpp   **** }
+ 551              		.loc 1 111 0
+ 552              		@ sp needed
+ 553              	.LVL61:
+ 554 001e 38BD     		pop	{r3, r4, r5, pc}
+ 555              		.cfi_endproc
+ 556              	.LFE630:
+ 557              		.fnend
+ 559              		.section	.text._ZN13LiquidCrystal12SetupDisplayEv,"ax",%progbits
+ 560              		.align	2
+ 561              		.global	_ZN13LiquidCrystal12SetupDisplayEv
+ 562              		.code	16
+ 563              		.thumb_func
+ 565              	_ZN13LiquidCrystal12SetupDisplayEv:
+ 566              		.fnstart
+ 567              	.LFB622:
+  45:Src/LCD.cpp   ****     SendCommand(LCD_CLEARDISPLAY);
+ 568              		.loc 1 45 0
+ 569              		.cfi_startproc
+ 570              	.LVL62:
+ 571 0000 10B5     		push	{r4, lr}
+ 572              		.save {r4, lr}
+ 573              	.LCFI12:
+ 574              		.cfi_def_cfa_offset 8
+ 575              		.cfi_offset 4, -8
+ 576              		.cfi_offset 14, -4
+ 577 0002 041C     		mov	r4, r0
+  46:Src/LCD.cpp   ****     SendCommand(LCD_FUNCTIONSET | LCD_8BITMODE | LCD_2LINE | LCD_5x8DOTS); // 0b00111000 set to 8-b
+ 578              		.loc 1 46 0
+ 579 0004 0121     		mov	r1, #1
+ 580 0006 FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 581              	.LVL63:
+  47:Src/LCD.cpp   ****     SendCommand(LCD_DISPLAYCONTROL | LCD_DISPLAYON | LCD_CURSORON);        // 0b00001110 turning on
+ 582              		.loc 1 47 0
+ 583 000a 201C     		mov	r0, r4
+ 584 000c 3821     		mov	r1, #56
+ 585 000e FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 586              	.LVL64:
+  48:Src/LCD.cpp   ****     SendCommand(LCD_ENTRYMODESET | LCD_ENTRYLEFT);                         //0b00000110 set the mod
+ 587              		.loc 1 48 0
+ 588 0012 201C     		mov	r0, r4
+ARM GAS  /tmp/ccmaqN2n.s 			page 13
+
+
+ 589 0014 0E21     		mov	r1, #14
+ 590 0016 FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 591              	.LVL65:
+  49:Src/LCD.cpp   **** }
+ 592              		.loc 1 49 0
+ 593 001a 201C     		mov	r0, r4
+ 594 001c 0621     		mov	r1, #6
+ 595 001e FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 596              	.LVL66:
+  50:Src/LCD.cpp   **** 
+ 597              		.loc 1 50 0
+ 598              		@ sp needed
+ 599              	.LVL67:
+ 600 0022 10BD     		pop	{r4, pc}
+ 601              		.cfi_endproc
+ 602              	.LFE622:
+ 603              		.fnend
+ 605              		.section	.text._ZN13LiquidCrystal5beginEhh,"ax",%progbits
+ 606              		.align	2
+ 607              		.global	_ZN13LiquidCrystal5beginEhh
+ 608              		.code	16
+ 609              		.thumb_func
+ 611              	_ZN13LiquidCrystal5beginEhh:
+ 612              		.fnstart
+ 613              	.LFB619:
+  19:Src/LCD.cpp   ****     InitLCDPins();
+ 614              		.loc 1 19 0
+ 615              		.cfi_startproc
+ 616              	.LVL68:
+ 617 0000 10B5     		push	{r4, lr}
+ 618              		.save {r4, lr}
+ 619              	.LCFI13:
+ 620              		.cfi_def_cfa_offset 8
+ 621              		.cfi_offset 4, -8
+ 622              		.cfi_offset 14, -4
+ 623 0002 041C     		mov	r4, r0
+  20:Src/LCD.cpp   ****     SetupDisplay();
+ 624              		.loc 1 20 0
+ 625 0004 FFF7FEFF 		bl	_ZN13LiquidCrystal11InitLCDPinsEv
+ 626              	.LVL69:
+  21:Src/LCD.cpp   **** }
+ 627              		.loc 1 21 0
+ 628 0008 201C     		mov	r0, r4
+ 629 000a FFF7FEFF 		bl	_ZN13LiquidCrystal12SetupDisplayEv
+ 630              	.LVL70:
+  22:Src/LCD.cpp   **** 
+ 631              		.loc 1 22 0
+ 632              		@ sp needed
+ 633              	.LVL71:
+ 634 000e 10BD     		pop	{r4, pc}
+ 635              		.cfi_endproc
+ 636              	.LFE619:
+ 637              		.fnend
+ 639              		.section	.text._ZN13LiquidCrystal10SendStringEPKc,"ax",%progbits
+ 640              		.align	2
+ 641              		.global	_ZN13LiquidCrystal10SendStringEPKc
+ 642              		.code	16
+ARM GAS  /tmp/ccmaqN2n.s 			page 14
+
+
+ 643              		.thumb_func
+ 645              	_ZN13LiquidCrystal10SendStringEPKc:
+ 646              		.fnstart
+ 647              	.LFB631:
+ 112:Src/LCD.cpp   **** 
+ 113:Src/LCD.cpp   **** size_t LiquidCrystal::SendString(const char *cString)
+ 114:Src/LCD.cpp   **** {
+ 648              		.loc 1 114 0
+ 649              		.cfi_startproc
+ 650              	.LVL72:
+ 651 0000 70B5     		push	{r4, r5, r6, lr}
+ 652              		.save {r4, r5, r6, lr}
+ 653              	.LCFI14:
+ 654              		.cfi_def_cfa_offset 16
+ 655              		.cfi_offset 4, -16
+ 656              		.cfi_offset 5, -12
+ 657              		.cfi_offset 6, -8
+ 658              		.cfi_offset 14, -4
+ 659 0002 061C     		mov	r6, r0
+ 660 0004 0C1E     		sub	r4, r1, #0
+ 661              	.LVL73:
+ 662              	.LBB8:
+ 115:Src/LCD.cpp   ****     size_t n = 0;
+ 116:Src/LCD.cpp   ****     if (cString != NULL)
+ 663              		.loc 1 116 0
+ 664 0006 07D1     		bne	.L24
+ 115:Src/LCD.cpp   ****     size_t n = 0;
+ 665              		.loc 1 115 0
+ 666 0008 0025     		mov	r5, #0
+ 667 000a 09E0     		b	.L22
+ 668              	.LVL74:
+ 669              	.L23:
+ 117:Src/LCD.cpp   ****     {
+ 118:Src/LCD.cpp   ****         while (*cString != '\0')
+ 119:Src/LCD.cpp   ****         {
+ 120:Src/LCD.cpp   ****             SendCharacter(*cString);
+ 670              		.loc 1 120 0
+ 671 000c 301C     		mov	r0, r6
+ 672 000e FFF7FEFF 		bl	_ZN13LiquidCrystal13SendCharacterEc
+ 673              	.LVL75:
+ 121:Src/LCD.cpp   ****             cString++;
+ 674              		.loc 1 121 0
+ 675 0012 0134     		add	r4, r4, #1
+ 676              	.LVL76:
+ 122:Src/LCD.cpp   ****             n++;
+ 677              		.loc 1 122 0
+ 678 0014 0135     		add	r5, r5, #1
+ 679              	.LVL77:
+ 680 0016 00E0     		b	.L21
+ 681              	.LVL78:
+ 682              	.L24:
+ 683 0018 0025     		mov	r5, #0
+ 684              	.LVL79:
+ 685              	.L21:
+ 118:Src/LCD.cpp   ****         {
+ 686              		.loc 1 118 0
+ 687 001a 2178     		ldrb	r1, [r4]
+ARM GAS  /tmp/ccmaqN2n.s 			page 15
+
+
+ 688 001c 0029     		cmp	r1, #0
+ 689 001e F5D1     		bne	.L23
+ 690              	.LVL80:
+ 691              	.L22:
+ 692              	.LBE8:
+ 123:Src/LCD.cpp   ****         }
+ 124:Src/LCD.cpp   ****     }
+ 125:Src/LCD.cpp   ****     return n;
+ 126:Src/LCD.cpp   **** }
+ 693              		.loc 1 126 0
+ 694 0020 281C     		mov	r0, r5
+ 695              		@ sp needed
+ 696              	.LVL81:
+ 697              	.LVL82:
+ 698              	.LVL83:
+ 699 0022 70BD     		pop	{r4, r5, r6, pc}
+ 700              		.cfi_endproc
+ 701              	.LFE631:
+ 702              		.fnend
+ 704              		.section	.text._ZN13LiquidCrystal5printEc,"ax",%progbits
+ 705              		.align	2
+ 706              		.global	_ZN13LiquidCrystal5printEc
+ 707              		.code	16
+ 708              		.thumb_func
+ 710              	_ZN13LiquidCrystal5printEc:
+ 711              		.fnstart
+ 712              	.LFB632:
+ 127:Src/LCD.cpp   **** 
+ 128:Src/LCD.cpp   **** size_t LiquidCrystal::print(char character)
+ 129:Src/LCD.cpp   **** {
+ 713              		.loc 1 129 0
+ 714              		.cfi_startproc
+ 715              	.LVL84:
+ 716 0000 08B5     		push	{r3, lr}
+ 717              		.save {r3, lr}
+ 718              	.LCFI15:
+ 719              		.cfi_def_cfa_offset 8
+ 720              		.cfi_offset 3, -8
+ 721              		.cfi_offset 14, -4
+ 130:Src/LCD.cpp   ****     return SendCharacter(character);
+ 722              		.loc 1 130 0
+ 723 0002 FFF7FEFF 		bl	_ZN13LiquidCrystal13SendCharacterEc
+ 724              	.LVL85:
+ 131:Src/LCD.cpp   **** }
+ 725              		.loc 1 131 0
+ 726              		@ sp needed
+ 727 0006 08BD     		pop	{r3, pc}
+ 728              		.cfi_endproc
+ 729              	.LFE632:
+ 730              		.fnend
+ 732              		.section	.text._ZN13LiquidCrystal5printEPKc,"ax",%progbits
+ 733              		.align	2
+ 734              		.global	_ZN13LiquidCrystal5printEPKc
+ 735              		.code	16
+ 736              		.thumb_func
+ 738              	_ZN13LiquidCrystal5printEPKc:
+ 739              		.fnstart
+ARM GAS  /tmp/ccmaqN2n.s 			page 16
+
+
+ 740              	.LFB633:
+ 132:Src/LCD.cpp   **** 
+ 133:Src/LCD.cpp   **** size_t LiquidCrystal::print(const char str[])
+ 134:Src/LCD.cpp   **** {
+ 741              		.loc 1 134 0
+ 742              		.cfi_startproc
+ 743              	.LVL86:
+ 744 0000 08B5     		push	{r3, lr}
+ 745              		.save {r3, lr}
+ 746              	.LCFI16:
+ 747              		.cfi_def_cfa_offset 8
+ 748              		.cfi_offset 3, -8
+ 749              		.cfi_offset 14, -4
+ 135:Src/LCD.cpp   ****     return SendString(str);
+ 750              		.loc 1 135 0
+ 751 0002 FFF7FEFF 		bl	_ZN13LiquidCrystal10SendStringEPKc
+ 752              	.LVL87:
+ 136:Src/LCD.cpp   **** }
+ 753              		.loc 1 136 0
+ 754              		@ sp needed
+ 755 0006 08BD     		pop	{r3, pc}
+ 756              		.cfi_endproc
+ 757              	.LFE633:
+ 758              		.fnend
+ 760              		.global	__aeabi_uidivmod
+ 761              		.global	__aeabi_uidiv
+ 762              		.section	.text._ZN13LiquidCrystal11printNumberEmh,"ax",%progbits
+ 763              		.align	2
+ 764              		.global	_ZN13LiquidCrystal11printNumberEmh
+ 765              		.code	16
+ 766              		.thumb_func
+ 768              	_ZN13LiquidCrystal11printNumberEmh:
+ 769              		.fnstart
+ 770              	.LFB640:
+ 137:Src/LCD.cpp   **** 
+ 138:Src/LCD.cpp   **** size_t LiquidCrystal::print(unsigned char b, int base)
+ 139:Src/LCD.cpp   **** {
+ 140:Src/LCD.cpp   ****     return print((unsigned long)b, base);
+ 141:Src/LCD.cpp   **** }
+ 142:Src/LCD.cpp   **** 
+ 143:Src/LCD.cpp   **** size_t LiquidCrystal::print(int n, int base)
+ 144:Src/LCD.cpp   **** {
+ 145:Src/LCD.cpp   ****     return print((long)n, base);
+ 146:Src/LCD.cpp   **** }
+ 147:Src/LCD.cpp   **** 
+ 148:Src/LCD.cpp   **** size_t LiquidCrystal::print(unsigned int n, int base)
+ 149:Src/LCD.cpp   **** {
+ 150:Src/LCD.cpp   ****     return print((unsigned long)n, base);
+ 151:Src/LCD.cpp   **** }
+ 152:Src/LCD.cpp   **** 
+ 153:Src/LCD.cpp   **** size_t LiquidCrystal::print(unsigned long n, int base)
+ 154:Src/LCD.cpp   **** {
+ 155:Src/LCD.cpp   ****     return printNumber(n, base);
+ 156:Src/LCD.cpp   **** }
+ 157:Src/LCD.cpp   **** 
+ 158:Src/LCD.cpp   **** size_t LiquidCrystal::print(long n, int base)
+ 159:Src/LCD.cpp   **** {
+ARM GAS  /tmp/ccmaqN2n.s 			page 17
+
+
+ 160:Src/LCD.cpp   ****     if (base == 10)
+ 161:Src/LCD.cpp   ****     {
+ 162:Src/LCD.cpp   ****         if (n < 0)
+ 163:Src/LCD.cpp   ****         {
+ 164:Src/LCD.cpp   ****             int t = print('-');
+ 165:Src/LCD.cpp   ****             n = -n;
+ 166:Src/LCD.cpp   ****             return printNumber(n, 10) + t;
+ 167:Src/LCD.cpp   ****         }
+ 168:Src/LCD.cpp   ****         return printNumber(n, 10);
+ 169:Src/LCD.cpp   ****     }
+ 170:Src/LCD.cpp   ****     else
+ 171:Src/LCD.cpp   ****     {
+ 172:Src/LCD.cpp   ****         return printNumber(n, base);
+ 173:Src/LCD.cpp   ****     }
+ 174:Src/LCD.cpp   **** }
+ 175:Src/LCD.cpp   **** 
+ 176:Src/LCD.cpp   **** size_t LiquidCrystal::print(double n, int digits)
+ 177:Src/LCD.cpp   **** {
+ 178:Src/LCD.cpp   ****     return printFloat(n, digits);
+ 179:Src/LCD.cpp   **** }
+ 180:Src/LCD.cpp   **** 
+ 181:Src/LCD.cpp   **** size_t LiquidCrystal::printNumber(unsigned long n, uint8_t base)
+ 182:Src/LCD.cpp   **** {
+ 771              		.loc 1 182 0
+ 772              		.cfi_startproc
+ 773              	.LVL88:
+ 774 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 775              		.save {r4, r5, r6, r7, lr}
+ 776              	.LCFI17:
+ 777              		.cfi_def_cfa_offset 20
+ 778              		.cfi_offset 4, -20
+ 779              		.cfi_offset 5, -16
+ 780              		.cfi_offset 6, -12
+ 781              		.cfi_offset 7, -8
+ 782              		.cfi_offset 14, -4
+ 783              		.pad #52
+ 784 0002 8DB0     		sub	sp, sp, #52
+ 785              	.LCFI18:
+ 786              		.cfi_def_cfa_offset 72
+ 787 0004 0190     		str	r0, [sp, #4]
+ 788 0006 0D1C     		mov	r5, r1
+ 789 0008 161C     		mov	r6, r2
+ 790              	.LVL89:
+ 791              	.LBB9:
+ 183:Src/LCD.cpp   ****     char buf[8 * sizeof(long) + 1]; // Assumes 8-bit chars plus zero byte.
+ 184:Src/LCD.cpp   ****     char *str = &buf[sizeof(buf) - 1];
+ 185:Src/LCD.cpp   **** 
+ 186:Src/LCD.cpp   ****     *str = '\0';
+ 792              		.loc 1 186 0
+ 793 000a 0021     		mov	r1, #0
+ 794              	.LVL90:
+ 795 000c 2023     		mov	r3, #32
+ 796 000e 03AA     		add	r2, sp, #12
+ 797              	.LVL91:
+ 798 0010 D154     		strb	r1, [r2, r3]
+ 187:Src/LCD.cpp   **** 
+ 188:Src/LCD.cpp   ****     // prevent crash if called with base == 1
+ARM GAS  /tmp/ccmaqN2n.s 			page 18
+
+
+ 189:Src/LCD.cpp   ****     if (base < 2)
+ 799              		.loc 1 189 0
+ 800 0012 012E     		cmp	r6, #1
+ 801 0014 00D8     		bhi	.L28
+ 190:Src/LCD.cpp   ****     {
+ 191:Src/LCD.cpp   ****         base = 10;
+ 802              		.loc 1 191 0
+ 803 0016 0A26     		mov	r6, #10
+ 804              	.L28:
+ 805 0018 0BAF     		add	r7, sp, #44
+ 806              	.LVL92:
+ 807              	.L31:
+ 808              	.LBB10:
+ 192:Src/LCD.cpp   ****     }
+ 193:Src/LCD.cpp   **** 
+ 194:Src/LCD.cpp   ****     do
+ 195:Src/LCD.cpp   ****     {
+ 196:Src/LCD.cpp   ****         char c = n % base;
+ 809              		.loc 1 196 0
+ 810 001a 281C     		mov	r0, r5
+ 811 001c 311C     		mov	r1, r6
+ 812 001e FFF7FEFF 		bl	__aeabi_uidivmod
+ 813              	.LVL93:
+ 814 0022 CCB2     		uxtb	r4, r1
+ 815              	.LVL94:
+ 197:Src/LCD.cpp   ****         n /= base;
+ 816              		.loc 1 197 0
+ 817 0024 281C     		mov	r0, r5
+ 818 0026 311C     		mov	r1, r6
+ 819 0028 FFF7FEFF 		bl	__aeabi_uidiv
+ 820              	.LVL95:
+ 821 002c 051C     		mov	r5, r0
+ 822              	.LVL96:
+ 198:Src/LCD.cpp   **** 
+ 199:Src/LCD.cpp   ****         *--str = c < 10 ? c + '0' : c + 'A' - 10;
+ 823              		.loc 1 199 0
+ 824 002e 013F     		sub	r7, r7, #1
+ 825              	.LVL97:
+ 826 0030 092C     		cmp	r4, #9
+ 827 0032 02D8     		bhi	.L29
+ 828              		.loc 1 199 0 is_stmt 0 discriminator 1
+ 829 0034 3034     		add	r4, r4, #48
+ 830              	.LVL98:
+ 831 0036 E4B2     		uxtb	r4, r4
+ 832              	.LVL99:
+ 833 0038 01E0     		b	.L30
+ 834              	.LVL100:
+ 835              	.L29:
+ 836              		.loc 1 199 0 discriminator 2
+ 837 003a 3734     		add	r4, r4, #55
+ 838              	.LVL101:
+ 839 003c E4B2     		uxtb	r4, r4
+ 840              	.LVL102:
+ 841              	.L30:
+ 842              		.loc 1 199 0 discriminator 4
+ 843 003e 3C70     		strb	r4, [r7]
+ 844              	.LBE10:
+ARM GAS  /tmp/ccmaqN2n.s 			page 19
+
+
+ 194:Src/LCD.cpp   ****     {
+ 845              		.loc 1 194 0 is_stmt 1 discriminator 4
+ 846 0040 002D     		cmp	r5, #0
+ 847 0042 EAD1     		bne	.L31
+ 200:Src/LCD.cpp   ****     } while (n);
+ 201:Src/LCD.cpp   **** 
+ 202:Src/LCD.cpp   ****     return SendString(str);
+ 848              		.loc 1 202 0
+ 849 0044 0198     		ldr	r0, [sp, #4]
+ 850              	.LVL103:
+ 851 0046 391C     		mov	r1, r7
+ 852 0048 FFF7FEFF 		bl	_ZN13LiquidCrystal10SendStringEPKc
+ 853              	.LVL104:
+ 854              	.LBE9:
+ 203:Src/LCD.cpp   **** }
+ 855              		.loc 1 203 0
+ 856 004c 0DB0     		add	sp, sp, #52
+ 857              		@ sp needed
+ 858              	.LVL105:
+ 859              	.LVL106:
+ 860              	.LVL107:
+ 861 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 862              		.cfi_endproc
+ 863              	.LFE640:
+ 864              		.fnend
+ 866              		.section	.text._ZN13LiquidCrystal5printEmi,"ax",%progbits
+ 867              		.align	2
+ 868              		.global	_ZN13LiquidCrystal5printEmi
+ 869              		.code	16
+ 870              		.thumb_func
+ 872              	_ZN13LiquidCrystal5printEmi:
+ 873              		.fnstart
+ 874              	.LFB637:
+ 154:Src/LCD.cpp   ****     return printNumber(n, base);
+ 875              		.loc 1 154 0
+ 876              		.cfi_startproc
+ 877              	.LVL108:
+ 878 0000 08B5     		push	{r3, lr}
+ 879              		.save {r3, lr}
+ 880              	.LCFI19:
+ 881              		.cfi_def_cfa_offset 8
+ 882              		.cfi_offset 3, -8
+ 883              		.cfi_offset 14, -4
+ 155:Src/LCD.cpp   **** }
+ 884              		.loc 1 155 0
+ 885 0002 D2B2     		uxtb	r2, r2
+ 886              	.LVL109:
+ 887 0004 FFF7FEFF 		bl	_ZN13LiquidCrystal11printNumberEmh
+ 888              	.LVL110:
+ 156:Src/LCD.cpp   **** 
+ 889              		.loc 1 156 0
+ 890              		@ sp needed
+ 891 0008 08BD     		pop	{r3, pc}
+ 892              		.cfi_endproc
+ 893              	.LFE637:
+ 894              		.fnend
+ 896 000a C046     		.section	.text._ZN13LiquidCrystal5printEhi,"ax",%progbits
+ARM GAS  /tmp/ccmaqN2n.s 			page 20
+
+
+ 897              		.align	2
+ 898              		.global	_ZN13LiquidCrystal5printEhi
+ 899              		.code	16
+ 900              		.thumb_func
+ 902              	_ZN13LiquidCrystal5printEhi:
+ 903              		.fnstart
+ 904              	.LFB634:
+ 139:Src/LCD.cpp   ****     return print((unsigned long)b, base);
+ 905              		.loc 1 139 0
+ 906              		.cfi_startproc
+ 907              	.LVL111:
+ 908 0000 08B5     		push	{r3, lr}
+ 909              		.save {r3, lr}
+ 910              	.LCFI20:
+ 911              		.cfi_def_cfa_offset 8
+ 912              		.cfi_offset 3, -8
+ 913              		.cfi_offset 14, -4
+ 140:Src/LCD.cpp   **** }
+ 914              		.loc 1 140 0
+ 915 0002 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEmi
+ 916              	.LVL112:
+ 141:Src/LCD.cpp   **** 
+ 917              		.loc 1 141 0
+ 918              		@ sp needed
+ 919 0006 08BD     		pop	{r3, pc}
+ 920              		.cfi_endproc
+ 921              	.LFE634:
+ 922              		.fnend
+ 924              		.section	.text._ZN13LiquidCrystal5printEji,"ax",%progbits
+ 925              		.align	2
+ 926              		.global	_ZN13LiquidCrystal5printEji
+ 927              		.code	16
+ 928              		.thumb_func
+ 930              	_ZN13LiquidCrystal5printEji:
+ 931              		.fnstart
+ 932              	.LFB636:
+ 149:Src/LCD.cpp   ****     return print((unsigned long)n, base);
+ 933              		.loc 1 149 0
+ 934              		.cfi_startproc
+ 935              	.LVL113:
+ 936 0000 08B5     		push	{r3, lr}
+ 937              		.save {r3, lr}
+ 938              	.LCFI21:
+ 939              		.cfi_def_cfa_offset 8
+ 940              		.cfi_offset 3, -8
+ 941              		.cfi_offset 14, -4
+ 150:Src/LCD.cpp   **** }
+ 942              		.loc 1 150 0
+ 943 0002 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEmi
+ 944              	.LVL114:
+ 151:Src/LCD.cpp   **** 
+ 945              		.loc 1 151 0
+ 946              		@ sp needed
+ 947 0006 08BD     		pop	{r3, pc}
+ 948              		.cfi_endproc
+ 949              	.LFE636:
+ 950              		.fnend
+ARM GAS  /tmp/ccmaqN2n.s 			page 21
+
+
+ 952              		.section	.text._ZN13LiquidCrystal5printEli,"ax",%progbits
+ 953              		.align	2
+ 954              		.global	_ZN13LiquidCrystal5printEli
+ 955              		.code	16
+ 956              		.thumb_func
+ 958              	_ZN13LiquidCrystal5printEli:
+ 959              		.fnstart
+ 960              	.LFB638:
+ 159:Src/LCD.cpp   ****     if (base == 10)
+ 961              		.loc 1 159 0
+ 962              		.cfi_startproc
+ 963              	.LVL115:
+ 964 0000 70B5     		push	{r4, r5, r6, lr}
+ 965              		.save {r4, r5, r6, lr}
+ 966              	.LCFI22:
+ 967              		.cfi_def_cfa_offset 16
+ 968              		.cfi_offset 4, -16
+ 969              		.cfi_offset 5, -12
+ 970              		.cfi_offset 6, -8
+ 971              		.cfi_offset 14, -4
+ 972 0002 051C     		mov	r5, r0
+ 973 0004 0C1C     		mov	r4, r1
+ 974              	.LBB11:
+ 160:Src/LCD.cpp   ****     {
+ 975              		.loc 1 160 0
+ 976 0006 0A2A     		cmp	r2, #10
+ 977 0008 10D1     		bne	.L37
+ 978              	.LBB12:
+ 979              	.LBB13:
+ 162:Src/LCD.cpp   ****         {
+ 980              		.loc 1 162 0
+ 981 000a 0029     		cmp	r1, #0
+ 982 000c 0ADA     		bge	.L38
+ 983              	.LBB14:
+ 164:Src/LCD.cpp   ****             n = -n;
+ 984              		.loc 1 164 0
+ 985 000e 2D21     		mov	r1, #45
+ 986              	.LVL116:
+ 987 0010 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEc
+ 988              	.LVL117:
+ 989 0014 061C     		mov	r6, r0
+ 990              	.LVL118:
+ 165:Src/LCD.cpp   ****             return printNumber(n, 10) + t;
+ 991              		.loc 1 165 0
+ 992 0016 6142     		neg	r1, r4
+ 993              	.LVL119:
+ 166:Src/LCD.cpp   ****         }
+ 994              		.loc 1 166 0
+ 995 0018 281C     		mov	r0, r5
+ 996              	.LVL120:
+ 997 001a 0A22     		mov	r2, #10
+ 998 001c FFF7FEFF 		bl	_ZN13LiquidCrystal11printNumberEmh
+ 999              	.LVL121:
+ 1000 0020 3018     		add	r0, r6, r0
+ 1001 0022 06E0     		b	.L39
+ 1002              	.LVL122:
+ 1003              	.L38:
+ARM GAS  /tmp/ccmaqN2n.s 			page 22
+
+
+ 1004              	.LBE14:
+ 1005              	.LBE13:
+ 168:Src/LCD.cpp   ****     }
+ 1006              		.loc 1 168 0
+ 1007 0024 0A22     		mov	r2, #10
+ 1008              	.LVL123:
+ 1009 0026 FFF7FEFF 		bl	_ZN13LiquidCrystal11printNumberEmh
+ 1010              	.LVL124:
+ 1011 002a 02E0     		b	.L39
+ 1012              	.LVL125:
+ 1013              	.L37:
+ 1014              	.LBE12:
+ 172:Src/LCD.cpp   ****     }
+ 1015              		.loc 1 172 0
+ 1016 002c D2B2     		uxtb	r2, r2
+ 1017              	.LVL126:
+ 1018 002e FFF7FEFF 		bl	_ZN13LiquidCrystal11printNumberEmh
+ 1019              	.LVL127:
+ 1020              	.L39:
+ 1021              	.LBE11:
+ 174:Src/LCD.cpp   **** 
+ 1022              		.loc 1 174 0
+ 1023              		@ sp needed
+ 1024              	.LVL128:
+ 1025 0032 70BD     		pop	{r4, r5, r6, pc}
+ 1026              		.cfi_endproc
+ 1027              	.LFE638:
+ 1028              		.fnend
+ 1030              		.section	.text._ZN13LiquidCrystal5printEii,"ax",%progbits
+ 1031              		.align	2
+ 1032              		.global	_ZN13LiquidCrystal5printEii
+ 1033              		.code	16
+ 1034              		.thumb_func
+ 1036              	_ZN13LiquidCrystal5printEii:
+ 1037              		.fnstart
+ 1038              	.LFB635:
+ 144:Src/LCD.cpp   ****     return print((long)n, base);
+ 1039              		.loc 1 144 0
+ 1040              		.cfi_startproc
+ 1041              	.LVL129:
+ 1042 0000 08B5     		push	{r3, lr}
+ 1043              		.save {r3, lr}
+ 1044              	.LCFI23:
+ 1045              		.cfi_def_cfa_offset 8
+ 1046              		.cfi_offset 3, -8
+ 1047              		.cfi_offset 14, -4
+ 145:Src/LCD.cpp   **** }
+ 1048              		.loc 1 145 0
+ 1049 0002 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEli
+ 1050              	.LVL130:
+ 146:Src/LCD.cpp   **** 
+ 1051              		.loc 1 146 0
+ 1052              		@ sp needed
+ 1053 0006 08BD     		pop	{r3, pc}
+ 1054              		.cfi_endproc
+ 1055              	.LFE635:
+ 1056              		.fnend
+ARM GAS  /tmp/ccmaqN2n.s 			page 23
+
+
+ 1058              		.global	__aeabi_dcmplt
+ 1059              		.global	__aeabi_ddiv
+ 1060              		.global	__aeabi_dadd
+ 1061              		.global	__aeabi_d2uiz
+ 1062              		.global	__aeabi_ui2d
+ 1063              		.global	__aeabi_dsub
+ 1064              		.global	__aeabi_dmul
+ 1065              		.section	.text._ZN13LiquidCrystal10printFloatEdh,"ax",%progbits
+ 1066              		.align	2
+ 1067              		.global	_ZN13LiquidCrystal10printFloatEdh
+ 1068              		.code	16
+ 1069              		.thumb_func
+ 1071              	_ZN13LiquidCrystal10printFloatEdh:
+ 1072              		.fnstart
+ 1073              	.LFB641:
+ 204:Src/LCD.cpp   **** 
+ 205:Src/LCD.cpp   **** size_t LiquidCrystal::printFloat(double number, uint8_t digits)
+ 206:Src/LCD.cpp   **** {
+ 1074              		.loc 1 206 0
+ 1075              		.cfi_startproc
+ 1076              	.LVL131:
+ 1077 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1078              		.save {r4, r5, r6, r7, lr}
+ 1079              	.LCFI24:
+ 1080              		.cfi_def_cfa_offset 20
+ 1081              		.cfi_offset 4, -20
+ 1082              		.cfi_offset 5, -16
+ 1083              		.cfi_offset 6, -12
+ 1084              		.cfi_offset 7, -8
+ 1085              		.cfi_offset 14, -4
+ 1086              		.pad #20
+ 1087 0002 85B0     		sub	sp, sp, #20
+ 1088              	.LCFI25:
+ 1089              		.cfi_def_cfa_offset 40
+ 1090 0004 0390     		str	r0, [sp, #12]
+ 1091 0006 0092     		str	r2, [sp]
+ 1092 0008 1C1C     		mov	r4, r3
+ 1093 000a 0AAB     		add	r3, sp, #40
+ 1094              	.LVL132:
+ 1095 000c 1D78     		ldrb	r5, [r3]
+ 1096              	.LVL133:
+ 1097              	.LBB15:
+ 207:Src/LCD.cpp   ****     size_t n = 0;
+ 208:Src/LCD.cpp   **** 
+ 209:Src/LCD.cpp   ****     // Handle negative numbers
+ 210:Src/LCD.cpp   ****     if (number < 0.0)
+ 1098              		.loc 1 210 0
+ 1099 000e 101C     		mov	r0, r2
+ 1100              	.LVL134:
+ 1101 0010 211C     		mov	r1, r4
+ 1102 0012 0022     		mov	r2, #0
+ 1103              	.LVL135:
+ 1104 0014 0023     		mov	r3, #0
+ 1105              	.LVL136:
+ 1106 0016 FFF7FEFF 		bl	__aeabi_dcmplt
+ 1107              	.LVL137:
+ 1108 001a 0028     		cmp	r0, #0
+ARM GAS  /tmp/ccmaqN2n.s 			page 24
+
+
+ 1109 001c 09D0     		beq	.L51
+ 211:Src/LCD.cpp   ****     {
+ 212:Src/LCD.cpp   ****         n += print('-');
+ 1110              		.loc 1 212 0
+ 1111 001e 0398     		ldr	r0, [sp, #12]
+ 1112 0020 2D21     		mov	r1, #45
+ 1113 0022 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEc
+ 1114              	.LVL138:
+ 1115 0026 061C     		mov	r6, r0
+ 1116              	.LVL139:
+ 213:Src/LCD.cpp   ****         number = -number;
+ 1117              		.loc 1 213 0
+ 1118 0028 8023     		mov	r3, #128
+ 1119 002a 1B06     		lsl	r3, r3, #24
+ 1120 002c 9C46     		mov	ip, r3
+ 1121 002e 6444     		add	r4, r4, ip
+ 1122              	.LVL140:
+ 1123 0030 00E0     		b	.L42
+ 1124              	.LVL141:
+ 1125              	.L51:
+ 207:Src/LCD.cpp   ****     size_t n = 0;
+ 1126              		.loc 1 207 0
+ 1127 0032 0026     		mov	r6, #0
+ 1128              	.LVL142:
+ 1129              	.L42:
+ 1130              	.LBB16:
+ 214:Src/LCD.cpp   ****     }
+ 215:Src/LCD.cpp   **** 
+ 216:Src/LCD.cpp   ****     // Round correctly so that print(1.999, 2) prints as "2.00"
+ 217:Src/LCD.cpp   ****     double rounding = 0.5;
+ 218:Src/LCD.cpp   ****     for (uint8_t i = 0; i < digits; ++i)
+ 1131              		.loc 1 218 0
+ 1132 0034 0027     		mov	r7, #0
+ 1133              	.LBE16:
+ 217:Src/LCD.cpp   ****     for (uint8_t i = 0; i < digits; ++i)
+ 1134              		.loc 1 217 0
+ 1135 0036 0022     		mov	r2, #0
+ 1136 0038 294B     		ldr	r3, .L52
+ 1137              	.LBB17:
+ 1138              		.loc 1 218 0
+ 1139 003a 09E0     		b	.L44
+ 1140              	.LVL143:
+ 1141              	.L45:
+ 219:Src/LCD.cpp   ****     {
+ 220:Src/LCD.cpp   ****         rounding /= 10.0;
+ 1142              		.loc 1 220 0 discriminator 3
+ 1143 003c 101C     		mov	r0, r2
+ 1144 003e 191C     		mov	r1, r3
+ 1145 0040 0022     		mov	r2, #0
+ 1146              	.LVL144:
+ 1147 0042 284B     		ldr	r3, .L52+4
+ 1148 0044 FFF7FEFF 		bl	__aeabi_ddiv
+ 1149              	.LVL145:
+ 1150 0048 021C     		mov	r2, r0
+ 1151 004a 0B1C     		mov	r3, r1
+ 1152              	.LVL146:
+ 218:Src/LCD.cpp   ****     {
+ARM GAS  /tmp/ccmaqN2n.s 			page 25
+
+
+ 1153              		.loc 1 218 0 discriminator 3
+ 1154 004c 0137     		add	r7, r7, #1
+ 1155              	.LVL147:
+ 1156 004e FFB2     		uxtb	r7, r7
+ 1157              	.LVL148:
+ 1158              	.L44:
+ 218:Src/LCD.cpp   ****     {
+ 1159              		.loc 1 218 0 is_stmt 0 discriminator 1
+ 1160 0050 AF42     		cmp	r7, r5
+ 1161 0052 F3D3     		bcc	.L45
+ 1162              	.LBE17:
+ 221:Src/LCD.cpp   ****     }
+ 222:Src/LCD.cpp   **** 
+ 223:Src/LCD.cpp   ****     number += rounding;
+ 1163              		.loc 1 223 0 is_stmt 1
+ 1164 0054 0098     		ldr	r0, [sp]
+ 1165 0056 211C     		mov	r1, r4
+ 1166 0058 FFF7FEFF 		bl	__aeabi_dadd
+ 1167              	.LVL149:
+ 224:Src/LCD.cpp   **** 
+ 225:Src/LCD.cpp   ****     // Extract the integer part of the number and print it
+ 226:Src/LCD.cpp   ****     unsigned long int_part = (unsigned long)number;
+ 1168              		.loc 1 226 0
+ 1169 005c 0090     		str	r0, [sp]
+ 1170 005e 0191     		str	r1, [sp, #4]
+ 1171 0060 FFF7FEFF 		bl	__aeabi_d2uiz
+ 1172              	.LVL150:
+ 1173 0064 071C     		mov	r7, r0
+ 1174              	.LVL151:
+ 227:Src/LCD.cpp   ****     double remainder = number - (double)int_part;
+ 1175              		.loc 1 227 0
+ 1176 0066 FFF7FEFF 		bl	__aeabi_ui2d
+ 1177              	.LVL152:
+ 1178 006a 021C     		mov	r2, r0
+ 1179 006c 0B1C     		mov	r3, r1
+ 1180 006e 0098     		ldr	r0, [sp]
+ 1181 0070 0199     		ldr	r1, [sp, #4]
+ 1182 0072 FFF7FEFF 		bl	__aeabi_dsub
+ 1183              	.LVL153:
+ 1184 0076 0090     		str	r0, [sp]
+ 1185 0078 0191     		str	r1, [sp, #4]
+ 1186              	.LVL154:
+ 228:Src/LCD.cpp   ****     n += print(int_part);
+ 1187              		.loc 1 228 0
+ 1188 007a 0398     		ldr	r0, [sp, #12]
+ 1189              	.LVL155:
+ 1190 007c 391C     		mov	r1, r7
+ 1191 007e 0A22     		mov	r2, #10
+ 1192 0080 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEmi
+ 1193              	.LVL156:
+ 1194 0084 3618     		add	r6, r6, r0
+ 1195              	.LVL157:
+ 229:Src/LCD.cpp   **** 
+ 230:Src/LCD.cpp   ****     // Print the decimal point, but only if there are digits beyond
+ 231:Src/LCD.cpp   ****     if (digits > 0)
+ 1196              		.loc 1 231 0
+ 1197 0086 002D     		cmp	r5, #0
+ARM GAS  /tmp/ccmaqN2n.s 			page 26
+
+
+ 1198 0088 22D0     		beq	.L47
+ 232:Src/LCD.cpp   ****     {
+ 233:Src/LCD.cpp   ****         n += print('.');
+ 1199              		.loc 1 233 0
+ 1200 008a 0398     		ldr	r0, [sp, #12]
+ 1201 008c 2E21     		mov	r1, #46
+ 1202 008e FFF7FEFF 		bl	_ZN13LiquidCrystal5printEc
+ 1203              	.LVL158:
+ 1204 0092 3618     		add	r6, r6, r0
+ 1205              	.LVL159:
+ 1206 0094 1CE0     		b	.L47
+ 1207              	.LVL160:
+ 1208              	.L48:
+ 1209              	.LBB18:
+ 234:Src/LCD.cpp   ****     }
+ 235:Src/LCD.cpp   **** 
+ 236:Src/LCD.cpp   ****     // Extract digits from the remainder one at a time
+ 237:Src/LCD.cpp   ****     while (digits-- > 0)
+ 238:Src/LCD.cpp   ****     {
+ 239:Src/LCD.cpp   ****         remainder *= 10.0;
+ 1210              		.loc 1 239 0
+ 1211 0096 0098     		ldr	r0, [sp]
+ 1212 0098 0199     		ldr	r1, [sp, #4]
+ 1213 009a 0022     		mov	r2, #0
+ 1214 009c 114B     		ldr	r3, .L52+4
+ 1215 009e FFF7FEFF 		bl	__aeabi_dmul
+ 1216              	.LVL161:
+ 240:Src/LCD.cpp   ****         unsigned int toPrint = (unsigned int)(remainder);
+ 1217              		.loc 1 240 0
+ 1218 00a2 0090     		str	r0, [sp]
+ 1219 00a4 0191     		str	r1, [sp, #4]
+ 1220 00a6 FFF7FEFF 		bl	__aeabi_d2uiz
+ 1221              	.LVL162:
+ 1222 00aa 071C     		mov	r7, r0
+ 1223              	.LVL163:
+ 241:Src/LCD.cpp   ****         n += print(toPrint);
+ 1224              		.loc 1 241 0
+ 1225 00ac 0398     		ldr	r0, [sp, #12]
+ 1226              	.LVL164:
+ 1227 00ae 391C     		mov	r1, r7
+ 1228 00b0 0A22     		mov	r2, #10
+ 1229 00b2 FFF7FEFF 		bl	_ZN13LiquidCrystal5printEji
+ 1230              	.LVL165:
+ 1231 00b6 3618     		add	r6, r6, r0
+ 1232              	.LVL166:
+ 242:Src/LCD.cpp   ****         remainder -= toPrint;
+ 1233              		.loc 1 242 0
+ 1234 00b8 381C     		mov	r0, r7
+ 1235 00ba FFF7FEFF 		bl	__aeabi_ui2d
+ 1236              	.LVL167:
+ 1237 00be 021C     		mov	r2, r0
+ 1238 00c0 0B1C     		mov	r3, r1
+ 1239 00c2 0098     		ldr	r0, [sp]
+ 1240 00c4 0199     		ldr	r1, [sp, #4]
+ 1241 00c6 FFF7FEFF 		bl	__aeabi_dsub
+ 1242              	.LVL168:
+ 1243 00ca 0090     		str	r0, [sp]
+ARM GAS  /tmp/ccmaqN2n.s 			page 27
+
+
+ 1244 00cc 0191     		str	r1, [sp, #4]
+ 1245              	.LVL169:
+ 1246              	.LBE18:
+ 237:Src/LCD.cpp   ****     {
+ 1247              		.loc 1 237 0
+ 1248 00ce 251C     		mov	r5, r4
+ 1249              	.LVL170:
+ 1250              	.L47:
+ 1251 00d0 6B1E     		sub	r3, r5, #1
+ 1252 00d2 DCB2     		uxtb	r4, r3
+ 1253              	.LVL171:
+ 1254 00d4 002D     		cmp	r5, #0
+ 1255 00d6 DED1     		bne	.L48
+ 1256              	.LBE15:
+ 243:Src/LCD.cpp   ****     }
+ 244:Src/LCD.cpp   ****     return n;
+ 245:Src/LCD.cpp   **** }
+ 1257              		.loc 1 245 0
+ 1258 00d8 301C     		mov	r0, r6
+ 1259 00da 05B0     		add	sp, sp, #20
+ 1260              	.LVL172:
+ 1261              		@ sp needed
+ 1262              	.LVL173:
+ 1263              	.LVL174:
+ 1264 00dc F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1265              	.L53:
+ 1266 00de C046     		.align	2
+ 1267              	.L52:
+ 1268 00e0 0000E03F 		.word	1071644672
+ 1269 00e4 00002440 		.word	1076101120
+ 1270              		.cfi_endproc
+ 1271              	.LFE641:
+ 1272              		.fnend
+ 1274              		.section	.text._ZN13LiquidCrystal5printEdi,"ax",%progbits
+ 1275              		.align	2
+ 1276              		.global	_ZN13LiquidCrystal5printEdi
+ 1277              		.code	16
+ 1278              		.thumb_func
+ 1280              	_ZN13LiquidCrystal5printEdi:
+ 1281              		.fnstart
+ 1282              	.LFB639:
+ 177:Src/LCD.cpp   ****     return printFloat(n, digits);
+ 1283              		.loc 1 177 0
+ 1284              		.cfi_startproc
+ 1285              	.LVL175:
+ 1286 0000 30B5     		push	{r4, r5, lr}
+ 1287              		.save {r4, r5, lr}
+ 1288              	.LCFI26:
+ 1289              		.cfi_def_cfa_offset 12
+ 1290              		.cfi_offset 4, -12
+ 1291              		.cfi_offset 5, -8
+ 1292              		.cfi_offset 14, -4
+ 1293              		.pad #12
+ 1294 0002 83B0     		sub	sp, sp, #12
+ 1295              	.LCFI27:
+ 1296              		.cfi_def_cfa_offset 24
+ 1297 0004 1D1C     		mov	r5, r3
+ARM GAS  /tmp/ccmaqN2n.s 			page 28
+
+
+ 178:Src/LCD.cpp   **** }
+ 1298              		.loc 1 178 0
+ 1299 0006 069B     		ldr	r3, [sp, #24]
+ 1300 0008 DBB2     		uxtb	r3, r3
+ 1301 000a 0093     		str	r3, [sp]
+ 1302 000c 2B1C     		mov	r3, r5
+ 1303 000e FFF7FEFF 		bl	_ZN13LiquidCrystal10printFloatEdh
+ 1304              	.LVL176:
+ 179:Src/LCD.cpp   **** 
+ 1305              		.loc 1 179 0
+ 1306 0012 03B0     		add	sp, sp, #12
+ 1307              		@ sp needed
+ 1308 0014 30BD     		pop	{r4, r5, pc}
+ 1309              		.cfi_endproc
+ 1310              	.LFE639:
+ 1311              		.fnend
+ 1313 0016 C046     		.section	.text._ZN13LiquidCrystal5clearEv,"ax",%progbits
+ 1314              		.align	2
+ 1315              		.global	_ZN13LiquidCrystal5clearEv
+ 1316              		.code	16
+ 1317              		.thumb_func
+ 1319              	_ZN13LiquidCrystal5clearEv:
+ 1320              		.fnstart
+ 1321              	.LFB642:
+ 246:Src/LCD.cpp   **** 
+ 247:Src/LCD.cpp   **** /*
+ 248:Src/LCD.cpp   **** void LiquidCrystal::SendInt(int integer, uint8_t numOfDigits)
+ 249:Src/LCD.cpp   **** {
+ 250:Src/LCD.cpp   ****     char intStr[numOfDigits];
+ 251:Src/LCD.cpp   ****     sprintf(intStr, "%d", integer);
+ 252:Src/LCD.cpp   **** 
+ 253:Src/LCD.cpp   ****     SendString(intStr);
+ 254:Src/LCD.cpp   **** }
+ 255:Src/LCD.cpp   **** 
+ 256:Src/LCD.cpp   **** void LiquidCrystal::SendIntHex(int integer, uint8_t numOfDigits)
+ 257:Src/LCD.cpp   **** {
+ 258:Src/LCD.cpp   ****     char intStr[numOfDigits];
+ 259:Src/LCD.cpp   ****     sprintf(intStr, "%X", integer);
+ 260:Src/LCD.cpp   **** 
+ 261:Src/LCD.cpp   ****     SendString(intStr);
+ 262:Src/LCD.cpp   **** }
+ 263:Src/LCD.cpp   **** 
+ 264:Src/LCD.cpp   **** void LiquidCrystal::SendFloat(float floatNumber, uint8_t maxLengthOfDigits)
+ 265:Src/LCD.cpp   **** { // for 256.36 maxLengthOfDigits = 6 
+ 266:Src/LCD.cpp   ****     char numberStr[maxLengthOfDigits];
+ 267:Src/LCD.cpp   ****     snprintf(numberStr, maxLengthOfDigits + 1, "%f", floatNumber);
+ 268:Src/LCD.cpp   **** 
+ 269:Src/LCD.cpp   ****     SendString(numberStr);
+ 270:Src/LCD.cpp   **** }
+ 271:Src/LCD.cpp   **** */
+ 272:Src/LCD.cpp   **** 
+ 273:Src/LCD.cpp   **** void LiquidCrystal::clear()
+ 274:Src/LCD.cpp   **** {
+ 1322              		.loc 1 274 0
+ 1323              		.cfi_startproc
+ 1324              	.LVL177:
+ 1325 0000 08B5     		push	{r3, lr}
+ARM GAS  /tmp/ccmaqN2n.s 			page 29
+
+
+ 1326              		.save {r3, lr}
+ 1327              	.LCFI28:
+ 1328              		.cfi_def_cfa_offset 8
+ 1329              		.cfi_offset 3, -8
+ 1330              		.cfi_offset 14, -4
+ 275:Src/LCD.cpp   ****     SendCommand(LCD_CLEARDISPLAY);
+ 1331              		.loc 1 275 0
+ 1332 0002 0121     		mov	r1, #1
+ 1333 0004 FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 1334              	.LVL178:
+ 276:Src/LCD.cpp   **** }
+ 1335              		.loc 1 276 0
+ 1336              		@ sp needed
+ 1337 0008 08BD     		pop	{r3, pc}
+ 1338              		.cfi_endproc
+ 1339              	.LFE642:
+ 1340              		.fnend
+ 1342 000a C046     		.section	.text._ZN13LiquidCrystal4homeEv,"ax",%progbits
+ 1343              		.align	2
+ 1344              		.global	_ZN13LiquidCrystal4homeEv
+ 1345              		.code	16
+ 1346              		.thumb_func
+ 1348              	_ZN13LiquidCrystal4homeEv:
+ 1349              		.fnstart
+ 1350              	.LFB643:
+ 277:Src/LCD.cpp   **** 
+ 278:Src/LCD.cpp   **** void LiquidCrystal::home()
+ 279:Src/LCD.cpp   **** {
+ 1351              		.loc 1 279 0
+ 1352              		.cfi_startproc
+ 1353              	.LVL179:
+ 1354 0000 08B5     		push	{r3, lr}
+ 1355              		.save {r3, lr}
+ 1356              	.LCFI29:
+ 1357              		.cfi_def_cfa_offset 8
+ 1358              		.cfi_offset 3, -8
+ 1359              		.cfi_offset 14, -4
+ 280:Src/LCD.cpp   ****     SendCommand(LCD_RETURNHOME);
+ 1360              		.loc 1 280 0
+ 1361 0002 0221     		mov	r1, #2
+ 1362 0004 FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 1363              	.LVL180:
+ 281:Src/LCD.cpp   **** }
+ 1364              		.loc 1 281 0
+ 1365              		@ sp needed
+ 1366 0008 08BD     		pop	{r3, pc}
+ 1367              		.cfi_endproc
+ 1368              	.LFE643:
+ 1369              		.fnend
+ 1371 000a C046     		.section	.text._ZN13LiquidCrystal9setCursorEhh,"ax",%progbits
+ 1372              		.align	2
+ 1373              		.global	_ZN13LiquidCrystal9setCursorEhh
+ 1374              		.code	16
+ 1375              		.thumb_func
+ 1377              	_ZN13LiquidCrystal9setCursorEhh:
+ 1378              		.fnstart
+ 1379              	.LFB644:
+ARM GAS  /tmp/ccmaqN2n.s 			page 30
+
+
+ 282:Src/LCD.cpp   **** 
+ 283:Src/LCD.cpp   **** void LiquidCrystal::setCursor(uint8_t col, uint8_t row)
+ 284:Src/LCD.cpp   **** {  
+ 1380              		.loc 1 284 0
+ 1381              		.cfi_startproc
+ 1382              	.LVL181:
+ 1383 0000 08B5     		push	{r3, lr}
+ 1384              		.save {r3, lr}
+ 1385              	.LCFI30:
+ 1386              		.cfi_def_cfa_offset 8
+ 1387              		.cfi_offset 3, -8
+ 1388              		.cfi_offset 14, -4
+ 285:Src/LCD.cpp   ****   SendCommand(LCD_SETDDRAMADDR | (col + row * LCD_2LINE_HOME_ADDRESS));
+ 1389              		.loc 1 285 0
+ 1390 0002 9201     		lsl	r2, r2, #6
+ 1391              	.LVL182:
+ 1392 0004 8A18     		add	r2, r1, r2
+ 1393 0006 8021     		mov	r1, #128
+ 1394              	.LVL183:
+ 1395 0008 4942     		neg	r1, r1
+ 1396 000a 1143     		orr	r1, r2
+ 1397 000c C9B2     		uxtb	r1, r1
+ 1398 000e FFF7FEFF 		bl	_ZN13LiquidCrystal11SendCommandEc
+ 1399              	.LVL184:
+ 286:Src/LCD.cpp   **** }...
+ 1400              		.loc 1 286 0
+ 1401              		@ sp needed
+ 1402 0012 08BD     		pop	{r3, pc}
+ 1403              		.cfi_endproc
+ 1404              	.LFE644:
+ 1405              		.fnend
+ 1407              		.text
+ 1408              	.Letext0:
+ 1409              		.file 2 "/usr/include/newlib/c++/4.9.3/cwchar"
+ 1410              		.file 3 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/c++config.h"
+ 1411              		.file 4 "/usr/include/newlib/c++/4.9.3/clocale"
+ 1412              		.file 5 "/usr/include/newlib/c++/4.9.3/debug/debug.h"
+ 1413              		.file 6 "/usr/include/newlib/c++/4.9.3/bits/predefined_ops.h"
+ 1414              		.file 7 "/usr/include/newlib/c++/4.9.3/ext/new_allocator.h"
+ 1415              		.file 8 "/usr/include/newlib/c++/4.9.3/ext/numeric_traits.h"
+ 1416              		.file 9 "/usr/include/newlib/c++/4.9.3/exception"
+ 1417              		.file 10 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stddef.h"
+ 1418              		.file 11 "/usr/include/newlib/machine/_default_types.h"
+ 1419              		.file 12 "/usr/include/newlib/sys/lock.h"
+ 1420              		.file 13 "/usr/include/newlib/sys/_types.h"
+ 1421              		.file 14 "/usr/include/newlib/sys/reent.h"
+ 1422              		.file 15 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stdarg.h"
+ 1423              		.file 16 "<built-in>"
+ 1424              		.file 17 "/usr/include/newlib/wchar.h"
+ 1425              		.file 18 "/usr/include/newlib/locale.h"
+ 1426              		.file 19 "/usr/include/newlib/sys/_stdint.h"
+ 1427              		.file 20 "Src/GPIO_operations.h"
+ 1428              		.file 21 "Src/LCD.h"
+ARM GAS  /tmp/ccmaqN2n.s 			page 31
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 LCD.cpp
+     /tmp/ccmaqN2n.s:18     .text._ZN13LiquidCrystalC2Ehhhhhhhhhhh:0000000000000000 $t
+     /tmp/ccmaqN2n.s:23     .text._ZN13LiquidCrystalC2Ehhhhhhhhhhh:0000000000000000 _ZN13LiquidCrystalC2Ehhhhhhhhhhh
+.ARM.exidx.text._ZN13LiquidCrystalC2Ehhhhhhhhhhh:0000000000000000 $d
+     /tmp/ccmaqN2n.s:23     .text._ZN13LiquidCrystalC2Ehhhhhhhhhhh:0000000000000000 _ZN13LiquidCrystalC1Ehhhhhhhhhhh
+     /tmp/ccmaqN2n.s:128    .text._ZN13LiquidCrystal13nonExactDelayEi:0000000000000000 $t
+     /tmp/ccmaqN2n.s:133    .text._ZN13LiquidCrystal13nonExactDelayEi:0000000000000000 _ZN13LiquidCrystal13nonExactDelayEi
+.ARM.exidx.text._ZN13LiquidCrystal13nonExactDelayEi:0000000000000000 $d
+     /tmp/ccmaqN2n.s:168    .text._ZN13LiquidCrystal11InitLCDPinsEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:173    .text._ZN13LiquidCrystal11InitLCDPinsEv:0000000000000000 _ZN13LiquidCrystal11InitLCDPinsEv
+.ARM.exidx.text._ZN13LiquidCrystal11InitLCDPinsEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:237    .text._ZN13LiquidCrystal6EnableEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:242    .text._ZN13LiquidCrystal6EnableEv:0000000000000000 _ZN13LiquidCrystal6EnableEv
+.ARM.exidx.text._ZN13LiquidCrystal6EnableEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:274    .text._ZN13LiquidCrystal10SetToWriteEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:279    .text._ZN13LiquidCrystal10SetToWriteEv:0000000000000000 _ZN13LiquidCrystal10SetToWriteEv
+.ARM.extab.text._ZN13LiquidCrystal10SetToWriteEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal10SetToWriteEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:305    .text._ZN13LiquidCrystal9SetToReadEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:310    .text._ZN13LiquidCrystal9SetToReadEv:0000000000000000 _ZN13LiquidCrystal9SetToReadEv
+.ARM.extab.text._ZN13LiquidCrystal9SetToReadEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal9SetToReadEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:336    .text._ZN13LiquidCrystal11CommandModeEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:341    .text._ZN13LiquidCrystal11CommandModeEv:0000000000000000 _ZN13LiquidCrystal11CommandModeEv
+.ARM.extab.text._ZN13LiquidCrystal11CommandModeEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal11CommandModeEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:367    .text._ZN13LiquidCrystal13CharacterModeEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:372    .text._ZN13LiquidCrystal13CharacterModeEv:0000000000000000 _ZN13LiquidCrystal13CharacterModeEv
+.ARM.extab.text._ZN13LiquidCrystal13CharacterModeEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal13CharacterModeEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:398    .text._ZN13LiquidCrystal8SendByteEc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:403    .text._ZN13LiquidCrystal8SendByteEc:0000000000000000 _ZN13LiquidCrystal8SendByteEc
+.ARM.exidx.text._ZN13LiquidCrystal8SendByteEc:0000000000000000 $d
+     /tmp/ccmaqN2n.s:467    .text._ZN13LiquidCrystal13SendCharacterEc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:472    .text._ZN13LiquidCrystal13SendCharacterEc:0000000000000000 _ZN13LiquidCrystal13SendCharacterEc
+.ARM.exidx.text._ZN13LiquidCrystal13SendCharacterEc:0000000000000000 $d
+     /tmp/ccmaqN2n.s:514    .text._ZN13LiquidCrystal11SendCommandEc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:519    .text._ZN13LiquidCrystal11SendCommandEc:0000000000000000 _ZN13LiquidCrystal11SendCommandEc
+.ARM.exidx.text._ZN13LiquidCrystal11SendCommandEc:0000000000000000 $d
+     /tmp/ccmaqN2n.s:560    .text._ZN13LiquidCrystal12SetupDisplayEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:565    .text._ZN13LiquidCrystal12SetupDisplayEv:0000000000000000 _ZN13LiquidCrystal12SetupDisplayEv
+.ARM.exidx.text._ZN13LiquidCrystal12SetupDisplayEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:606    .text._ZN13LiquidCrystal5beginEhh:0000000000000000 $t
+     /tmp/ccmaqN2n.s:611    .text._ZN13LiquidCrystal5beginEhh:0000000000000000 _ZN13LiquidCrystal5beginEhh
+.ARM.exidx.text._ZN13LiquidCrystal5beginEhh:0000000000000000 $d
+     /tmp/ccmaqN2n.s:640    .text._ZN13LiquidCrystal10SendStringEPKc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:645    .text._ZN13LiquidCrystal10SendStringEPKc:0000000000000000 _ZN13LiquidCrystal10SendStringEPKc
+.ARM.exidx.text._ZN13LiquidCrystal10SendStringEPKc:0000000000000000 $d
+     /tmp/ccmaqN2n.s:705    .text._ZN13LiquidCrystal5printEc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:710    .text._ZN13LiquidCrystal5printEc:0000000000000000 _ZN13LiquidCrystal5printEc
+.ARM.extab.text._ZN13LiquidCrystal5printEc:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEc:0000000000000000 $d
+     /tmp/ccmaqN2n.s:733    .text._ZN13LiquidCrystal5printEPKc:0000000000000000 $t
+     /tmp/ccmaqN2n.s:738    .text._ZN13LiquidCrystal5printEPKc:0000000000000000 _ZN13LiquidCrystal5printEPKc
+.ARM.extab.text._ZN13LiquidCrystal5printEPKc:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEPKc:0000000000000000 $d
+ARM GAS  /tmp/ccmaqN2n.s 			page 32
+
+
+     /tmp/ccmaqN2n.s:763    .text._ZN13LiquidCrystal11printNumberEmh:0000000000000000 $t
+     /tmp/ccmaqN2n.s:768    .text._ZN13LiquidCrystal11printNumberEmh:0000000000000000 _ZN13LiquidCrystal11printNumberEmh
+.ARM.exidx.text._ZN13LiquidCrystal11printNumberEmh:0000000000000000 $d
+     /tmp/ccmaqN2n.s:867    .text._ZN13LiquidCrystal5printEmi:0000000000000000 $t
+     /tmp/ccmaqN2n.s:872    .text._ZN13LiquidCrystal5printEmi:0000000000000000 _ZN13LiquidCrystal5printEmi
+.ARM.extab.text._ZN13LiquidCrystal5printEmi:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEmi:0000000000000000 $d
+     /tmp/ccmaqN2n.s:897    .text._ZN13LiquidCrystal5printEhi:0000000000000000 $t
+     /tmp/ccmaqN2n.s:902    .text._ZN13LiquidCrystal5printEhi:0000000000000000 _ZN13LiquidCrystal5printEhi
+.ARM.extab.text._ZN13LiquidCrystal5printEhi:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEhi:0000000000000000 $d
+     /tmp/ccmaqN2n.s:925    .text._ZN13LiquidCrystal5printEji:0000000000000000 $t
+     /tmp/ccmaqN2n.s:930    .text._ZN13LiquidCrystal5printEji:0000000000000000 _ZN13LiquidCrystal5printEji
+.ARM.extab.text._ZN13LiquidCrystal5printEji:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEji:0000000000000000 $d
+     /tmp/ccmaqN2n.s:953    .text._ZN13LiquidCrystal5printEli:0000000000000000 $t
+     /tmp/ccmaqN2n.s:958    .text._ZN13LiquidCrystal5printEli:0000000000000000 _ZN13LiquidCrystal5printEli
+.ARM.exidx.text._ZN13LiquidCrystal5printEli:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1031   .text._ZN13LiquidCrystal5printEii:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1036   .text._ZN13LiquidCrystal5printEii:0000000000000000 _ZN13LiquidCrystal5printEii
+.ARM.extab.text._ZN13LiquidCrystal5printEii:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5printEii:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1066   .text._ZN13LiquidCrystal10printFloatEdh:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1071   .text._ZN13LiquidCrystal10printFloatEdh:0000000000000000 _ZN13LiquidCrystal10printFloatEdh
+     /tmp/ccmaqN2n.s:1268   .text._ZN13LiquidCrystal10printFloatEdh:00000000000000e0 $d
+.ARM.exidx.text._ZN13LiquidCrystal10printFloatEdh:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1275   .text._ZN13LiquidCrystal5printEdi:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1280   .text._ZN13LiquidCrystal5printEdi:0000000000000000 _ZN13LiquidCrystal5printEdi
+.ARM.exidx.text._ZN13LiquidCrystal5printEdi:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1314   .text._ZN13LiquidCrystal5clearEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1319   .text._ZN13LiquidCrystal5clearEv:0000000000000000 _ZN13LiquidCrystal5clearEv
+.ARM.extab.text._ZN13LiquidCrystal5clearEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal5clearEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1343   .text._ZN13LiquidCrystal4homeEv:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1348   .text._ZN13LiquidCrystal4homeEv:0000000000000000 _ZN13LiquidCrystal4homeEv
+.ARM.extab.text._ZN13LiquidCrystal4homeEv:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal4homeEv:0000000000000000 $d
+     /tmp/ccmaqN2n.s:1372   .text._ZN13LiquidCrystal9setCursorEhh:0000000000000000 $t
+     /tmp/ccmaqN2n.s:1377   .text._ZN13LiquidCrystal9setCursorEhh:0000000000000000 _ZN13LiquidCrystal9setCursorEhh
+.ARM.extab.text._ZN13LiquidCrystal9setCursorEhh:0000000000000000 $d
+.ARM.exidx.text._ZN13LiquidCrystal9setCursorEhh:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+_Z7pinModeh9GPIO_MODE
+__aeabi_unwind_cpp_pr0
+_Z12digitalWriteh8PinState
+__aeabi_unwind_cpp_pr1
+_Z12digitalWritehm
+__aeabi_uidivmod
+__aeabi_uidiv
+__aeabi_dcmplt
+__aeabi_ddiv
+__aeabi_dadd
+__aeabi_d2uiz
+__aeabi_ui2d
+__aeabi_dsub
+ARM GAS  /tmp/ccmaqN2n.s 			page 33
+
+
+__aeabi_dmul

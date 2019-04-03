@@ -1,0 +1,3448 @@
+ARM GAS  /tmp/ccJvy3DQ.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"GPIO_operations.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z11PrintBinarym,"ax",%progbits
+  18              		.align	2
+  19              		.global	_Z11PrintBinarym
+  20              		.code	16
+  21              		.thumb_func
+  23              	_Z11PrintBinarym:
+  24              		.fnstart
+  25              	.LFB616:
+  26              		.file 1 "Src/GPIO_operations.cpp"
+   1:Src/GPIO_operations.cpp **** #include "GPIO_operations.h"
+   2:Src/GPIO_operations.cpp **** 
+   3:Src/GPIO_operations.cpp **** void PrintBinary(uint32_t number)
+   4:Src/GPIO_operations.cpp **** {
+  27              		.loc 1 4 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30 0000 10B5     		push	{r4, lr}
+  31              		.save {r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36 0002 041C     		mov	r4, r0
+   5:Src/GPIO_operations.cpp ****   while (number)
+  37              		.loc 1 5 0
+  38 0004 09E0     		b	.L2
+  39              	.LVL1:
+  40              	.L5:
+   6:Src/GPIO_operations.cpp ****   {
+   7:Src/GPIO_operations.cpp ****     if (number & 1)
+  41              		.loc 1 7 0
+  42 0006 E307     		lsl	r3, r4, #31
+  43 0008 03D5     		bpl	.L3
+   8:Src/GPIO_operations.cpp ****       printf("1");
+  44              		.loc 1 8 0
+  45 000a 3120     		mov	r0, #49
+  46 000c FFF7FEFF 		bl	putchar
+  47              	.LVL2:
+  48 0010 02E0     		b	.L4
+  49              	.L3:
+   9:Src/GPIO_operations.cpp ****     else
+ARM GAS  /tmp/ccJvy3DQ.s 			page 2
+
+
+  10:Src/GPIO_operations.cpp ****       printf("0");
+  50              		.loc 1 10 0
+  51 0012 3020     		mov	r0, #48
+  52 0014 FFF7FEFF 		bl	putchar
+  53              	.LVL3:
+  54              	.L4:
+  11:Src/GPIO_operations.cpp **** 
+  12:Src/GPIO_operations.cpp ****     number >>= 1;
+  55              		.loc 1 12 0
+  56 0018 6408     		lsr	r4, r4, #1
+  57              	.LVL4:
+  58              	.L2:
+   5:Src/GPIO_operations.cpp ****   {
+  59              		.loc 1 5 0
+  60 001a 002C     		cmp	r4, #0
+  61 001c F3D1     		bne	.L5
+  13:Src/GPIO_operations.cpp ****   }
+  14:Src/GPIO_operations.cpp ****   printf("\n");
+  62              		.loc 1 14 0
+  63 001e 0A20     		mov	r0, #10
+  64 0020 FFF7FEFF 		bl	putchar
+  65              	.LVL5:
+  15:Src/GPIO_operations.cpp **** }
+  66              		.loc 1 15 0
+  67              		@ sp needed
+  68              	.LVL6:
+  69 0024 10BD     		pop	{r4, pc}
+  70              		.cfi_endproc
+  71              	.LFE616:
+  72              		.fnend
+  74 0026 C046     		.section	.text._Z8EnableIOP12GPIO_TypeDef,"ax",%progbits
+  75              		.align	2
+  76              		.global	_Z8EnableIOP12GPIO_TypeDef
+  77              		.code	16
+  78              		.thumb_func
+  80              	_Z8EnableIOP12GPIO_TypeDef:
+  81              		.fnstart
+  82              	.LFB617:
+  16:Src/GPIO_operations.cpp **** 
+  17:Src/GPIO_operations.cpp **** void EnableIO(GPIO_TypeDef *GPIOx)
+  18:Src/GPIO_operations.cpp **** {
+  83              		.loc 1 18 0
+  84              		.cfi_startproc
+  85              		.cfi_personality 0,__gxx_personality_v0
+  86              		.cfi_lsda 0,.LLSDA617
+  87              	.LVL7:
+  88 0000 10B5     		push	{r4, lr}
+  89              		.save {r4, lr}
+  90              	.LCFI1:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 4, -8
+  93              		.cfi_offset 14, -4
+  94              		.pad #16
+  95 0002 84B0     		sub	sp, sp, #16
+  96              	.LCFI2:
+  97              		.cfi_def_cfa_offset 24
+  19:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ARM GAS  /tmp/ccJvy3DQ.s 			page 3
+
+
+  98              		.loc 1 19 0
+  99 0004 0028     		cmp	r0, #0
+ 100 0006 16D1     		bne	.L7
+  20:Src/GPIO_operations.cpp ****   {
+  21:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 101              		.loc 1 21 0
+ 102 0008 0830     		add	r0, r0, #8
+ 103              	.LVL8:
+ 104 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 105              	.LVL9:
+ 106 000e 041C     		mov	r4, r0
+ 107              	.LVL10:
+ 108 0010 6846     		mov	r0, sp
+ 109 0012 2949     		ldr	r1, .L17
+ 110 0014 01AA     		add	r2, sp, #4
+ 111              	.LVL11:
+ 112              	.LEHB0:
+ 113 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 114              	.LEHE0:
+ 115              	.LVL12:
+ 116              		.loc 1 21 0 is_stmt 0 discriminator 2
+ 117 001a 201C     		mov	r0, r4
+ 118 001c 6946     		mov	r1, sp
+ 119              	.LEHB1:
+ 120 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 121              	.LEHE1:
+ 122              	.LVL13:
+ 123              	.LBB471:
+ 124              	.LBB472:
+ 125              	.LBB473:
+ 126              	.LBB474:
+ 127              		.file 2 "/usr/include/newlib/c++/4.9.3/bits/basic_string.h"
+   1:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Components for manipulating sequences of characters -*- C++ -*-
+   2:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+   3:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Copyright (C) 1997-2014 Free Software Foundation, Inc.
+   4:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+   5:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // terms of the GNU General Public License as published by the
+   8:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // any later version.
+  10:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  11:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // GNU General Public License for more details.
+  15:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  16:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  20:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  25:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** /** @file bits/basic_string.h
+ARM GAS  /tmp/ccJvy3DQ.s 			page 4
+
+
+  26:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  *  This is an internal header file, included by other library headers.
+  27:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  *  Do not attempt to use it directly. @headername{string}
+  28:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****  */
+  29:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  30:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+  31:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** // ISO C++ 14882: 21 Strings library
+  32:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** //
+  33:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  34:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #ifndef _BASIC_STRING_H
+  35:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #define _BASIC_STRING_H 1
+  36:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  37:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #pragma GCC system_header
+  38:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  39:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <ext/atomicity.h>
+  40:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <debug/debug.h>
+  41:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if __cplusplus >= 201103L
+  42:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #include <initializer_list>
+  43:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+  44:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  45:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** namespace std _GLIBCXX_VISIBILITY(default)
+  46:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** {
+  47:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  48:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+  49:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   /**
+  50:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @class basic_string basic_string.h <string>
+  51:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @brief  Managing sequences of characters and character-like objects.
+  52:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  53:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @ingroup strings
+  54:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @ingroup sequences
+  55:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  56:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _CharT  Type of character
+  57:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _Traits  Traits for character type, defaults to
+  58:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                   char_traits<_CharT>.
+  59:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @tparam _Alloc  Allocator type, defaults to allocator<_CharT>.
+  60:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  61:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
+  62:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#66">reversible container</a>, and a
+  63:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#67">sequence</a>.  Of the
+  64:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  <a href="tables.html#68">optional sequence requirements</a>, only
+  65:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @c push_back, @c at, and @c %array access are supported.
+  66:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  67:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @doctodo
+  68:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  69:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  70:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Documentation?  What's that?
+  71:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Nathan Myers <ncm@cantrip.org>.
+  72:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  73:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  A string looks like this:
+  74:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  75:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @code
+  76:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                                        [_Rep]
+  77:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *                                        _M_length
+  78:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   [basic_string<char_type>]            _M_capacity
+  79:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   _M_dataplus                          _M_refcount
+  80:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *   _M_p ---------------->               unnamed array of char_type
+  81:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  @endcode
+  82:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+ARM GAS  /tmp/ccJvy3DQ.s 			page 5
+
+
+  83:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Where the _M_p points to the first character in the string, and
+  84:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  you cast it to a pointer-to-_Rep and subtract 1 to get a
+  85:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  pointer to the header.
+  86:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  87:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  This approach has the enormous advantage that a string object
+  88:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  requires only one allocation.  All the ugliness is confined
+  89:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  within a single %pair of inline functions, which each compile to
+  90:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  a single @a add instruction: _Rep::_M_data(), and
+  91:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  string::_M_rep(); and the allocation function which gets a
+  92:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  block of raw bytes and with room enough and constructs a _Rep
+  93:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  object at the front.
+  94:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+  95:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  The reason you want _M_data pointing to the character %array and
+  96:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  not the _Rep is so that the debugger can see the string
+  97:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  contents. (Probably we should add a non-inline member to get
+  98:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  the _Rep for the debugger to use, so users can check the actual
+  99:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  string length.)
+ 100:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+ 101:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  Note that the _Rep object is a POD so that you can have a
+ 102:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  static <em>empty string</em> _Rep object already @a constructed before
+ 103:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  static constructors have run.  The reference-count encoding is
+ 104:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  chosen so that a 0 indicates one reference, so you never try to
+ 105:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  destroy the empty-string _Rep object.
+ 106:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *
+ 107:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  All but the last paragraph is considered pretty conventional
+ 108:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****    *  for a C++ string implementation.
+ 109:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   */
+ 110:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   // 21.3  Template class basic_string
+ 111:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****   template<typename _CharT, typename _Traits, typename _Alloc>
+ 112:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     class basic_string
+ 113:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     {
+ 114:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _Alloc::template rebind<_CharT>::other _CharT_alloc_type;
+ 115:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 116:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Types:
+ 117:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ 118:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef _Traits					    traits_type;
+ 119:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _Traits::char_type		    value_type;
+ 120:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef _Alloc					    allocator_type;
+ 121:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::size_type	    size_type;
+ 122:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::difference_type   difference_type;
+ 123:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::reference	    reference;
+ 124:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::const_reference   const_reference;
+ 125:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::pointer	    pointer;
+ 126:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef typename _CharT_alloc_type::const_pointer	    const_pointer;
+ 127:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef __gnu_cxx::__normal_iterator<pointer, basic_string>  iterator;
+ 128:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef __gnu_cxx::__normal_iterator<const_pointer, basic_string>
+ 129:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****                                                             const_iterator;
+ 130:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef std::reverse_iterator<const_iterator>	const_reverse_iterator;
+ 131:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       typedef std::reverse_iterator<iterator>		    reverse_iterator;
+ 132:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 133:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     private:
+ 134:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // _Rep: string representation
+ 135:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   Invariants:
+ 136:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   1. String really contains _M_length + 1 characters: due to 21.3.4
+ 137:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      must be kept null-terminated.
+ 138:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   2. _M_capacity >= _M_length
+ 139:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      Allocated memory is always (_M_capacity + 1) * sizeof(_CharT).
+ARM GAS  /tmp/ccJvy3DQ.s 			page 6
+
+
+ 140:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   3. _M_refcount has three states:
+ 141:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      -1: leaked, one reference, no ref-copies allowed, non-const.
+ 142:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //       0: one reference, non-const.
+ 143:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //     n>0: n + 1 references, operations require a lock, const.
+ 144:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //   4. All fields==0 is an empty string, given the extra storage
+ 145:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      beyond-the-end for a null terminator; thus, the shared
+ 146:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       //      empty string representation needs no constructor.
+ 147:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 148:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Rep_base
+ 149:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 150:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	size_type		_M_length;
+ 151:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	size_type		_M_capacity;
+ 152:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_Atomic_word		_M_refcount;
+ 153:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ 154:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 155:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Rep : _Rep_base
+ 156:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 157:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Types:
+ 158:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	typedef typename _Alloc::template rebind<char>::other _Raw_bytes_alloc;
+ 159:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 160:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// (Public) Data members:
+ 161:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 162:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// The maximum number of individual char_type elements of an
+ 163:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// individual string is determined by _S_max_size. This is the
+ 164:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// value that will be returned by max_size().  (Whereas npos
+ 165:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// is the maximum number of bytes the allocator can allocate.)
+ 166:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// If one was to divvy up the theoretical largest size string,
+ 167:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// with a terminating character and m _CharT elements, it'd
+ 168:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// look like this:
+ 169:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// npos = sizeof(_Rep) + (m * sizeof(_CharT)) + sizeof(_CharT)
+ 170:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Solving for m:
+ 171:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// m = ((npos - sizeof(_Rep))/sizeof(CharT)) - 1
+ 172:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// In addition, this implementation quarters this amount.
+ 173:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static const size_type	_S_max_size;
+ 174:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static const _CharT	_S_terminal;
+ 175:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 176:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// The following storage is init'd to 0 by the linker, resulting
+ 177:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         // (carefully) in an empty string with one reference.
+ 178:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static size_type _S_empty_rep_storage[];
+ 179:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 180:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static _Rep&
+ 181:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         _S_empty_rep() _GLIBCXX_NOEXCEPT
+ 182:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { 
+ 183:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // NB: Mild hack to avoid strict-aliasing warnings.  Note that
+ 184:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // _S_empty_rep_storage is never modified and the punning should
+ 185:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  // be reasonably safe in this case.
+ 186:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  void* __p = reinterpret_cast<void*>(&_S_empty_rep_storage);
+ 187:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return *reinterpret_cast<_Rep*>(__p);
+ 188:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 189:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 190:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         bool
+ 191:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_is_leaked() const _GLIBCXX_NOEXCEPT
+ 192:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { return this->_M_refcount < 0; }
+ 193:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 194:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         bool
+ 195:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_is_shared() const _GLIBCXX_NOEXCEPT
+ 196:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { return this->_M_refcount > 0; }
+ARM GAS  /tmp/ccJvy3DQ.s 			page 7
+
+
+ 197:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 198:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         void
+ 199:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_leaked() _GLIBCXX_NOEXCEPT
+ 200:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { this->_M_refcount = -1; }
+ 201:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 202:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         void
+ 203:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_sharable() _GLIBCXX_NOEXCEPT
+ 204:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         { this->_M_refcount = 0; }
+ 205:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 206:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 207:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_set_length_and_sharable(size_type __n) _GLIBCXX_NOEXCEPT
+ 208:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 209:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 210:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 211:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 212:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    {
+ 213:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      this->_M_set_sharable();  // One reference.
+ 214:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      this->_M_length = __n;
+ 215:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      traits_type::assign(this->_M_refdata()[__n], _S_terminal);
+ 216:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // grrr. (per 21.3.4)
+ 217:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // You cannot leave those LWG people alone for a second.
+ 218:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    }
+ 219:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 220:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 221:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 222:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_refdata() throw()
+ 223:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{ return reinterpret_cast<_CharT*>(this + 1); }
+ 224:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 225:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 226:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_grab(const _Alloc& __alloc1, const _Alloc& __alloc2)
+ 227:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 228:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return (!_M_is_leaked() && __alloc1 == __alloc2)
+ 229:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	          ? _M_refcopy() : _M_clone(__alloc1);
+ 230:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 231:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 232:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	// Create & Destroy
+ 233:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	static _Rep*
+ 234:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_S_create(size_type, size_type, const _Alloc&);
+ 235:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 236:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 237:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_dispose(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+ 238:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 239:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 240:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 241:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 242:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    {
+ 243:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      // Be race-detector-friendly.  For more info see bits/c++config.
+ 244:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&this->_M_refcount);
+ 245:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	      if (__gnu_cxx::__exchange_and_add_dispatch(&this->_M_refcount,
+ 246:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 							 -1) <= 0)
+ 247:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		{
+ 248:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		  _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&this->_M_refcount);
+ 249:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		  _M_destroy(__a);
+ 250:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		}
+ 251:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    }
+ 252:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}  // XXX MT
+ 253:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ARM GAS  /tmp/ccJvy3DQ.s 			page 8
+
+
+ 254:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	void
+ 255:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_destroy(const _Alloc&) throw();
+ 256:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 257:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 258:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_refcopy() throw()
+ 259:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	{
+ 260:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 261:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  if (__builtin_expect(this != &_S_empty_rep(), false))
+ 262:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 263:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****             __gnu_cxx::__atomic_add_dispatch(&this->_M_refcount, 1);
+ 264:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return _M_refdata();
+ 265:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}  // XXX MT
+ 266:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 267:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT*
+ 268:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_M_clone(const _Alloc&, size_type __res = 0);
+ 269:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ 270:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 271:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Use empty-base optimization: http://www.cantrip.org/emptyopt.html
+ 272:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       struct _Alloc_hider : _Alloc
+ 273:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 274:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_Alloc_hider(_CharT* __dat, const _Alloc& __a) _GLIBCXX_NOEXCEPT
+ 275:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	: _Alloc(__a), _M_p(__dat) { }
+ 276:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 277:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_CharT* _M_p; // The actual data.
+ 278:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       };
+ 279:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 280:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ 281:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Data Members (public):
+ 282:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: This is an unsigned type, and thus represents the maximum
+ 283:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // size that the allocator can hold.
+ 284:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       ///  Value returned by various member functions when they fail.
+ 285:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static const size_type	npos = static_cast<size_type>(-1);
+ 286:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 287:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     private:
+ 288:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Data Members (private):
+ 289:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       mutable _Alloc_hider	_M_dataplus;
+ 290:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 291:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _CharT*
+ 292:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_data() const _GLIBCXX_NOEXCEPT
+ 293:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return  _M_dataplus._M_p; }
+ 294:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 295:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _CharT*
+ 296:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_data(_CharT* __p) _GLIBCXX_NOEXCEPT
+ 297:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return (_M_dataplus._M_p = __p); }
+ 298:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 299:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _Rep*
+ 300:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_rep() const _GLIBCXX_NOEXCEPT
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return &((reinterpret_cast<_Rep*> (_M_data()))[-1]); }
+ 128              		.loc 2 301 0 is_stmt 1
+ 129 0022 0098     		ldr	r0, [sp]
+ 130 0024 0C38     		sub	r0, r0, #12
+ 131              	.LVL14:
+ 132              	.LBE474:
+ 133              	.LBE473:
+ 302:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 303:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // For the internal use we have functions similar to `begin'/`end'
+ 304:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // but they do not call _M_leak.
+ARM GAS  /tmp/ccJvy3DQ.s 			page 9
+
+
+ 305:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       iterator
+ 306:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_ibegin() const _GLIBCXX_NOEXCEPT
+ 307:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return iterator(_M_data()); }
+ 308:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 309:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       iterator
+ 310:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_iend() const _GLIBCXX_NOEXCEPT
+ 311:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return iterator(_M_data() + this->size()); }
+ 312:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 313:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 314:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_leak()    // for use in begin() & non-const op[]
+ 315:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 316:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (!_M_rep()->_M_is_leaked())
+ 317:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  _M_leak_hard();
+ 318:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 319:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 320:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       size_type
+ 321:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_check(size_type __pos, const char* __s) const
+ 322:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 323:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__pos > this->size())
+ 324:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+ 325:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 				       "this->size() (which is %zu)"),
+ 326:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 				   __s, __pos, this->size());
+ 327:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return __pos;
+ 328:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 329:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 330:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 331:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_check_length(size_type __n1, size_type __n2, const char* __s) const
+ 332:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 333:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (this->max_size() - (this->size() - __n1) < __n2)
+ 334:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  __throw_length_error(__N(__s));
+ 335:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 336:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 337:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: _M_limit doesn't check for a bad __pos value.
+ 338:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       size_type
+ 339:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
+ 340:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 341:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	const bool __testoff =  __off < this->size() - __pos;
+ 342:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return __testoff ? __off : this->size() - __pos;
+ 343:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 344:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 345:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // True if _Rep and source do not overlap.
+ 346:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       bool
+ 347:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+ 348:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 349:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	return (less<const _CharT*>()(__s, _M_data())
+ 350:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+ 351:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 352:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 353:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // When __n = 1 way faster than the general multichar
+ 354:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // traits_type::copy/move/assign.
+ 355:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 356:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_copy(_CharT* __d, const _CharT* __s, size_type __n) _GLIBCXX_NOEXCEPT
+ 357:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 358:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 359:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, *__s);
+ 360:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 361:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::copy(__d, __s, __n);
+ARM GAS  /tmp/ccJvy3DQ.s 			page 10
+
+
+ 362:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 363:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 364:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 365:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_move(_CharT* __d, const _CharT* __s, size_type __n) _GLIBCXX_NOEXCEPT
+ 366:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 367:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 368:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, *__s);
+ 369:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 370:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::move(__d, __s, __n);	  
+ 371:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 372:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 373:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 374:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_assign(_CharT* __d, size_type __n, _CharT __c) _GLIBCXX_NOEXCEPT
+ 375:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 376:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__n == 1)
+ 377:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(*__d, __c);
+ 378:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 379:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  traits_type::assign(__d, __n, __c);	  
+ 380:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 381:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 382:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // _S_copy_chars is a separate template to permit specialization
+ 383:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // to optimize for the common case of pointers as iterators.
+ 384:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       template<class _Iterator>
+ 385:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         static void
+ 386:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         _S_copy_chars(_CharT* __p, _Iterator __k1, _Iterator __k2)
+ 387:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	_GLIBCXX_NOEXCEPT
+ 388:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         {
+ 389:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  for (; __k1 != __k2; ++__k1, ++__p)
+ 390:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	    traits_type::assign(*__p, *__k1); // These types are off.
+ 391:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	}
+ 392:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 393:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 394:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, iterator __k1, iterator __k2) _GLIBCXX_NOEXCEPT
+ 395:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _S_copy_chars(__p, __k1.base(), __k2.base()); }
+ 396:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 397:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 398:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, const_iterator __k1, const_iterator __k2)
+ 399:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _GLIBCXX_NOEXCEPT
+ 400:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _S_copy_chars(__p, __k1.base(), __k2.base()); }
+ 401:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 402:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 403:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
+ 404:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_copy(__p, __k1, __k2 - __k1); }
+ 405:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 406:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static void
+ 407:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
+ 408:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _GLIBCXX_NOEXCEPT
+ 409:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_copy(__p, __k1, __k2 - __k1); }
+ 410:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 411:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static int
+ 412:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_compare(size_type __n1, size_type __n2) _GLIBCXX_NOEXCEPT
+ 413:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 414:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	const difference_type __d = difference_type(__n1 - __n2);
+ 415:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 416:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	if (__d > __gnu_cxx::__numeric_traits<int>::__max)
+ 417:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return __gnu_cxx::__numeric_traits<int>::__max;
+ 418:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else if (__d < __gnu_cxx::__numeric_traits<int>::__min)
+ARM GAS  /tmp/ccJvy3DQ.s 			page 11
+
+
+ 419:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return __gnu_cxx::__numeric_traits<int>::__min;
+ 420:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	else
+ 421:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	  return int(__d);
+ 422:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 423:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 424:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 425:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_mutate(size_type __pos, size_type __len1, size_type __len2);
+ 426:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 427:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       void
+ 428:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _M_leak_hard();
+ 429:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 430:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       static _Rep&
+ 431:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       _S_empty_rep() _GLIBCXX_NOEXCEPT
+ 432:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { return _Rep::_S_empty_rep(); }
+ 433:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 434:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****     public:
+ 435:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // Construct/copy/destroy:
+ 436:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: We overload ctors in some cases instead of using default
+ 437:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // arguments, per 17.4.4.4 para. 2 item 2.
+ 438:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 439:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 440:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Default constructor creates an empty string.
+ 441:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 442:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string()
+ 443:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 444:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(_S_empty_rep()._M_refdata(), _Alloc()) { }
+ 445:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #else
+ 446:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(_S_construct(size_type(), _CharT(), _Alloc()), _Alloc()){ }
+ 447:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 448:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 449:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 450:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct an empty string using allocator @a a.
+ 451:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 452:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       explicit
+ 453:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _Alloc& __a);
+ 454:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 455:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       // NB: per LWG issue 42, semantics different from IS:
+ 456:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 457:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string with copy of value of @a str.
+ 458:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 459:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 460:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str);
+ 461:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 462:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a substring.
+ 463:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 464:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __pos  Index of first character to copy from.
+ 465:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy (default remainder).
+ 466:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 467:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str, size_type __pos,
+ 468:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   size_type __n = npos);
+ 469:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 470:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a substring.
+ 471:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 472:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __pos  Index of first character to copy from.
+ 473:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy.
+ 474:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use.
+ 475:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ARM GAS  /tmp/ccJvy3DQ.s 			page 12
+
+
+ 476:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const basic_string& __str, size_type __pos,
+ 477:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   size_type __n, const _Alloc& __a);
+ 478:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 479:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 480:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string initialized by a character %array.
+ 481:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __s  Source character %array.
+ 482:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters to copy.
+ 483:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 484:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *
+ 485:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  NB: @a __s must have at least @a __n characters, &apos;\\0&apos;
+ 486:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  has no special meaning.
+ 487:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 488:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _CharT* __s, size_type __n,
+ 489:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		   const _Alloc& __a = _Alloc());
+ 490:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 491:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a C string.
+ 492:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __s  Source C string.
+ 493:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 494:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 495:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc());
+ 496:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 497:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as multiple characters.
+ 498:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __n  Number of characters.
+ 499:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __c  Character to use.
+ 500:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 501:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 502:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc());
+ 503:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 504:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if __cplusplus >= 201103L
+ 505:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 506:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Move construct string.
+ 507:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __str  Source string.
+ 508:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *
+ 509:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  The newly-created string contains the exact contents of @a __str.
+ 510:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @a __str is a valid, but unspecified string.
+ 511:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        **/
+ 512:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(basic_string&& __str)
+ 513:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 514:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       noexcept // FIXME C++11: should always be noexcept.
+ 515:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 516:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       : _M_dataplus(__str._M_dataplus)
+ 517:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       {
+ 518:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #if _GLIBCXX_FULLY_DYNAMIC_STRING == 0
+ 519:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	__str._M_data(_S_empty_rep()._M_refdata());
+ 520:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #else
+ 521:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 	__str._M_data(_S_construct(size_type(), _CharT(), get_allocator()));
+ 522:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif
+ 523:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       }
+ 524:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 525:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 526:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string from an initializer %list.
+ 527:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __l  std::initializer_list of characters.
+ 528:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 529:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 530:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc());
+ 531:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** #endif // C++11
+ 532:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ARM GAS  /tmp/ccJvy3DQ.s 			page 13
+
+
+ 533:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 534:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Construct string as copy of a range.
+ 535:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __beg  Start of range.
+ 536:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __end  End of range.
+ 537:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @param  __a  Allocator to use (default is default allocator).
+ 538:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 539:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       template<class _InputIterator>
+ 540:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****         basic_string(_InputIterator __beg, _InputIterator __end,
+ 541:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 		     const _Alloc& __a = _Alloc());
+ 542:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 543:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       /**
+ 544:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        *  @brief  Destroy the string instance.
+ 545:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****        */
+ 546:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       ~basic_string() _GLIBCXX_NOEXCEPT
+ 547:/usr/include/newlib/c++/4.9.3/bits/basic_string.h ****       { _M_rep()->_M_dispose(this->get_allocator()); }
+ 134              		.loc 2 547 0
+ 135 0026 02A9     		add	r1, sp, #8
+ 136 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 137              	.LVL15:
+ 138              	.LBE472:
+ 139              	.LBE471:
+ 140              		.loc 1 21 0
+ 141 002c 201C     		mov	r0, r4
+ 142 002e 2349     		ldr	r1, .L17+4
+ 143 0030 234A     		ldr	r2, .L17+8
+ 144              	.LEHB2:
+ 145 0032 FFF7FEFF 		bl	__cxa_throw
+ 146              	.LVL16:
+ 147              	.L7:
+  22:Src/GPIO_operations.cpp ****   }
+  23:Src/GPIO_operations.cpp ****   if (GPIOx == GPIOA)
+ 148              		.loc 1 23 0
+ 149 0036 9023     		mov	r3, #144
+ 150 0038 DB05     		lsl	r3, r3, #23
+ 151 003a 9842     		cmp	r0, r3
+ 152 003c 06D1     		bne	.L8
+  24:Src/GPIO_operations.cpp ****   {
+  25:Src/GPIO_operations.cpp ****     RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+ 153              		.loc 1 25 0
+ 154 003e 214A     		ldr	r2, .L17+12
+ 155 0040 5369     		ldr	r3, [r2, #20]
+ 156 0042 8021     		mov	r1, #128
+ 157 0044 8902     		lsl	r1, r1, #10
+ 158 0046 0B43     		orr	r3, r1
+ 159 0048 5361     		str	r3, [r2, #20]
+ 160 004a 32E0     		b	.L6
+ 161              	.L8:
+  26:Src/GPIO_operations.cpp ****   }
+  27:Src/GPIO_operations.cpp ****   else if (GPIOx == GPIOB)
+ 162              		.loc 1 27 0
+ 163 004c 1E4B     		ldr	r3, .L17+16
+ 164 004e 9842     		cmp	r0, r3
+ 165 0050 06D1     		bne	.L10
+  28:Src/GPIO_operations.cpp ****   {
+  29:Src/GPIO_operations.cpp ****     RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
+ 166              		.loc 1 29 0
+ 167 0052 1C4A     		ldr	r2, .L17+12
+ARM GAS  /tmp/ccJvy3DQ.s 			page 14
+
+
+ 168 0054 5369     		ldr	r3, [r2, #20]
+ 169 0056 8021     		mov	r1, #128
+ 170 0058 C902     		lsl	r1, r1, #11
+ 171 005a 0B43     		orr	r3, r1
+ 172 005c 5361     		str	r3, [r2, #20]
+ 173 005e 28E0     		b	.L6
+ 174              	.L10:
+  30:Src/GPIO_operations.cpp ****   }
+  31:Src/GPIO_operations.cpp ****   else if (GPIOx == GPIOC)
+ 175              		.loc 1 31 0
+ 176 0060 1A4B     		ldr	r3, .L17+20
+ 177 0062 9842     		cmp	r0, r3
+ 178 0064 06D1     		bne	.L11
+  32:Src/GPIO_operations.cpp ****   {
+  33:Src/GPIO_operations.cpp ****     RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
+ 179              		.loc 1 33 0
+ 180 0066 174A     		ldr	r2, .L17+12
+ 181 0068 5369     		ldr	r3, [r2, #20]
+ 182 006a 8021     		mov	r1, #128
+ 183 006c 0903     		lsl	r1, r1, #12
+ 184 006e 0B43     		orr	r3, r1
+ 185 0070 5361     		str	r3, [r2, #20]
+ 186 0072 1EE0     		b	.L6
+ 187              	.L11:
+  34:Src/GPIO_operations.cpp ****   }
+  35:Src/GPIO_operations.cpp ****   else if (GPIOx == GPIOD)
+ 188              		.loc 1 35 0
+ 189 0074 164B     		ldr	r3, .L17+24
+ 190 0076 9842     		cmp	r0, r3
+ 191 0078 06D1     		bne	.L12
+  36:Src/GPIO_operations.cpp ****   {
+  37:Src/GPIO_operations.cpp ****     RCC->AHBENR |= RCC_AHBENR_GPIODEN;
+ 192              		.loc 1 37 0
+ 193 007a 124A     		ldr	r2, .L17+12
+ 194 007c 5369     		ldr	r3, [r2, #20]
+ 195 007e 8021     		mov	r1, #128
+ 196 0080 4903     		lsl	r1, r1, #13
+ 197 0082 0B43     		orr	r3, r1
+ 198 0084 5361     		str	r3, [r2, #20]
+ 199 0086 14E0     		b	.L6
+ 200              	.L12:
+  38:Src/GPIO_operations.cpp ****   }
+  39:Src/GPIO_operations.cpp ****   else if (GPIOx == GPIOF)
+ 201              		.loc 1 39 0
+ 202 0088 124B     		ldr	r3, .L17+28
+ 203 008a 9842     		cmp	r0, r3
+ 204 008c 11D1     		bne	.L6
+  40:Src/GPIO_operations.cpp ****   {
+  41:Src/GPIO_operations.cpp ****     RCC->AHBENR |= RCC_AHBENR_GPIOFEN;
+ 205              		.loc 1 41 0
+ 206 008e 0D4A     		ldr	r2, .L17+12
+ 207 0090 5369     		ldr	r3, [r2, #20]
+ 208 0092 8021     		mov	r1, #128
+ 209 0094 C903     		lsl	r1, r1, #15
+ 210 0096 0B43     		orr	r3, r1
+ 211 0098 5361     		str	r3, [r2, #20]
+ 212 009a 0AE0     		b	.L6
+ARM GAS  /tmp/ccJvy3DQ.s 			page 15
+
+
+ 213              	.LVL17:
+ 214              	.L16:
+ 215              	.LBB475:
+ 216              	.LBB476:
+ 217              	.LBB477:
+ 218              	.LBB478:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 219              		.loc 2 301 0
+ 220 009c 0098     		ldr	r0, [sp]
+ 221 009e 0C38     		sub	r0, r0, #12
+ 222              	.LVL18:
+ 223              	.LBE478:
+ 224              	.LBE477:
+ 225              		.loc 2 547 0
+ 226 00a0 03A9     		add	r1, sp, #12
+ 227 00a2 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 228              	.LVL19:
+ 229 00a6 FFE7     		b	.L14
+ 230              	.LVL20:
+ 231              	.L15:
+ 232              	.L14:
+ 233              	.LBE476:
+ 234              	.LBE475:
+  21:Src/GPIO_operations.cpp ****   }
+ 235              		.loc 1 21 0 discriminator 1
+ 236 00a8 201C     		mov	r0, r4
+ 237 00aa FFF7FEFF 		bl	__cxa_free_exception
+ 238              	.LVL21:
+ 239 00ae FFF7FEFF 		bl	__cxa_end_cleanup
+ 240              	.LEHE2:
+ 241              	.LVL22:
+ 242              	.L6:
+  42:Src/GPIO_operations.cpp ****   }
+  43:Src/GPIO_operations.cpp **** }
+ 243              		.loc 1 43 0
+ 244 00b2 04B0     		add	sp, sp, #16
+ 245              		@ sp needed
+ 246 00b4 10BD     		pop	{r4, pc}
+ 247              	.L18:
+ 248 00b6 C046     		.align	2
+ 249              	.L17:
+ 250 00b8 00000000 		.word	.LC0
+ 251 00bc 00000000 		.word	_ZTISt16invalid_argument
+ 252 00c0 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 253 00c4 00100240 		.word	1073876992
+ 254 00c8 00040048 		.word	1207960576
+ 255 00cc 00080048 		.word	1207961600
+ 256 00d0 000C0048 		.word	1207962624
+ 257 00d4 00140048 		.word	1207964672
+ 258              		.cfi_endproc
+ 259              	.LFE617:
+ 260              		.global	__gxx_personality_v0
+ 261              		.personality	__gxx_personality_v0
+ 262              		.handlerdata
+ 263              	.LLSDA617:
+ 264 0008 FF       		.byte	0xff
+ 265 0009 FF       		.byte	0xff
+ARM GAS  /tmp/ccJvy3DQ.s 			page 16
+
+
+ 266 000a 01       		.byte	0x1
+ 267 000b 0F       		.uleb128 .LLSDACSE617-.LLSDACSB617
+ 268              	.LLSDACSB617:
+ 269 000c 16       		.uleb128 .LEHB0-.LFB617
+ 270 000d 04       		.uleb128 .LEHE0-.LEHB0
+ 271 000e A801     		.uleb128 .L15-.LFB617
+ 272 0010 00       		.uleb128 0
+ 273 0011 1E       		.uleb128 .LEHB1-.LFB617
+ 274 0012 04       		.uleb128 .LEHE1-.LEHB1
+ 275 0013 9C01     		.uleb128 .L16-.LFB617
+ 276 0015 00       		.uleb128 0
+ 277 0016 32       		.uleb128 .LEHB2-.LFB617
+ 278 0017 8001     		.uleb128 .LEHE2-.LEHB2
+ 279 0019 00       		.uleb128 0
+ 280 001a 00       		.uleb128 0
+ 281              	.LLSDACSE617:
+ 282              		.section	.text._Z8EnableIOP12GPIO_TypeDef
+ 283              		.fnend
+ 285              		.section	.text._Z9TogglePinP12GPIO_TypeDeft,"ax",%progbits
+ 286              		.align	2
+ 287              		.global	_Z9TogglePinP12GPIO_TypeDeft
+ 288              		.code	16
+ 289              		.thumb_func
+ 291              	_Z9TogglePinP12GPIO_TypeDeft:
+ 292              		.fnstart
+ 293              	.LFB627:
+  44:Src/GPIO_operations.cpp **** 
+  45:Src/GPIO_operations.cpp **** void TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+  46:Src/GPIO_operations.cpp **** {
+ 294              		.loc 1 46 0
+ 295              		.cfi_startproc
+ 296              		.cfi_personality 0,__gxx_personality_v0
+ 297              		.cfi_lsda 0,.LLSDA627
+ 298              	.LVL23:
+ 299 0000 10B5     		push	{r4, lr}
+ 300              		.save {r4, lr}
+ 301              	.LCFI3:
+ 302              		.cfi_def_cfa_offset 8
+ 303              		.cfi_offset 4, -8
+ 304              		.cfi_offset 14, -4
+ 305              		.pad #16
+ 306 0002 84B0     		sub	sp, sp, #16
+ 307              	.LCFI4:
+ 308              		.cfi_def_cfa_offset 24
+  47:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 309              		.loc 1 47 0
+ 310 0004 0028     		cmp	r0, #0
+ 311 0006 16D1     		bne	.L20
+  48:Src/GPIO_operations.cpp ****   {
+  49:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 312              		.loc 1 49 0
+ 313 0008 0830     		add	r0, r0, #8
+ 314              	.LVL24:
+ 315 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 316              	.LVL25:
+ 317 000e 041C     		mov	r4, r0
+ 318              	.LVL26:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 17
+
+
+ 319 0010 6846     		mov	r0, sp
+ 320 0012 1149     		ldr	r1, .L26
+ 321 0014 01AA     		add	r2, sp, #4
+ 322              	.LVL27:
+ 323              	.LEHB3:
+ 324 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 325              	.LEHE3:
+ 326              	.LVL28:
+ 327              		.loc 1 49 0 is_stmt 0 discriminator 2
+ 328 001a 201C     		mov	r0, r4
+ 329 001c 6946     		mov	r1, sp
+ 330              	.LEHB4:
+ 331 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 332              	.LEHE4:
+ 333              	.LVL29:
+ 334              	.LBB479:
+ 335              	.LBB480:
+ 336              	.LBB481:
+ 337              	.LBB482:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 338              		.loc 2 301 0 is_stmt 1
+ 339 0022 0098     		ldr	r0, [sp]
+ 340 0024 0C38     		sub	r0, r0, #12
+ 341              	.LVL30:
+ 342              	.LBE482:
+ 343              	.LBE481:
+ 344              		.loc 2 547 0
+ 345 0026 02A9     		add	r1, sp, #8
+ 346 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 347              	.LVL31:
+ 348              	.LBE480:
+ 349              	.LBE479:
+ 350              		.loc 1 49 0
+ 351 002c 201C     		mov	r0, r4
+ 352 002e 0B49     		ldr	r1, .L26+4
+ 353 0030 0B4A     		ldr	r2, .L26+8
+ 354              	.LEHB5:
+ 355 0032 FFF7FEFF 		bl	__cxa_throw
+ 356              	.LVL32:
+ 357              	.L20:
+  50:Src/GPIO_operations.cpp ****   }
+  51:Src/GPIO_operations.cpp ****   GPIOx->ODR ^= GPIO_Pin;
+ 358              		.loc 1 51 0
+ 359 0036 4369     		ldr	r3, [r0, #20]
+ 360 0038 5940     		eor	r1, r3
+ 361              	.LVL33:
+ 362 003a 4161     		str	r1, [r0, #20]
+ 363 003c 0AE0     		b	.L25
+ 364              	.LVL34:
+ 365              	.L24:
+ 366              	.LBB483:
+ 367              	.LBB484:
+ 368              	.LBB485:
+ 369              	.LBB486:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 370              		.loc 2 301 0
+ 371 003e 0098     		ldr	r0, [sp]
+ARM GAS  /tmp/ccJvy3DQ.s 			page 18
+
+
+ 372 0040 0C38     		sub	r0, r0, #12
+ 373              	.LVL35:
+ 374              	.LBE486:
+ 375              	.LBE485:
+ 376              		.loc 2 547 0
+ 377 0042 03A9     		add	r1, sp, #12
+ 378 0044 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 379              	.LVL36:
+ 380 0048 FFE7     		b	.L22
+ 381              	.LVL37:
+ 382              	.L23:
+ 383              	.L22:
+ 384              	.LBE484:
+ 385              	.LBE483:
+  49:Src/GPIO_operations.cpp ****   }
+ 386              		.loc 1 49 0 discriminator 1
+ 387 004a 201C     		mov	r0, r4
+ 388 004c FFF7FEFF 		bl	__cxa_free_exception
+ 389              	.LVL38:
+ 390 0050 FFF7FEFF 		bl	__cxa_end_cleanup
+ 391              	.LEHE5:
+ 392              	.LVL39:
+ 393              	.L25:
+  52:Src/GPIO_operations.cpp **** }
+ 394              		.loc 1 52 0
+ 395 0054 04B0     		add	sp, sp, #16
+ 396              		@ sp needed
+ 397 0056 10BD     		pop	{r4, pc}
+ 398              	.L27:
+ 399              		.align	2
+ 400              	.L26:
+ 401 0058 00000000 		.word	.LC0
+ 402 005c 00000000 		.word	_ZTISt16invalid_argument
+ 403 0060 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 404              		.cfi_endproc
+ 405              	.LFE627:
+ 406              		.personality	__gxx_personality_v0
+ 407              		.handlerdata
+ 408              	.LLSDA627:
+ 409 0008 FF       		.byte	0xff
+ 410 0009 FF       		.byte	0xff
+ 411 000a 01       		.byte	0x1
+ 412 000b 0C       		.uleb128 .LLSDACSE627-.LLSDACSB627
+ 413              	.LLSDACSB627:
+ 414 000c 16       		.uleb128 .LEHB3-.LFB627
+ 415 000d 04       		.uleb128 .LEHE3-.LEHB3
+ 416 000e 4A       		.uleb128 .L23-.LFB627
+ 417 000f 00       		.uleb128 0
+ 418 0010 1E       		.uleb128 .LEHB4-.LFB627
+ 419 0011 04       		.uleb128 .LEHE4-.LEHB4
+ 420 0012 3E       		.uleb128 .L24-.LFB627
+ 421 0013 00       		.uleb128 0
+ 422 0014 32       		.uleb128 .LEHB5-.LFB627
+ 423 0015 22       		.uleb128 .LEHE5-.LEHB5
+ 424 0016 00       		.uleb128 0
+ 425 0017 00       		.uleb128 0
+ 426              	.LLSDACSE627:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 19
+
+
+ 427              		.section	.text._Z9TogglePinP12GPIO_TypeDeft
+ 428              		.fnend
+ 430              		.section	.text._Z7ReadPinP12GPIO_TypeDeft,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	_Z7ReadPinP12GPIO_TypeDeft
+ 433              		.code	16
+ 434              		.thumb_func
+ 436              	_Z7ReadPinP12GPIO_TypeDeft:
+ 437              		.fnstart
+ 438              	.LFB628:
+  53:Src/GPIO_operations.cpp **** 
+  54:Src/GPIO_operations.cpp **** PinState ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+  55:Src/GPIO_operations.cpp **** {
+ 439              		.loc 1 55 0
+ 440              		.cfi_startproc
+ 441              		.cfi_personality 0,__gxx_personality_v0
+ 442              		.cfi_lsda 0,.LLSDA628
+ 443              	.LVL40:
+ 444 0000 10B5     		push	{r4, lr}
+ 445              		.save {r4, lr}
+ 446              	.LCFI5:
+ 447              		.cfi_def_cfa_offset 8
+ 448              		.cfi_offset 4, -8
+ 449              		.cfi_offset 14, -4
+ 450              		.pad #16
+ 451 0002 84B0     		sub	sp, sp, #16
+ 452              	.LCFI6:
+ 453              		.cfi_def_cfa_offset 24
+ 454              	.LBB487:
+  56:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 455              		.loc 1 56 0
+ 456 0004 0028     		cmp	r0, #0
+ 457 0006 16D1     		bne	.L29
+  57:Src/GPIO_operations.cpp ****   {
+  58:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 458              		.loc 1 58 0
+ 459 0008 0830     		add	r0, r0, #8
+ 460              	.LVL41:
+ 461 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 462              	.LVL42:
+ 463 000e 041C     		mov	r4, r0
+ 464              	.LVL43:
+ 465 0010 6846     		mov	r0, sp
+ 466 0012 1349     		ldr	r1, .L37
+ 467 0014 01AA     		add	r2, sp, #4
+ 468              	.LVL44:
+ 469              	.LEHB6:
+ 470 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 471              	.LEHE6:
+ 472              	.LVL45:
+ 473              		.loc 1 58 0 is_stmt 0 discriminator 2
+ 474 001a 201C     		mov	r0, r4
+ 475 001c 6946     		mov	r1, sp
+ 476              	.LEHB7:
+ 477 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 478              	.LEHE7:
+ 479              	.LVL46:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 20
+
+
+ 480              	.LBB488:
+ 481              	.LBB489:
+ 482              	.LBB490:
+ 483              	.LBB491:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 484              		.loc 2 301 0 is_stmt 1
+ 485 0022 0098     		ldr	r0, [sp]
+ 486 0024 0C38     		sub	r0, r0, #12
+ 487              	.LVL47:
+ 488              	.LBE491:
+ 489              	.LBE490:
+ 490              		.loc 2 547 0
+ 491 0026 02A9     		add	r1, sp, #8
+ 492 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 493              	.LVL48:
+ 494              	.LBE489:
+ 495              	.LBE488:
+ 496              		.loc 1 58 0
+ 497 002c 201C     		mov	r0, r4
+ 498 002e 0D49     		ldr	r1, .L37+4
+ 499 0030 0D4A     		ldr	r2, .L37+8
+ 500              	.LEHB8:
+ 501 0032 FFF7FEFF 		bl	__cxa_throw
+ 502              	.LVL49:
+ 503              	.L29:
+  59:Src/GPIO_operations.cpp ****   }
+  60:Src/GPIO_operations.cpp **** 
+  61:Src/GPIO_operations.cpp ****   PinState pinStatus;
+  62:Src/GPIO_operations.cpp **** 
+  63:Src/GPIO_operations.cpp ****   if ((GPIOx->IDR & GPIO_Pin) == (uint32_t)LOW)
+ 504              		.loc 1 63 0
+ 505 0036 0369     		ldr	r3, [r0, #16]
+ 506 0038 1942     		tst	r1, r3
+ 507 003a 01D1     		bne	.L33
+  64:Src/GPIO_operations.cpp ****   {
+  65:Src/GPIO_operations.cpp ****     pinStatus = LOW;
+ 508              		.loc 1 65 0
+ 509 003c 0020     		mov	r0, #0
+ 510              	.LVL50:
+ 511 003e 0CE0     		b	.L36
+ 512              	.LVL51:
+ 513              	.L33:
+  66:Src/GPIO_operations.cpp ****   }
+  67:Src/GPIO_operations.cpp ****   else
+  68:Src/GPIO_operations.cpp ****   {
+  69:Src/GPIO_operations.cpp ****     pinStatus = HIGH;
+ 514              		.loc 1 69 0
+ 515 0040 0120     		mov	r0, #1
+ 516              	.LVL52:
+ 517 0042 0AE0     		b	.L36
+ 518              	.LVL53:
+ 519              	.L35:
+ 520              	.LBB492:
+ 521              	.LBB493:
+ 522              	.LBB494:
+ 523              	.LBB495:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ARM GAS  /tmp/ccJvy3DQ.s 			page 21
+
+
+ 524              		.loc 2 301 0
+ 525 0044 0098     		ldr	r0, [sp]
+ 526 0046 0C38     		sub	r0, r0, #12
+ 527              	.LVL54:
+ 528              	.LBE495:
+ 529              	.LBE494:
+ 530              		.loc 2 547 0
+ 531 0048 03A9     		add	r1, sp, #12
+ 532 004a FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 533              	.LVL55:
+ 534 004e FFE7     		b	.L32
+ 535              	.LVL56:
+ 536              	.L34:
+ 537              	.L32:
+ 538              	.LBE493:
+ 539              	.LBE492:
+  58:Src/GPIO_operations.cpp ****   }
+ 540              		.loc 1 58 0 discriminator 1
+ 541 0050 201C     		mov	r0, r4
+ 542 0052 FFF7FEFF 		bl	__cxa_free_exception
+ 543              	.LVL57:
+ 544 0056 FFF7FEFF 		bl	__cxa_end_cleanup
+ 545              	.LEHE8:
+ 546              	.LVL58:
+ 547              	.L36:
+ 548              	.LBE487:
+  70:Src/GPIO_operations.cpp ****   }
+  71:Src/GPIO_operations.cpp ****   return pinStatus;
+  72:Src/GPIO_operations.cpp **** }
+ 549              		.loc 1 72 0
+ 550 005a 04B0     		add	sp, sp, #16
+ 551              		@ sp needed
+ 552 005c 10BD     		pop	{r4, pc}
+ 553              	.L38:
+ 554 005e C046     		.align	2
+ 555              	.L37:
+ 556 0060 00000000 		.word	.LC0
+ 557 0064 00000000 		.word	_ZTISt16invalid_argument
+ 558 0068 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 559              		.cfi_endproc
+ 560              	.LFE628:
+ 561              		.personality	__gxx_personality_v0
+ 562              		.handlerdata
+ 563              	.LLSDA628:
+ 564 0008 FF       		.byte	0xff
+ 565 0009 FF       		.byte	0xff
+ 566 000a 01       		.byte	0x1
+ 567 000b 0C       		.uleb128 .LLSDACSE628-.LLSDACSB628
+ 568              	.LLSDACSB628:
+ 569 000c 16       		.uleb128 .LEHB6-.LFB628
+ 570 000d 04       		.uleb128 .LEHE6-.LEHB6
+ 571 000e 50       		.uleb128 .L34-.LFB628
+ 572 000f 00       		.uleb128 0
+ 573 0010 1E       		.uleb128 .LEHB7-.LFB628
+ 574 0011 04       		.uleb128 .LEHE7-.LEHB7
+ 575 0012 44       		.uleb128 .L35-.LFB628
+ 576 0013 00       		.uleb128 0
+ARM GAS  /tmp/ccJvy3DQ.s 			page 22
+
+
+ 577 0014 32       		.uleb128 .LEHB8-.LFB628
+ 578 0015 28       		.uleb128 .LEHE8-.LEHB8
+ 579 0016 00       		.uleb128 0
+ 580 0017 00       		.uleb128 0
+ 581              	.LLSDACSE628:
+ 582              		.section	.text._Z7ReadPinP12GPIO_TypeDeft
+ 583              		.fnend
+ 585              		.section	.text._Z11digitalReadh8PinState,"ax",%progbits
+ 586              		.align	2
+ 587              		.global	_Z11digitalReadh8PinState
+ 588              		.code	16
+ 589              		.thumb_func
+ 591              	_Z11digitalReadh8PinState:
+ 592              		.fnstart
+ 593              	.LFB629:
+  73:Src/GPIO_operations.cpp **** 
+  74:Src/GPIO_operations.cpp **** PinState digitalRead(uint8_t pinName, PinState pinState)
+  75:Src/GPIO_operations.cpp **** {
+ 594              		.loc 1 75 0
+ 595              		.cfi_startproc
+ 596              	.LVL59:
+ 597 0000 38B5     		push	{r3, r4, r5, lr}
+ 598              		.save {r3, r4, r5, lr}
+ 599              	.LCFI7:
+ 600              		.cfi_def_cfa_offset 16
+ 601              		.cfi_offset 3, -16
+ 602              		.cfi_offset 4, -12
+ 603              		.cfi_offset 5, -8
+ 604              		.cfi_offset 14, -4
+ 605 0002 041C     		mov	r4, r0
+ 606              	.LBB496:
+  76:Src/GPIO_operations.cpp ****   GPIO_TypeDef *GPIOx = GetPort(pinName);
+ 607              		.loc 1 76 0
+ 608 0004 FFF7FEFF 		bl	_Z7GetPorth
+ 609              	.LVL60:
+ 610 0008 051C     		mov	r5, r0
+ 611              	.LVL61:
+  77:Src/GPIO_operations.cpp ****   int GPIO_Pin = GetPinMask(pinName);
+ 612              		.loc 1 77 0
+ 613 000a 201C     		mov	r0, r4
+ 614              	.LVL62:
+ 615 000c FFF7FEFF 		bl	_Z10GetPinMaskh
+ 616              	.LVL63:
+ 617 0010 041C     		mov	r4, r0
+ 618              	.LVL64:
+  78:Src/GPIO_operations.cpp ****   if (GPIO_Pin == -1)
+ 619              		.loc 1 78 0
+ 620 0012 431C     		add	r3, r0, #1
+ 621 0014 02D1     		bne	.L40
+  79:Src/GPIO_operations.cpp ****     printf("pin mask not found.\n");
+ 622              		.loc 1 79 0
+ 623 0016 0448     		ldr	r0, .L41
+ 624              	.LVL65:
+ 625 0018 FFF7FEFF 		bl	puts
+ 626              	.LVL66:
+ 627              	.L40:
+  80:Src/GPIO_operations.cpp ****   return ReadPin(GPIOx, GPIO_Pin);
+ARM GAS  /tmp/ccJvy3DQ.s 			page 23
+
+
+ 628              		.loc 1 80 0
+ 629 001c A1B2     		uxth	r1, r4
+ 630 001e 281C     		mov	r0, r5
+ 631 0020 FFF7FEFF 		bl	_Z7ReadPinP12GPIO_TypeDeft
+ 632              	.LVL67:
+ 633              	.LBE496:
+  81:Src/GPIO_operations.cpp **** }
+ 634              		.loc 1 81 0
+ 635              		@ sp needed
+ 636              	.LVL68:
+ 637              	.LVL69:
+ 638 0024 38BD     		pop	{r3, r4, r5, pc}
+ 639              	.L42:
+ 640 0026 C046     		.align	2
+ 641              	.L41:
+ 642 0028 10000000 		.word	.LC10
+ 643              		.cfi_endproc
+ 644              	.LFE629:
+ 645              		.fnend
+ 647              		.section	.text._Z8WritePinP12GPIO_TypeDeft8PinState,"ax",%progbits
+ 648              		.align	2
+ 649              		.global	_Z8WritePinP12GPIO_TypeDeft8PinState
+ 650              		.code	16
+ 651              		.thumb_func
+ 653              	_Z8WritePinP12GPIO_TypeDeft8PinState:
+ 654              		.fnstart
+ 655              	.LFB630:
+  82:Src/GPIO_operations.cpp **** 
+  83:Src/GPIO_operations.cpp **** 
+  84:Src/GPIO_operations.cpp **** //Instead of writing directly in the ODR, the datasheet suggests it's better to use the BSRR/BRR
+  85:Src/GPIO_operations.cpp **** void WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, PinState pinState)
+  86:Src/GPIO_operations.cpp **** {
+ 656              		.loc 1 86 0
+ 657              		.cfi_startproc
+ 658              		.cfi_personality 0,__gxx_personality_v0
+ 659              		.cfi_lsda 0,.LLSDA630
+ 660              	.LVL70:
+ 661 0000 10B5     		push	{r4, lr}
+ 662              		.save {r4, lr}
+ 663              	.LCFI8:
+ 664              		.cfi_def_cfa_offset 8
+ 665              		.cfi_offset 4, -8
+ 666              		.cfi_offset 14, -4
+ 667              		.pad #16
+ 668 0002 84B0     		sub	sp, sp, #16
+ 669              	.LCFI9:
+ 670              		.cfi_def_cfa_offset 24
+  87:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 671              		.loc 1 87 0
+ 672 0004 0028     		cmp	r0, #0
+ 673 0006 16D1     		bne	.L44
+  88:Src/GPIO_operations.cpp ****   {
+  89:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 674              		.loc 1 89 0
+ 675 0008 0830     		add	r0, r0, #8
+ 676              	.LVL71:
+ 677 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ARM GAS  /tmp/ccJvy3DQ.s 			page 24
+
+
+ 678              	.LVL72:
+ 679 000e 041C     		mov	r4, r0
+ 680              	.LVL73:
+ 681 0010 6846     		mov	r0, sp
+ 682 0012 1449     		ldr	r1, .L51
+ 683 0014 01AA     		add	r2, sp, #4
+ 684              	.LVL74:
+ 685              	.LEHB9:
+ 686 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 687              	.LEHE9:
+ 688              	.LVL75:
+ 689              		.loc 1 89 0 is_stmt 0 discriminator 2
+ 690 001a 201C     		mov	r0, r4
+ 691 001c 6946     		mov	r1, sp
+ 692              	.LEHB10:
+ 693 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 694              	.LEHE10:
+ 695              	.LVL76:
+ 696              	.LBB497:
+ 697              	.LBB498:
+ 698              	.LBB499:
+ 699              	.LBB500:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 700              		.loc 2 301 0 is_stmt 1
+ 701 0022 0098     		ldr	r0, [sp]
+ 702 0024 0C38     		sub	r0, r0, #12
+ 703              	.LVL77:
+ 704              	.LBE500:
+ 705              	.LBE499:
+ 706              		.loc 2 547 0
+ 707 0026 02A9     		add	r1, sp, #8
+ 708 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 709              	.LVL78:
+ 710              	.LBE498:
+ 711              	.LBE497:
+ 712              		.loc 1 89 0
+ 713 002c 201C     		mov	r0, r4
+ 714 002e 0E49     		ldr	r1, .L51+4
+ 715 0030 0E4A     		ldr	r2, .L51+8
+ 716              	.LEHB11:
+ 717 0032 FFF7FEFF 		bl	__cxa_throw
+ 718              	.LVL79:
+ 719              	.L44:
+  90:Src/GPIO_operations.cpp ****   }
+  91:Src/GPIO_operations.cpp ****   //BSRR (to turn on: write 1 to BS locations, to turn off: write 1 to BR locations)
+  92:Src/GPIO_operations.cpp ****   if (pinState == LOW)
+ 720              		.loc 1 92 0
+ 721 0036 002A     		cmp	r2, #0
+ 722 0038 03D1     		bne	.L45
+  93:Src/GPIO_operations.cpp ****   {
+  94:Src/GPIO_operations.cpp ****     GPIOx->BRR |= GPIO_Pin; /* bit reset regiter */
+ 723              		.loc 1 94 0
+ 724 003a 836A     		ldr	r3, [r0, #40]
+ 725 003c 1943     		orr	r1, r3
+ 726              	.LVL80:
+ 727 003e 8162     		str	r1, [r0, #40]
+ 728 0040 0EE0     		b	.L43
+ARM GAS  /tmp/ccJvy3DQ.s 			page 25
+
+
+ 729              	.LVL81:
+ 730              	.L45:
+  95:Src/GPIO_operations.cpp ****   }
+  96:Src/GPIO_operations.cpp ****   else //pinState == HIGH
+  97:Src/GPIO_operations.cpp ****   {
+  98:Src/GPIO_operations.cpp ****     GPIOx->BSRR |= GPIO_Pin; /* bit set-reset regiter */
+ 731              		.loc 1 98 0
+ 732 0042 8369     		ldr	r3, [r0, #24]
+ 733 0044 1943     		orr	r1, r3
+ 734              	.LVL82:
+ 735 0046 8161     		str	r1, [r0, #24]
+ 736 0048 0AE0     		b	.L43
+ 737              	.LVL83:
+ 738              	.L50:
+ 739              	.LBB501:
+ 740              	.LBB502:
+ 741              	.LBB503:
+ 742              	.LBB504:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 743              		.loc 2 301 0
+ 744 004a 0098     		ldr	r0, [sp]
+ 745 004c 0C38     		sub	r0, r0, #12
+ 746              	.LVL84:
+ 747              	.LBE504:
+ 748              	.LBE503:
+ 749              		.loc 2 547 0
+ 750 004e 03A9     		add	r1, sp, #12
+ 751 0050 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 752              	.LVL85:
+ 753 0054 FFE7     		b	.L48
+ 754              	.LVL86:
+ 755              	.L49:
+ 756              	.L48:
+ 757              	.LBE502:
+ 758              	.LBE501:
+  89:Src/GPIO_operations.cpp ****   }
+ 759              		.loc 1 89 0 discriminator 1
+ 760 0056 201C     		mov	r0, r4
+ 761 0058 FFF7FEFF 		bl	__cxa_free_exception
+ 762              	.LVL87:
+ 763 005c FFF7FEFF 		bl	__cxa_end_cleanup
+ 764              	.LEHE11:
+ 765              	.LVL88:
+ 766              	.L43:
+  99:Src/GPIO_operations.cpp ****   }
+ 100:Src/GPIO_operations.cpp **** }
+ 767              		.loc 1 100 0
+ 768 0060 04B0     		add	sp, sp, #16
+ 769              		@ sp needed
+ 770 0062 10BD     		pop	{r4, pc}
+ 771              	.L52:
+ 772              		.align	2
+ 773              	.L51:
+ 774 0064 00000000 		.word	.LC0
+ 775 0068 00000000 		.word	_ZTISt16invalid_argument
+ 776 006c 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 777              		.cfi_endproc
+ARM GAS  /tmp/ccJvy3DQ.s 			page 26
+
+
+ 778              	.LFE630:
+ 779              		.personality	__gxx_personality_v0
+ 780              		.handlerdata
+ 781              	.LLSDA630:
+ 782 0008 FF       		.byte	0xff
+ 783 0009 FF       		.byte	0xff
+ 784 000a 01       		.byte	0x1
+ 785 000b 0C       		.uleb128 .LLSDACSE630-.LLSDACSB630
+ 786              	.LLSDACSB630:
+ 787 000c 16       		.uleb128 .LEHB9-.LFB630
+ 788 000d 04       		.uleb128 .LEHE9-.LEHB9
+ 789 000e 56       		.uleb128 .L49-.LFB630
+ 790 000f 00       		.uleb128 0
+ 791 0010 1E       		.uleb128 .LEHB10-.LFB630
+ 792 0011 04       		.uleb128 .LEHE10-.LEHB10
+ 793 0012 4A       		.uleb128 .L50-.LFB630
+ 794 0013 00       		.uleb128 0
+ 795 0014 32       		.uleb128 .LEHB11-.LFB630
+ 796 0015 2E       		.uleb128 .LEHE11-.LEHB11
+ 797 0016 00       		.uleb128 0
+ 798 0017 00       		.uleb128 0
+ 799              	.LLSDACSE630:
+ 800              		.section	.text._Z8WritePinP12GPIO_TypeDeft8PinState
+ 801              		.fnend
+ 803              		.section	.text._Z12digitalWriteh8PinState,"ax",%progbits
+ 804              		.align	2
+ 805              		.global	_Z12digitalWriteh8PinState
+ 806              		.code	16
+ 807              		.thumb_func
+ 809              	_Z12digitalWriteh8PinState:
+ 810              		.fnstart
+ 811              	.LFB631:
+ 101:Src/GPIO_operations.cpp **** 
+ 102:Src/GPIO_operations.cpp **** void digitalWrite(uint8_t pinName, PinState pinState)
+ 103:Src/GPIO_operations.cpp **** {
+ 812              		.loc 1 103 0
+ 813              		.cfi_startproc
+ 814              	.LVL89:
+ 815 0000 70B5     		push	{r4, r5, r6, lr}
+ 816              		.save {r4, r5, r6, lr}
+ 817              	.LCFI10:
+ 818              		.cfi_def_cfa_offset 16
+ 819              		.cfi_offset 4, -16
+ 820              		.cfi_offset 5, -12
+ 821              		.cfi_offset 6, -8
+ 822              		.cfi_offset 14, -4
+ 823 0002 041C     		mov	r4, r0
+ 824 0004 0D1C     		mov	r5, r1
+ 825              	.LBB505:
+ 104:Src/GPIO_operations.cpp ****   GPIO_TypeDef *GPIOx = GetPort(pinName);
+ 826              		.loc 1 104 0
+ 827 0006 FFF7FEFF 		bl	_Z7GetPorth
+ 828              	.LVL90:
+ 829 000a 061C     		mov	r6, r0
+ 830              	.LVL91:
+ 105:Src/GPIO_operations.cpp ****   int GPIO_Pin = GetPinMask(pinName);
+ 831              		.loc 1 105 0
+ARM GAS  /tmp/ccJvy3DQ.s 			page 27
+
+
+ 832 000c 201C     		mov	r0, r4
+ 833              	.LVL92:
+ 834 000e FFF7FEFF 		bl	_Z10GetPinMaskh
+ 835              	.LVL93:
+ 836 0012 041C     		mov	r4, r0
+ 837              	.LVL94:
+ 106:Src/GPIO_operations.cpp ****   if (GPIO_Pin == -1)
+ 838              		.loc 1 106 0
+ 839 0014 431C     		add	r3, r0, #1
+ 840 0016 02D1     		bne	.L54
+ 107:Src/GPIO_operations.cpp ****     printf("pin mask not found.\n");
+ 841              		.loc 1 107 0
+ 842 0018 0448     		ldr	r0, .L55
+ 843              	.LVL95:
+ 844 001a FFF7FEFF 		bl	puts
+ 845              	.LVL96:
+ 846              	.L54:
+ 108:Src/GPIO_operations.cpp ****   WritePin(GPIOx, GPIO_Pin, pinState);
+ 847              		.loc 1 108 0
+ 848 001e A1B2     		uxth	r1, r4
+ 849 0020 301C     		mov	r0, r6
+ 850 0022 2A1C     		mov	r2, r5
+ 851 0024 FFF7FEFF 		bl	_Z8WritePinP12GPIO_TypeDeft8PinState
+ 852              	.LVL97:
+ 853              	.LBE505:
+ 109:Src/GPIO_operations.cpp **** }
+ 854              		.loc 1 109 0
+ 855              		@ sp needed
+ 856              	.LVL98:
+ 857              	.LVL99:
+ 858 0028 70BD     		pop	{r4, r5, r6, pc}
+ 859              	.L56:
+ 860 002a C046     		.align	2
+ 861              	.L55:
+ 862 002c 10000000 		.word	.LC10
+ 863              		.cfi_endproc
+ 864              	.LFE631:
+ 865              		.fnend
+ 867              		.section	.text._Z12digitalWritehm,"ax",%progbits
+ 868              		.align	2
+ 869              		.global	_Z12digitalWritehm
+ 870              		.code	16
+ 871              		.thumb_func
+ 873              	_Z12digitalWritehm:
+ 874              		.fnstart
+ 875              	.LFB632:
+ 110:Src/GPIO_operations.cpp **** 
+ 111:Src/GPIO_operations.cpp **** void digitalWrite(uint8_t pinName, uint32_t pinState)
+ 112:Src/GPIO_operations.cpp **** {
+ 876              		.loc 1 112 0
+ 877              		.cfi_startproc
+ 878              	.LVL100:
+ 879 0000 70B5     		push	{r4, r5, r6, lr}
+ 880              		.save {r4, r5, r6, lr}
+ 881              	.LCFI11:
+ 882              		.cfi_def_cfa_offset 16
+ 883              		.cfi_offset 4, -16
+ARM GAS  /tmp/ccJvy3DQ.s 			page 28
+
+
+ 884              		.cfi_offset 5, -12
+ 885              		.cfi_offset 6, -8
+ 886              		.cfi_offset 14, -4
+ 887 0002 041C     		mov	r4, r0
+ 888 0004 0E1C     		mov	r6, r1
+ 889              	.LBB506:
+ 113:Src/GPIO_operations.cpp ****   GPIO_TypeDef *GPIOx = GetPort(pinName);
+ 890              		.loc 1 113 0
+ 891 0006 FFF7FEFF 		bl	_Z7GetPorth
+ 892              	.LVL101:
+ 893 000a 051C     		mov	r5, r0
+ 894              	.LVL102:
+ 114:Src/GPIO_operations.cpp ****   int GPIO_Pin = GetPinMask(pinName);
+ 895              		.loc 1 114 0
+ 896 000c 201C     		mov	r0, r4
+ 897              	.LVL103:
+ 898 000e FFF7FEFF 		bl	_Z10GetPinMaskh
+ 899              	.LVL104:
+ 900 0012 041C     		mov	r4, r0
+ 901              	.LVL105:
+ 115:Src/GPIO_operations.cpp ****   if (GPIO_Pin == -1)
+ 902              		.loc 1 115 0
+ 903 0014 431C     		add	r3, r0, #1
+ 904 0016 02D1     		bne	.L58
+ 116:Src/GPIO_operations.cpp ****     printf("pin mask not found.\n");
+ 905              		.loc 1 116 0
+ 906 0018 0848     		ldr	r0, .L61
+ 907              	.LVL106:
+ 908 001a FFF7FEFF 		bl	puts
+ 909              	.LVL107:
+ 910              	.L58:
+ 117:Src/GPIO_operations.cpp ****   if (pinState == 0)
+ 911              		.loc 1 117 0
+ 912 001e 002E     		cmp	r6, #0
+ 913 0020 05D1     		bne	.L59
+ 118:Src/GPIO_operations.cpp ****   {
+ 119:Src/GPIO_operations.cpp ****     WritePin(GPIOx, GPIO_Pin, LOW);
+ 914              		.loc 1 119 0
+ 915 0022 A1B2     		uxth	r1, r4
+ 916 0024 281C     		mov	r0, r5
+ 917 0026 0022     		mov	r2, #0
+ 918 0028 FFF7FEFF 		bl	_Z8WritePinP12GPIO_TypeDeft8PinState
+ 919              	.LVL108:
+ 920 002c 04E0     		b	.L57
+ 921              	.L59:
+ 120:Src/GPIO_operations.cpp ****   }
+ 121:Src/GPIO_operations.cpp ****   else
+ 122:Src/GPIO_operations.cpp ****   {
+ 123:Src/GPIO_operations.cpp ****     WritePin(GPIOx, GPIO_Pin, HIGH);
+ 922              		.loc 1 123 0
+ 923 002e A1B2     		uxth	r1, r4
+ 924 0030 281C     		mov	r0, r5
+ 925 0032 0122     		mov	r2, #1
+ 926 0034 FFF7FEFF 		bl	_Z8WritePinP12GPIO_TypeDeft8PinState
+ 927              	.LVL109:
+ 928              	.L57:
+ 929              	.LBE506:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 29
+
+
+ 124:Src/GPIO_operations.cpp ****   }
+ 125:Src/GPIO_operations.cpp **** }
+ 930              		.loc 1 125 0
+ 931              		@ sp needed
+ 932              	.LVL110:
+ 933              	.LVL111:
+ 934              	.LVL112:
+ 935 0038 70BD     		pop	{r4, r5, r6, pc}
+ 936              	.L62:
+ 937 003a C046     		.align	2
+ 938              	.L61:
+ 939 003c 10000000 		.word	.LC10
+ 940              		.cfi_endproc
+ 941              	.LFE632:
+ 942              		.fnend
+ 944              		.section	.text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt,"ax",%progbits
+ 945              		.align	2
+ 946              		.global	_Z20Init_InputPin_PullUpP12GPIO_TypeDeftt
+ 947              		.code	16
+ 948              		.thumb_func
+ 950              	_Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:
+ 951              		.fnstart
+ 952              	.LFB633:
+ 126:Src/GPIO_operations.cpp **** 
+ 127:Src/GPIO_operations.cpp **** void Init_InputPin_PullUp(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint16_t GPIO_Pin_pos)
+ 128:Src/GPIO_operations.cpp **** {
+ 953              		.loc 1 128 0
+ 954              		.cfi_startproc
+ 955              		.cfi_personality 0,__gxx_personality_v0
+ 956              		.cfi_lsda 0,.LLSDA633
+ 957              	.LVL113:
+ 958 0000 10B5     		push	{r4, lr}
+ 959              		.save {r4, lr}
+ 960              	.LCFI12:
+ 961              		.cfi_def_cfa_offset 8
+ 962              		.cfi_offset 4, -8
+ 963              		.cfi_offset 14, -4
+ 964              		.pad #16
+ 965 0002 84B0     		sub	sp, sp, #16
+ 966              	.LCFI13:
+ 967              		.cfi_def_cfa_offset 24
+ 968              	.LBB507:
+ 129:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 969              		.loc 1 129 0
+ 970 0004 0028     		cmp	r0, #0
+ 971 0006 16D1     		bne	.L64
+ 130:Src/GPIO_operations.cpp ****   {
+ 131:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 972              		.loc 1 131 0
+ 973 0008 0830     		add	r0, r0, #8
+ 974              	.LVL114:
+ 975 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 976              	.LVL115:
+ 977 000e 041C     		mov	r4, r0
+ 978              	.LVL116:
+ 979 0010 6846     		mov	r0, sp
+ 980 0012 1849     		ldr	r1, .L70
+ARM GAS  /tmp/ccJvy3DQ.s 			page 30
+
+
+ 981 0014 01AA     		add	r2, sp, #4
+ 982              	.LVL117:
+ 983              	.LEHB12:
+ 984 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 985              	.LEHE12:
+ 986              	.LVL118:
+ 987              		.loc 1 131 0 is_stmt 0 discriminator 2
+ 988 001a 201C     		mov	r0, r4
+ 989 001c 6946     		mov	r1, sp
+ 990              	.LEHB13:
+ 991 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 992              	.LEHE13:
+ 993              	.LVL119:
+ 994              	.LBB508:
+ 995              	.LBB509:
+ 996              	.LBB510:
+ 997              	.LBB511:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 998              		.loc 2 301 0 is_stmt 1
+ 999 0022 0098     		ldr	r0, [sp]
+ 1000 0024 0C38     		sub	r0, r0, #12
+ 1001              	.LVL120:
+ 1002              	.LBE511:
+ 1003              	.LBE510:
+ 1004              		.loc 2 547 0
+ 1005 0026 02A9     		add	r1, sp, #8
+ 1006 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1007              	.LVL121:
+ 1008              	.LBE509:
+ 1009              	.LBE508:
+ 1010              		.loc 1 131 0
+ 1011 002c 201C     		mov	r0, r4
+ 1012 002e 1249     		ldr	r1, .L70+4
+ 1013 0030 124A     		ldr	r2, .L70+8
+ 1014              	.LEHB14:
+ 1015 0032 FFF7FEFF 		bl	__cxa_throw
+ 1016              	.LVL122:
+ 1017              	.L64:
+ 132:Src/GPIO_operations.cpp ****   }
+ 133:Src/GPIO_operations.cpp ****   uint16_t pos = GPIO_Pin_pos * 2; //bit position for a 32bit register
+ 1018              		.loc 1 133 0
+ 1019 0036 5200     		lsl	r2, r2, #1
+ 1020              	.LVL123:
+ 1021 0038 92B2     		uxth	r2, r2
+ 1022              	.LVL124:
+ 134:Src/GPIO_operations.cpp ****   //register MODER has 2 bits for configuration of each pin
+ 135:Src/GPIO_operations.cpp ****   uint16_t bit_0 = 0b01;
+ 136:Src/GPIO_operations.cpp ****   uint16_t bit_1 = 0b10;
+ 137:Src/GPIO_operations.cpp ****   uint32_t pinMask0 = bit_0 << pos;
+ 1023              		.loc 1 137 0
+ 1024 003a 0123     		mov	r3, #1
+ 1025 003c 9340     		lsl	r3, r3, r2
+ 1026              	.LVL125:
+ 138:Src/GPIO_operations.cpp ****   uint32_t pinMask1 = bit_1 << pos;
+ 1027              		.loc 1 138 0
+ 1028 003e 0221     		mov	r1, #2
+ 1029              	.LVL126:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 31
+
+
+ 1030 0040 9140     		lsl	r1, r1, r2
+ 1031 0042 0A1C     		mov	r2, r1
+ 1032              	.LVL127:
+ 139:Src/GPIO_operations.cpp ****   GPIOx->MODER &= ~(uint32_t)pinMask0; //set as input
+ 1033              		.loc 1 139 0
+ 1034 0044 0168     		ldr	r1, [r0]
+ 1035              	.LVL128:
+ 1036 0046 9943     		bic	r1, r3
+ 1037 0048 0160     		str	r1, [r0]
+ 140:Src/GPIO_operations.cpp ****   //register PUPDR has 2 bit per pin
+ 141:Src/GPIO_operations.cpp ****   //01: Pull-up
+ 142:Src/GPIO_operations.cpp ****   GPIOx->PUPDR |= pinMask0;
+ 1038              		.loc 1 142 0
+ 1039 004a C168     		ldr	r1, [r0, #12]
+ 1040 004c 0B43     		orr	r3, r1
+ 1041              	.LVL129:
+ 1042 004e C360     		str	r3, [r0, #12]
+ 143:Src/GPIO_operations.cpp ****   GPIOx->PUPDR &= ~pinMask1;
+ 1043              		.loc 1 143 0
+ 1044 0050 C368     		ldr	r3, [r0, #12]
+ 1045 0052 9343     		bic	r3, r2
+ 1046 0054 C360     		str	r3, [r0, #12]
+ 1047 0056 0AE0     		b	.L69
+ 1048              	.LVL130:
+ 1049              	.L68:
+ 1050              	.LBB512:
+ 1051              	.LBB513:
+ 1052              	.LBB514:
+ 1053              	.LBB515:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1054              		.loc 2 301 0
+ 1055 0058 0098     		ldr	r0, [sp]
+ 1056 005a 0C38     		sub	r0, r0, #12
+ 1057              	.LVL131:
+ 1058              	.LBE515:
+ 1059              	.LBE514:
+ 1060              		.loc 2 547 0
+ 1061 005c 03A9     		add	r1, sp, #12
+ 1062 005e FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1063              	.LVL132:
+ 1064 0062 FFE7     		b	.L66
+ 1065              	.LVL133:
+ 1066              	.L67:
+ 1067              	.L66:
+ 1068              	.LBE513:
+ 1069              	.LBE512:
+ 131:Src/GPIO_operations.cpp ****   }
+ 1070              		.loc 1 131 0 discriminator 1
+ 1071 0064 201C     		mov	r0, r4
+ 1072 0066 FFF7FEFF 		bl	__cxa_free_exception
+ 1073              	.LVL134:
+ 1074 006a FFF7FEFF 		bl	__cxa_end_cleanup
+ 1075              	.LEHE14:
+ 1076              	.LVL135:
+ 1077              	.L69:
+ 1078              	.LBE507:
+ 144:Src/GPIO_operations.cpp **** }
+ARM GAS  /tmp/ccJvy3DQ.s 			page 32
+
+
+ 1079              		.loc 1 144 0
+ 1080 006e 04B0     		add	sp, sp, #16
+ 1081              		@ sp needed
+ 1082 0070 10BD     		pop	{r4, pc}
+ 1083              	.L71:
+ 1084 0072 C046     		.align	2
+ 1085              	.L70:
+ 1086 0074 00000000 		.word	.LC0
+ 1087 0078 00000000 		.word	_ZTISt16invalid_argument
+ 1088 007c 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 1089              		.cfi_endproc
+ 1090              	.LFE633:
+ 1091              		.personality	__gxx_personality_v0
+ 1092              		.handlerdata
+ 1093              	.LLSDA633:
+ 1094 0008 FF       		.byte	0xff
+ 1095 0009 FF       		.byte	0xff
+ 1096 000a 01       		.byte	0x1
+ 1097 000b 0C       		.uleb128 .LLSDACSE633-.LLSDACSB633
+ 1098              	.LLSDACSB633:
+ 1099 000c 16       		.uleb128 .LEHB12-.LFB633
+ 1100 000d 04       		.uleb128 .LEHE12-.LEHB12
+ 1101 000e 64       		.uleb128 .L67-.LFB633
+ 1102 000f 00       		.uleb128 0
+ 1103 0010 1E       		.uleb128 .LEHB13-.LFB633
+ 1104 0011 04       		.uleb128 .LEHE13-.LEHB13
+ 1105 0012 58       		.uleb128 .L68-.LFB633
+ 1106 0013 00       		.uleb128 0
+ 1107 0014 32       		.uleb128 .LEHB14-.LFB633
+ 1108 0015 3C       		.uleb128 .LEHE14-.LEHB14
+ 1109 0016 00       		.uleb128 0
+ 1110 0017 00       		.uleb128 0
+ 1111              	.LLSDACSE633:
+ 1112              		.section	.text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt
+ 1113              		.fnend
+ 1115              		.section	.text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt,"ax",%progbits
+ 1116              		.align	2
+ 1117              		.global	_Z22Init_InputPin_PullDownP12GPIO_TypeDeftt
+ 1118              		.code	16
+ 1119              		.thumb_func
+ 1121              	_Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:
+ 1122              		.fnstart
+ 1123              	.LFB634:
+ 145:Src/GPIO_operations.cpp **** 
+ 146:Src/GPIO_operations.cpp **** void Init_InputPin_PullDown(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint16_t GPIO_Pin_pos)
+ 147:Src/GPIO_operations.cpp **** {
+ 1124              		.loc 1 147 0
+ 1125              		.cfi_startproc
+ 1126              		.cfi_personality 0,__gxx_personality_v0
+ 1127              		.cfi_lsda 0,.LLSDA634
+ 1128              	.LVL136:
+ 1129 0000 10B5     		push	{r4, lr}
+ 1130              		.save {r4, lr}
+ 1131              	.LCFI14:
+ 1132              		.cfi_def_cfa_offset 8
+ 1133              		.cfi_offset 4, -8
+ 1134              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccJvy3DQ.s 			page 33
+
+
+ 1135              		.pad #16
+ 1136 0002 84B0     		sub	sp, sp, #16
+ 1137              	.LCFI15:
+ 1138              		.cfi_def_cfa_offset 24
+ 1139              	.LBB516:
+ 148:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 1140              		.loc 1 148 0
+ 1141 0004 0028     		cmp	r0, #0
+ 1142 0006 16D1     		bne	.L73
+ 149:Src/GPIO_operations.cpp ****   {
+ 150:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 1143              		.loc 1 150 0
+ 1144 0008 0830     		add	r0, r0, #8
+ 1145              	.LVL137:
+ 1146 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 1147              	.LVL138:
+ 1148 000e 041C     		mov	r4, r0
+ 1149              	.LVL139:
+ 1150 0010 6846     		mov	r0, sp
+ 1151 0012 1849     		ldr	r1, .L79
+ 1152 0014 01AA     		add	r2, sp, #4
+ 1153              	.LVL140:
+ 1154              	.LEHB15:
+ 1155 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 1156              	.LEHE15:
+ 1157              	.LVL141:
+ 1158              		.loc 1 150 0 is_stmt 0 discriminator 2
+ 1159 001a 201C     		mov	r0, r4
+ 1160 001c 6946     		mov	r1, sp
+ 1161              	.LEHB16:
+ 1162 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 1163              	.LEHE16:
+ 1164              	.LVL142:
+ 1165              	.LBB517:
+ 1166              	.LBB518:
+ 1167              	.LBB519:
+ 1168              	.LBB520:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1169              		.loc 2 301 0 is_stmt 1
+ 1170 0022 0098     		ldr	r0, [sp]
+ 1171 0024 0C38     		sub	r0, r0, #12
+ 1172              	.LVL143:
+ 1173              	.LBE520:
+ 1174              	.LBE519:
+ 1175              		.loc 2 547 0
+ 1176 0026 02A9     		add	r1, sp, #8
+ 1177 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1178              	.LVL144:
+ 1179              	.LBE518:
+ 1180              	.LBE517:
+ 1181              		.loc 1 150 0
+ 1182 002c 201C     		mov	r0, r4
+ 1183 002e 1249     		ldr	r1, .L79+4
+ 1184 0030 124A     		ldr	r2, .L79+8
+ 1185              	.LEHB17:
+ 1186 0032 FFF7FEFF 		bl	__cxa_throw
+ 1187              	.LVL145:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 34
+
+
+ 1188              	.L73:
+ 151:Src/GPIO_operations.cpp ****   }
+ 152:Src/GPIO_operations.cpp ****   uint16_t pos = GPIO_Pin_pos * 2; //bit position for a 32bit register
+ 1189              		.loc 1 152 0
+ 1190 0036 5200     		lsl	r2, r2, #1
+ 1191              	.LVL146:
+ 1192 0038 92B2     		uxth	r2, r2
+ 1193              	.LVL147:
+ 153:Src/GPIO_operations.cpp ****   //register MODER has 2 bits for configuration of each pin
+ 154:Src/GPIO_operations.cpp ****   uint16_t bit_0 = 0b01;
+ 155:Src/GPIO_operations.cpp ****   uint16_t bit_1 = 0b10;
+ 156:Src/GPIO_operations.cpp ****   uint32_t pinMask0 = bit_0 << pos;
+ 1194              		.loc 1 156 0
+ 1195 003a 0123     		mov	r3, #1
+ 1196 003c 9340     		lsl	r3, r3, r2
+ 1197              	.LVL148:
+ 157:Src/GPIO_operations.cpp ****   uint32_t pinMask1 = bit_1 << pos;
+ 1198              		.loc 1 157 0
+ 1199 003e 0221     		mov	r1, #2
+ 1200              	.LVL149:
+ 1201 0040 9140     		lsl	r1, r1, r2
+ 1202 0042 0A1C     		mov	r2, r1
+ 1203              	.LVL150:
+ 158:Src/GPIO_operations.cpp ****   GPIOx->MODER &= ~(uint32_t)pinMask0; //set as input
+ 1204              		.loc 1 158 0
+ 1205 0044 0168     		ldr	r1, [r0]
+ 1206              	.LVL151:
+ 1207 0046 DB43     		mvn	r3, r3
+ 1208              	.LVL152:
+ 1209 0048 1940     		and	r1, r3
+ 1210 004a 0160     		str	r1, [r0]
+ 159:Src/GPIO_operations.cpp ****   //register PUPDR has 2 bit per pin
+ 160:Src/GPIO_operations.cpp ****   //10: Pull-down
+ 161:Src/GPIO_operations.cpp ****   GPIOx->PUPDR &= ~pinMask0;
+ 1211              		.loc 1 161 0
+ 1212 004c C168     		ldr	r1, [r0, #12]
+ 1213 004e 0B40     		and	r3, r1
+ 1214              	.LVL153:
+ 1215 0050 C360     		str	r3, [r0, #12]
+ 162:Src/GPIO_operations.cpp ****   GPIOx->PUPDR |= pinMask1;
+ 1216              		.loc 1 162 0
+ 1217 0052 C368     		ldr	r3, [r0, #12]
+ 1218 0054 1A43     		orr	r2, r3
+ 1219              	.LVL154:
+ 1220 0056 C260     		str	r2, [r0, #12]
+ 1221 0058 0AE0     		b	.L78
+ 1222              	.LVL155:
+ 1223              	.L77:
+ 1224              	.LBB521:
+ 1225              	.LBB522:
+ 1226              	.LBB523:
+ 1227              	.LBB524:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1228              		.loc 2 301 0
+ 1229 005a 0098     		ldr	r0, [sp]
+ 1230 005c 0C38     		sub	r0, r0, #12
+ 1231              	.LVL156:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 35
+
+
+ 1232              	.LBE524:
+ 1233              	.LBE523:
+ 1234              		.loc 2 547 0
+ 1235 005e 03A9     		add	r1, sp, #12
+ 1236 0060 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1237              	.LVL157:
+ 1238 0064 FFE7     		b	.L75
+ 1239              	.LVL158:
+ 1240              	.L76:
+ 1241              	.L75:
+ 1242              	.LBE522:
+ 1243              	.LBE521:
+ 150:Src/GPIO_operations.cpp ****   }
+ 1244              		.loc 1 150 0 discriminator 1
+ 1245 0066 201C     		mov	r0, r4
+ 1246 0068 FFF7FEFF 		bl	__cxa_free_exception
+ 1247              	.LVL159:
+ 1248 006c FFF7FEFF 		bl	__cxa_end_cleanup
+ 1249              	.LEHE17:
+ 1250              	.LVL160:
+ 1251              	.L78:
+ 1252              	.LBE516:
+ 163:Src/GPIO_operations.cpp **** }
+ 1253              		.loc 1 163 0
+ 1254 0070 04B0     		add	sp, sp, #16
+ 1255              		@ sp needed
+ 1256 0072 10BD     		pop	{r4, pc}
+ 1257              	.L80:
+ 1258              		.align	2
+ 1259              	.L79:
+ 1260 0074 00000000 		.word	.LC0
+ 1261 0078 00000000 		.word	_ZTISt16invalid_argument
+ 1262 007c 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 1263              		.cfi_endproc
+ 1264              	.LFE634:
+ 1265              		.personality	__gxx_personality_v0
+ 1266              		.handlerdata
+ 1267              	.LLSDA634:
+ 1268 0008 FF       		.byte	0xff
+ 1269 0009 FF       		.byte	0xff
+ 1270 000a 01       		.byte	0x1
+ 1271 000b 0C       		.uleb128 .LLSDACSE634-.LLSDACSB634
+ 1272              	.LLSDACSB634:
+ 1273 000c 16       		.uleb128 .LEHB15-.LFB634
+ 1274 000d 04       		.uleb128 .LEHE15-.LEHB15
+ 1275 000e 66       		.uleb128 .L76-.LFB634
+ 1276 000f 00       		.uleb128 0
+ 1277 0010 1E       		.uleb128 .LEHB16-.LFB634
+ 1278 0011 04       		.uleb128 .LEHE16-.LEHB16
+ 1279 0012 5A       		.uleb128 .L77-.LFB634
+ 1280 0013 00       		.uleb128 0
+ 1281 0014 32       		.uleb128 .LEHB17-.LFB634
+ 1282 0015 3E       		.uleb128 .LEHE17-.LEHB17
+ 1283 0016 00       		.uleb128 0
+ 1284 0017 00       		.uleb128 0
+ 1285              	.LLSDACSE634:
+ 1286              		.section	.text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt
+ARM GAS  /tmp/ccJvy3DQ.s 			page 36
+
+
+ 1287              		.fnend
+ 1289              		.section	.text._Z20Init_Output_PushPullP12GPIO_TypeDeftt,"ax",%progbits
+ 1290              		.align	2
+ 1291              		.global	_Z20Init_Output_PushPullP12GPIO_TypeDeftt
+ 1292              		.code	16
+ 1293              		.thumb_func
+ 1295              	_Z20Init_Output_PushPullP12GPIO_TypeDeftt:
+ 1296              		.fnstart
+ 1297              	.LFB637:
+ 164:Src/GPIO_operations.cpp **** 
+ 165:Src/GPIO_operations.cpp **** void Init_Output_NoPushPull(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+ 166:Src/GPIO_operations.cpp **** {
+ 167:Src/GPIO_operations.cpp ****   InitPin(GPIOx, GPIO_Pin, OUTPUT, PUSH_PULL, HIGH_SPEED, NO_PULL_UP_DOWN);
+ 168:Src/GPIO_operations.cpp ****   /*
+ 169:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 170:Src/GPIO_operations.cpp ****   {
+ 171:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 172:Src/GPIO_operations.cpp ****   }
+ 173:Src/GPIO_operations.cpp ****   int bitPos = GetBitPosition(GPIO_Pin);
+ 174:Src/GPIO_operations.cpp ****   if (bitPos == -1)
+ 175:Src/GPIO_operations.cpp ****     printf("error. pin position -1\n");
+ 176:Src/GPIO_operations.cpp ****   uint16_t pos = bitPos * 2; //bit position for a 32bit register*/
+ 177:Src/GPIO_operations.cpp ****   /* set as input */
+ 178:Src/GPIO_operations.cpp ****   /* GPIOx->MODER |= GPIO_MODER_MODER0_0 << pos;
+ 179:Src/GPIO_operations.cpp ****   GPIOx->MODER &= ~(GPIO_MODER_MODER0_1 << pos);*/
+ 180:Src/GPIO_operations.cpp ****   /* set no push pull */
+ 181:Src/GPIO_operations.cpp ****   //GPIOx->OTYPER &= ~(uint32_t)GPIO_Pin;
+ 182:Src/GPIO_operations.cpp ****   /* set high speed */
+ 183:Src/GPIO_operations.cpp ****   //GPIOx->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR0_0 << pos) | (GPIO_OSPEEDER_OSPEEDR0_1 << pos);
+ 184:Src/GPIO_operations.cpp **** }
+ 185:Src/GPIO_operations.cpp **** 
+ 186:Src/GPIO_operations.cpp **** void pinMode(uint8_t pinName, GPIO_MODE mode)
+ 187:Src/GPIO_operations.cpp **** {
+ 188:Src/GPIO_operations.cpp ****   GPIO_TypeDef *GPIOx = GetPort(pinName);
+ 189:Src/GPIO_operations.cpp ****   int GPIO_Pin = GetPinMask(pinName);
+ 190:Src/GPIO_operations.cpp ****   if (GPIO_Pin == -1)
+ 191:Src/GPIO_operations.cpp ****     printf("pin mask not found.\n");
+ 192:Src/GPIO_operations.cpp ****   EnableIO(GPIOx);
+ 193:Src/GPIO_operations.cpp ****   switch (mode)
+ 194:Src/GPIO_operations.cpp ****   {
+ 195:Src/GPIO_operations.cpp ****   case INPUT: /* pull-down */
+ 196:Src/GPIO_operations.cpp ****   {
+ 197:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, INPUT, PUSH_PULL, LOW_SPEED, PULL_DOWN);
+ 198:Src/GPIO_operations.cpp ****     break;
+ 199:Src/GPIO_operations.cpp ****   }
+ 200:Src/GPIO_operations.cpp ****   case INPUT_PULLUP:
+ 201:Src/GPIO_operations.cpp ****   {
+ 202:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, INPUT, PUSH_PULL, LOW_SPEED, PULL_UP);
+ 203:Src/GPIO_operations.cpp ****     break;
+ 204:Src/GPIO_operations.cpp ****   }
+ 205:Src/GPIO_operations.cpp ****   case OUTPUT:
+ 206:Src/GPIO_operations.cpp ****   {
+ 207:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, OUTPUT, PUSH_PULL, HIGH_SPEED, NO_PULL_UP_DOWN);
+ 208:Src/GPIO_operations.cpp ****     break;
+ 209:Src/GPIO_operations.cpp ****   }
+ 210:Src/GPIO_operations.cpp ****   default:
+ 211:Src/GPIO_operations.cpp ****     printf("pin mode not supported. \n");
+ARM GAS  /tmp/ccJvy3DQ.s 			page 37
+
+
+ 212:Src/GPIO_operations.cpp ****     break;
+ 213:Src/GPIO_operations.cpp ****   }
+ 214:Src/GPIO_operations.cpp **** }
+ 215:Src/GPIO_operations.cpp **** 
+ 216:Src/GPIO_operations.cpp **** void Init_Output_PushPull(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint16_t GPIO_Pin_pos)
+ 217:Src/GPIO_operations.cpp **** {
+ 1298              		.loc 1 217 0
+ 1299              		.cfi_startproc
+ 1300              		.cfi_personality 0,__gxx_personality_v0
+ 1301              		.cfi_lsda 0,.LLSDA637
+ 1302              	.LVL161:
+ 1303 0000 10B5     		push	{r4, lr}
+ 1304              		.save {r4, lr}
+ 1305              	.LCFI16:
+ 1306              		.cfi_def_cfa_offset 8
+ 1307              		.cfi_offset 4, -8
+ 1308              		.cfi_offset 14, -4
+ 1309              		.pad #16
+ 1310 0002 84B0     		sub	sp, sp, #16
+ 1311              	.LCFI17:
+ 1312              		.cfi_def_cfa_offset 24
+ 1313              	.LBB525:
+ 218:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 1314              		.loc 1 218 0
+ 1315 0004 0028     		cmp	r0, #0
+ 1316 0006 16D1     		bne	.L82
+ 219:Src/GPIO_operations.cpp ****   {
+ 220:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 1317              		.loc 1 220 0
+ 1318 0008 0830     		add	r0, r0, #8
+ 1319              	.LVL162:
+ 1320 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 1321              	.LVL163:
+ 1322 000e 041C     		mov	r4, r0
+ 1323              	.LVL164:
+ 1324 0010 6846     		mov	r0, sp
+ 1325 0012 1549     		ldr	r1, .L88
+ 1326 0014 01AA     		add	r2, sp, #4
+ 1327              	.LVL165:
+ 1328              	.LEHB18:
+ 1329 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 1330              	.LEHE18:
+ 1331              	.LVL166:
+ 1332              		.loc 1 220 0 is_stmt 0 discriminator 2
+ 1333 001a 201C     		mov	r0, r4
+ 1334 001c 6946     		mov	r1, sp
+ 1335              	.LEHB19:
+ 1336 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 1337              	.LEHE19:
+ 1338              	.LVL167:
+ 1339              	.LBB526:
+ 1340              	.LBB527:
+ 1341              	.LBB528:
+ 1342              	.LBB529:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1343              		.loc 2 301 0 is_stmt 1
+ 1344 0022 0098     		ldr	r0, [sp]
+ARM GAS  /tmp/ccJvy3DQ.s 			page 38
+
+
+ 1345 0024 0C38     		sub	r0, r0, #12
+ 1346              	.LVL168:
+ 1347              	.LBE529:
+ 1348              	.LBE528:
+ 1349              		.loc 2 547 0
+ 1350 0026 02A9     		add	r1, sp, #8
+ 1351 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1352              	.LVL169:
+ 1353              	.LBE527:
+ 1354              	.LBE526:
+ 1355              		.loc 1 220 0
+ 1356 002c 201C     		mov	r0, r4
+ 1357 002e 0F49     		ldr	r1, .L88+4
+ 1358 0030 0F4A     		ldr	r2, .L88+8
+ 1359              	.LEHB20:
+ 1360 0032 FFF7FEFF 		bl	__cxa_throw
+ 1361              	.LVL170:
+ 1362              	.L82:
+ 221:Src/GPIO_operations.cpp ****   }
+ 222:Src/GPIO_operations.cpp ****   uint16_t pos = GPIO_Pin_pos * 2; //bit position for a 32bit register
+ 1363              		.loc 1 222 0
+ 1364 0036 5200     		lsl	r2, r2, #1
+ 1365              	.LVL171:
+ 1366 0038 92B2     		uxth	r2, r2
+ 1367              	.LVL172:
+ 223:Src/GPIO_operations.cpp ****   //register MODER has 2 bits for configuration of each pin
+ 224:Src/GPIO_operations.cpp ****   uint16_t bit_0 = 1;
+ 225:Src/GPIO_operations.cpp ****   uint16_t bit_1 = 2;
+ 226:Src/GPIO_operations.cpp ****   GPIOx->MODER |= (uint32_t)(bit_0 << pos);
+ 1368              		.loc 1 226 0
+ 1369 003a 0468     		ldr	r4, [r0]
+ 1370 003c 0123     		mov	r3, #1
+ 1371 003e 9340     		lsl	r3, r3, r2
+ 1372 0040 1A1C     		mov	r2, r3
+ 1373              	.LVL173:
+ 1374 0042 2243     		orr	r2, r4
+ 1375 0044 0260     		str	r2, [r0]
+ 227:Src/GPIO_operations.cpp ****   //register OTYPER has 1 bit per pin
+ 228:Src/GPIO_operations.cpp ****   // set pin to output type to push-pull
+ 229:Src/GPIO_operations.cpp ****   GPIOx->OTYPER &= ~(uint32_t)GPIO_Pin; //set push pull
+ 1376              		.loc 1 229 0
+ 1377 0046 4368     		ldr	r3, [r0, #4]
+ 1378 0048 8B43     		bic	r3, r1
+ 1379 004a 4360     		str	r3, [r0, #4]
+ 1380 004c 0AE0     		b	.L87
+ 1381              	.LVL174:
+ 1382              	.L86:
+ 1383              	.LBB530:
+ 1384              	.LBB531:
+ 1385              	.LBB532:
+ 1386              	.LBB533:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1387              		.loc 2 301 0
+ 1388 004e 0098     		ldr	r0, [sp]
+ 1389 0050 0C38     		sub	r0, r0, #12
+ 1390              	.LVL175:
+ 1391              	.LBE533:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 39
+
+
+ 1392              	.LBE532:
+ 1393              		.loc 2 547 0
+ 1394 0052 03A9     		add	r1, sp, #12
+ 1395 0054 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1396              	.LVL176:
+ 1397 0058 FFE7     		b	.L84
+ 1398              	.LVL177:
+ 1399              	.L85:
+ 1400              	.L84:
+ 1401              	.LBE531:
+ 1402              	.LBE530:
+ 220:Src/GPIO_operations.cpp ****   }
+ 1403              		.loc 1 220 0 discriminator 1
+ 1404 005a 201C     		mov	r0, r4
+ 1405 005c FFF7FEFF 		bl	__cxa_free_exception
+ 1406              	.LVL178:
+ 1407 0060 FFF7FEFF 		bl	__cxa_end_cleanup
+ 1408              	.LEHE20:
+ 1409              	.LVL179:
+ 1410              	.L87:
+ 1411              	.LBE525:
+ 230:Src/GPIO_operations.cpp **** }
+ 1412              		.loc 1 230 0
+ 1413 0064 04B0     		add	sp, sp, #16
+ 1414              		@ sp needed
+ 1415 0066 10BD     		pop	{r4, pc}
+ 1416              	.L89:
+ 1417              		.align	2
+ 1418              	.L88:
+ 1419 0068 00000000 		.word	.LC0
+ 1420 006c 00000000 		.word	_ZTISt16invalid_argument
+ 1421 0070 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 1422              		.cfi_endproc
+ 1423              	.LFE637:
+ 1424              		.personality	__gxx_personality_v0
+ 1425              		.handlerdata
+ 1426              	.LLSDA637:
+ 1427 0008 FF       		.byte	0xff
+ 1428 0009 FF       		.byte	0xff
+ 1429 000a 01       		.byte	0x1
+ 1430 000b 0C       		.uleb128 .LLSDACSE637-.LLSDACSB637
+ 1431              	.LLSDACSB637:
+ 1432 000c 16       		.uleb128 .LEHB18-.LFB637
+ 1433 000d 04       		.uleb128 .LEHE18-.LEHB18
+ 1434 000e 5A       		.uleb128 .L85-.LFB637
+ 1435 000f 00       		.uleb128 0
+ 1436 0010 1E       		.uleb128 .LEHB19-.LFB637
+ 1437 0011 04       		.uleb128 .LEHE19-.LEHB19
+ 1438 0012 4E       		.uleb128 .L86-.LFB637
+ 1439 0013 00       		.uleb128 0
+ 1440 0014 32       		.uleb128 .LEHB20-.LFB637
+ 1441 0015 32       		.uleb128 .LEHE20-.LEHB20
+ 1442 0016 00       		.uleb128 0
+ 1443 0017 00       		.uleb128 0
+ 1444              	.LLSDACSE637:
+ 1445              		.section	.text._Z20Init_Output_PushPullP12GPIO_TypeDeftt
+ 1446              		.fnend
+ARM GAS  /tmp/ccJvy3DQ.s 			page 40
+
+
+ 1448              		.section	.text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt,"ax",%progbits
+ 1449              		.align	2
+ 1450              		.global	_Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt
+ 1451              		.code	16
+ 1452              		.thumb_func
+ 1454              	_Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:
+ 1455              		.fnstart
+ 1456              	.LFB638:
+ 231:Src/GPIO_operations.cpp **** 
+ 232:Src/GPIO_operations.cpp **** void Init_IOPin_AlternateFunction(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint16_t GPIO_Pin_pos)
+ 233:Src/GPIO_operations.cpp **** {
+ 1457              		.loc 1 233 0
+ 1458              		.cfi_startproc
+ 1459              		.cfi_personality 0,__gxx_personality_v0
+ 1460              		.cfi_lsda 0,.LLSDA638
+ 1461              	.LVL180:
+ 1462 0000 10B5     		push	{r4, lr}
+ 1463              		.save {r4, lr}
+ 1464              	.LCFI18:
+ 1465              		.cfi_def_cfa_offset 8
+ 1466              		.cfi_offset 4, -8
+ 1467              		.cfi_offset 14, -4
+ 1468              		.pad #16
+ 1469 0002 84B0     		sub	sp, sp, #16
+ 1470              	.LCFI19:
+ 1471              		.cfi_def_cfa_offset 24
+ 1472              	.LBB534:
+ 234:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 1473              		.loc 1 234 0
+ 1474 0004 0028     		cmp	r0, #0
+ 1475 0006 16D1     		bne	.L91
+ 235:Src/GPIO_operations.cpp ****   {
+ 236:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 1476              		.loc 1 236 0
+ 1477 0008 0830     		add	r0, r0, #8
+ 1478              	.LVL181:
+ 1479 000a FFF7FEFF 		bl	__cxa_allocate_exception
+ 1480              	.LVL182:
+ 1481 000e 041C     		mov	r4, r0
+ 1482              	.LVL183:
+ 1483 0010 6846     		mov	r0, sp
+ 1484 0012 1C49     		ldr	r1, .L97
+ 1485 0014 01AA     		add	r2, sp, #4
+ 1486              	.LVL184:
+ 1487              	.LEHB21:
+ 1488 0016 FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 1489              	.LEHE21:
+ 1490              	.LVL185:
+ 1491              		.loc 1 236 0 is_stmt 0 discriminator 2
+ 1492 001a 201C     		mov	r0, r4
+ 1493 001c 6946     		mov	r1, sp
+ 1494              	.LEHB22:
+ 1495 001e FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 1496              	.LEHE22:
+ 1497              	.LVL186:
+ 1498              	.LBB535:
+ 1499              	.LBB536:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 41
+
+
+ 1500              	.LBB537:
+ 1501              	.LBB538:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1502              		.loc 2 301 0 is_stmt 1
+ 1503 0022 0098     		ldr	r0, [sp]
+ 1504 0024 0C38     		sub	r0, r0, #12
+ 1505              	.LVL187:
+ 1506              	.LBE538:
+ 1507              	.LBE537:
+ 1508              		.loc 2 547 0
+ 1509 0026 02A9     		add	r1, sp, #8
+ 1510 0028 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1511              	.LVL188:
+ 1512              	.LBE536:
+ 1513              	.LBE535:
+ 1514              		.loc 1 236 0
+ 1515 002c 201C     		mov	r0, r4
+ 1516 002e 1649     		ldr	r1, .L97+4
+ 1517 0030 164A     		ldr	r2, .L97+8
+ 1518              	.LEHB23:
+ 1519 0032 FFF7FEFF 		bl	__cxa_throw
+ 1520              	.LVL189:
+ 1521              	.L91:
+ 237:Src/GPIO_operations.cpp ****   }
+ 238:Src/GPIO_operations.cpp ****   uint16_t pos = GPIO_Pin_pos * 2; //bit position for a 32bit register
+ 1522              		.loc 1 238 0
+ 1523 0036 5200     		lsl	r2, r2, #1
+ 1524              	.LVL190:
+ 1525 0038 91B2     		uxth	r1, r2
+ 1526              	.LVL191:
+ 239:Src/GPIO_operations.cpp ****   //register MODER has 2 bits for configuration of each pin
+ 240:Src/GPIO_operations.cpp ****   uint16_t bit_0 = 0b01;
+ 241:Src/GPIO_operations.cpp ****   uint16_t bit_1 = 0b10;
+ 242:Src/GPIO_operations.cpp ****   uint32_t pinMask0 = bit_0 << pos;
+ 1527              		.loc 1 242 0
+ 1528 003a 0122     		mov	r2, #1
+ 1529 003c 8A40     		lsl	r2, r2, r1
+ 1530 003e 141C     		mov	r4, r2
+ 1531              	.LVL192:
+ 243:Src/GPIO_operations.cpp ****   uint32_t pinMask1 = bit_1 << pos;
+ 1532              		.loc 1 243 0
+ 1533 0040 0223     		mov	r3, #2
+ 1534 0042 8B40     		lsl	r3, r3, r1
+ 1535 0044 1A1C     		mov	r2, r3
+ 1536              	.LVL193:
+ 244:Src/GPIO_operations.cpp **** 
+ 245:Src/GPIO_operations.cpp ****   // MODER 10: Alternate function mode
+ 246:Src/GPIO_operations.cpp ****   GPIOx->MODER &= ~(uint32_t)pinMask0;
+ 1537              		.loc 1 246 0
+ 1538 0046 0168     		ldr	r1, [r0]
+ 1539              	.LVL194:
+ 1540 0048 E343     		mvn	r3, r4
+ 1541 004a 1940     		and	r1, r3
+ 1542 004c 0160     		str	r1, [r0]
+ 247:Src/GPIO_operations.cpp ****   GPIOx->MODER |= (uint32_t)pinMask1;
+ 1543              		.loc 1 247 0
+ 1544 004e 0168     		ldr	r1, [r0]
+ARM GAS  /tmp/ccJvy3DQ.s 			page 42
+
+
+ 1545 0050 1143     		orr	r1, r2
+ 1546 0052 0160     		str	r1, [r0]
+ 248:Src/GPIO_operations.cpp **** 
+ 249:Src/GPIO_operations.cpp ****   //register PUPDR has 2 bit per pin
+ 250:Src/GPIO_operations.cpp ****   // PUPDR 00: No pull-up, pull-down
+ 251:Src/GPIO_operations.cpp ****   GPIOx->PUPDR &= ~(uint32_t)pinMask0;
+ 1547              		.loc 1 251 0
+ 1548 0054 C168     		ldr	r1, [r0, #12]
+ 1549 0056 0B40     		and	r3, r1
+ 1550 0058 C360     		str	r3, [r0, #12]
+ 252:Src/GPIO_operations.cpp ****   GPIOx->PUPDR &= ~(uint32_t)pinMask1;
+ 1551              		.loc 1 252 0
+ 1552 005a C368     		ldr	r3, [r0, #12]
+ 1553 005c 9343     		bic	r3, r2
+ 1554 005e C360     		str	r3, [r0, #12]
+ 253:Src/GPIO_operations.cpp **** 
+ 254:Src/GPIO_operations.cpp ****   // OSPEEDR 11: high speed
+ 255:Src/GPIO_operations.cpp ****   GPIOx->OSPEEDR |= (uint32_t)(pinMask0 | pinMask1);
+ 1555              		.loc 1 255 0
+ 1556 0060 8368     		ldr	r3, [r0, #8]
+ 1557 0062 2243     		orr	r2, r4
+ 1558              	.LVL195:
+ 1559 0064 1A43     		orr	r2, r3
+ 1560 0066 8260     		str	r2, [r0, #8]
+ 1561 0068 0AE0     		b	.L96
+ 1562              	.LVL196:
+ 1563              	.L95:
+ 1564              	.LBB539:
+ 1565              	.LBB540:
+ 1566              	.LBB541:
+ 1567              	.LBB542:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1568              		.loc 2 301 0
+ 1569 006a 0098     		ldr	r0, [sp]
+ 1570 006c 0C38     		sub	r0, r0, #12
+ 1571              	.LVL197:
+ 1572              	.LBE542:
+ 1573              	.LBE541:
+ 1574              		.loc 2 547 0
+ 1575 006e 03A9     		add	r1, sp, #12
+ 1576 0070 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1577              	.LVL198:
+ 1578 0074 FFE7     		b	.L93
+ 1579              	.LVL199:
+ 1580              	.L94:
+ 1581              	.L93:
+ 1582              	.LBE540:
+ 1583              	.LBE539:
+ 236:Src/GPIO_operations.cpp ****   }
+ 1584              		.loc 1 236 0 discriminator 1
+ 1585 0076 201C     		mov	r0, r4
+ 1586 0078 FFF7FEFF 		bl	__cxa_free_exception
+ 1587              	.LVL200:
+ 1588 007c FFF7FEFF 		bl	__cxa_end_cleanup
+ 1589              	.LEHE23:
+ 1590              	.LVL201:
+ 1591              	.L96:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 43
+
+
+ 1592              	.LBE534:
+ 256:Src/GPIO_operations.cpp **** }
+ 1593              		.loc 1 256 0
+ 1594 0080 04B0     		add	sp, sp, #16
+ 1595              		@ sp needed
+ 1596              	.LVL202:
+ 1597 0082 10BD     		pop	{r4, pc}
+ 1598              	.L98:
+ 1599              		.align	2
+ 1600              	.L97:
+ 1601 0084 00000000 		.word	.LC0
+ 1602 0088 00000000 		.word	_ZTISt16invalid_argument
+ 1603 008c 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 1604              		.cfi_endproc
+ 1605              	.LFE638:
+ 1606              		.personality	__gxx_personality_v0
+ 1607              		.handlerdata
+ 1608              	.LLSDA638:
+ 1609 0008 FF       		.byte	0xff
+ 1610 0009 FF       		.byte	0xff
+ 1611 000a 01       		.byte	0x1
+ 1612 000b 0C       		.uleb128 .LLSDACSE638-.LLSDACSB638
+ 1613              	.LLSDACSB638:
+ 1614 000c 16       		.uleb128 .LEHB21-.LFB638
+ 1615 000d 04       		.uleb128 .LEHE21-.LEHB21
+ 1616 000e 76       		.uleb128 .L94-.LFB638
+ 1617 000f 00       		.uleb128 0
+ 1618 0010 1E       		.uleb128 .LEHB22-.LFB638
+ 1619 0011 04       		.uleb128 .LEHE22-.LEHB22
+ 1620 0012 6A       		.uleb128 .L95-.LFB638
+ 1621 0013 00       		.uleb128 0
+ 1622 0014 32       		.uleb128 .LEHB23-.LFB638
+ 1623 0015 4E       		.uleb128 .LEHE23-.LEHB23
+ 1624 0016 00       		.uleb128 0
+ 1625 0017 00       		.uleb128 0
+ 1626              	.LLSDACSE638:
+ 1627              		.section	.text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt
+ 1628              		.fnend
+ 1630              		.section	.text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PUL
+ 1631              		.align	2
+ 1632              		.global	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DO
+ 1633              		.code	16
+ 1634              		.thumb_func
+ 1636              	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:
+ 1637              		.fnstart
+ 1638              	.LFB639:
+ 257:Src/GPIO_operations.cpp **** 
+ 258:Src/GPIO_operations.cpp **** void InitPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_MODE mode, GPIO_OUTPUT_TYPE otype, GPIO_O
+ 259:Src/GPIO_operations.cpp **** {
+ 1639              		.loc 1 259 0
+ 1640              		.cfi_startproc
+ 1641              		.cfi_personality 0,__gxx_personality_v0
+ 1642              		.cfi_lsda 0,.LLSDA639
+ 1643              	.LVL203:
+ 1644 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1645              		.save {r4, r5, r6, r7, lr}
+ 1646              	.LCFI20:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 44
+
+
+ 1647              		.cfi_def_cfa_offset 20
+ 1648              		.cfi_offset 4, -20
+ 1649              		.cfi_offset 5, -16
+ 1650              		.cfi_offset 6, -12
+ 1651              		.cfi_offset 7, -8
+ 1652              		.cfi_offset 14, -4
+ 1653 0002 4F46     		mov	r7, r9
+ 1654 0004 4646     		mov	r6, r8
+ 1655 0006 C0B4     		push	{r6, r7}
+ 1656              		.save {r8, r9}
+ 1657              	.LCFI21:
+ 1658              		.cfi_def_cfa_offset 28
+ 1659              		.cfi_offset 8, -28
+ 1660              		.cfi_offset 9, -24
+ 1661              		.pad #20
+ 1662 0008 85B0     		sub	sp, sp, #20
+ 1663              	.LCFI22:
+ 1664              		.cfi_def_cfa_offset 48
+ 1665 000a 041C     		mov	r4, r0
+ 1666 000c 161C     		mov	r6, r2
+ 1667 000e 9946     		mov	r9, r3
+ 1668 0010 0CAB     		add	r3, sp, #48
+ 1669              	.LVL204:
+ 1670 0012 1F78     		ldrb	r7, [r3]
+ 1671 0014 0DAB     		add	r3, sp, #52
+ 1672              	.LVL205:
+ 1673 0016 1B78     		ldrb	r3, [r3]
+ 1674              	.LVL206:
+ 1675 0018 9846     		mov	r8, r3
+ 1676              	.LBB543:
+ 260:Src/GPIO_operations.cpp ****   if (GPIOx == NULL)
+ 1677              		.loc 1 260 0
+ 1678 001a 0028     		cmp	r0, #0
+ 1679 001c 16D1     		bne	.L100
+ 261:Src/GPIO_operations.cpp ****   {
+ 262:Src/GPIO_operations.cpp ****     throw std::invalid_argument("GPIOx is NULL");
+ 1680              		.loc 1 262 0
+ 1681 001e 0820     		mov	r0, #8
+ 1682              	.LVL207:
+ 1683 0020 FFF7FEFF 		bl	__cxa_allocate_exception
+ 1684              	.LVL208:
+ 1685 0024 041C     		mov	r4, r0
+ 1686              	.LVL209:
+ 1687 0026 6846     		mov	r0, sp
+ 1688 0028 6949     		ldr	r1, .L122
+ 1689 002a 01AA     		add	r2, sp, #4
+ 1690              	.LVL210:
+ 1691              	.LEHB24:
+ 1692 002c FFF7FEFF 		bl	_ZNSsC1EPKcRKSaIcE
+ 1693              	.LEHE24:
+ 1694              	.LVL211:
+ 1695              		.loc 1 262 0 is_stmt 0 discriminator 2
+ 1696 0030 201C     		mov	r0, r4
+ 1697 0032 6946     		mov	r1, sp
+ 1698              	.LEHB25:
+ 1699 0034 FFF7FEFF 		bl	_ZNSt16invalid_argumentC1ERKSs
+ 1700              	.LEHE25:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 45
+
+
+ 1701              	.LVL212:
+ 1702              	.LBB544:
+ 1703              	.LBB545:
+ 1704              	.LBB546:
+ 1705              	.LBB547:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1706              		.loc 2 301 0 is_stmt 1
+ 1707 0038 0098     		ldr	r0, [sp]
+ 1708 003a 0C38     		sub	r0, r0, #12
+ 1709              	.LVL213:
+ 1710              	.LBE547:
+ 1711              	.LBE546:
+ 1712              		.loc 2 547 0
+ 1713 003c 02A9     		add	r1, sp, #8
+ 1714 003e FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1715              	.LVL214:
+ 1716              	.LBE545:
+ 1717              	.LBE544:
+ 1718              		.loc 1 262 0
+ 1719 0042 201C     		mov	r0, r4
+ 1720 0044 6349     		ldr	r1, .L122+4
+ 1721 0046 644A     		ldr	r2, .L122+8
+ 1722              	.LEHB26:
+ 1723 0048 FFF7FEFF 		bl	__cxa_throw
+ 1724              	.LVL215:
+ 1725              	.L100:
+ 263:Src/GPIO_operations.cpp ****   }
+ 264:Src/GPIO_operations.cpp **** 
+ 265:Src/GPIO_operations.cpp ****   int bitPos = GetBitPosition(GPIO_Pin);
+ 1726              		.loc 1 265 0
+ 1727 004c 081C     		mov	r0, r1
+ 1728              	.LVL216:
+ 1729 004e FFF7FEFF 		bl	_Z14GetBitPositionj
+ 1730              	.LVL217:
+ 1731 0052 051C     		mov	r5, r0
+ 1732              	.LVL218:
+ 266:Src/GPIO_operations.cpp ****   if (bitPos == -1)
+ 1733              		.loc 1 266 0
+ 1734 0054 431C     		add	r3, r0, #1
+ 1735 0056 02D1     		bne	.L101
+ 267:Src/GPIO_operations.cpp ****     printf("error. pin position -1\n");
+ 1736              		.loc 1 267 0
+ 1737 0058 6048     		ldr	r0, .L122+12
+ 1738              	.LVL219:
+ 1739 005a FFF7FEFF 		bl	puts
+ 1740              	.LVL220:
+ 1741              	.L101:
+ 268:Src/GPIO_operations.cpp **** 
+ 269:Src/GPIO_operations.cpp ****   switch (mode)
+ 1742              		.loc 1 269 0
+ 1743 005e 012E     		cmp	r6, #1
+ 1744 0060 12D0     		beq	.L103
+ 1745 0062 002E     		cmp	r6, #0
+ 1746 0064 04D0     		beq	.L104
+ 1747 0066 022E     		cmp	r6, #2
+ 1748 0068 1BD0     		beq	.L105
+ 1749 006a 032E     		cmp	r6, #3
+ARM GAS  /tmp/ccJvy3DQ.s 			page 46
+
+
+ 1750 006c 26D0     		beq	.L106
+ 1751 006e 32E0     		b	.L102
+ 1752              	.L104:
+ 270:Src/GPIO_operations.cpp ****   {
+ 271:Src/GPIO_operations.cpp ****   case INPUT:
+ 272:Src/GPIO_operations.cpp ****   {
+ 273:Src/GPIO_operations.cpp ****     /* set input mode :00 */
+ 274:Src/GPIO_operations.cpp ****     GPIOx->MODER &= ~(GPIO_MODER_MODER0_0 << (bitPos * 2));
+ 1753              		.loc 1 274 0
+ 1754 0070 2368     		ldr	r3, [r4]
+ 1755 0072 6800     		lsl	r0, r5, #1
+ 1756 0074 0121     		mov	r1, #1
+ 1757 0076 8140     		lsl	r1, r1, r0
+ 1758 0078 8B43     		bic	r3, r1
+ 1759 007a 2360     		str	r3, [r4]
+ 275:Src/GPIO_operations.cpp ****     GPIOx->MODER &= ~(GPIO_MODER_MODER0_1 << (bitPos * 2));
+ 1760              		.loc 1 275 0
+ 1761 007c 2368     		ldr	r3, [r4]
+ 1762 007e 0222     		mov	r2, #2
+ 1763 0080 8240     		lsl	r2, r2, r0
+ 1764 0082 9343     		bic	r3, r2
+ 1765 0084 2360     		str	r3, [r4]
+ 276:Src/GPIO_operations.cpp ****     break;
+ 1766              		.loc 1 276 0
+ 1767 0086 26E0     		b	.L102
+ 1768              	.L103:
+ 277:Src/GPIO_operations.cpp ****   }
+ 278:Src/GPIO_operations.cpp ****   case OUTPUT:
+ 279:Src/GPIO_operations.cpp ****   {
+ 280:Src/GPIO_operations.cpp ****     /* set output mode :01 */
+ 281:Src/GPIO_operations.cpp ****     GPIOx->MODER |= GPIO_MODER_MODER0_0 << (bitPos * 2);
+ 1769              		.loc 1 281 0
+ 1770 0088 2068     		ldr	r0, [r4]
+ 1771 008a 6900     		lsl	r1, r5, #1
+ 1772 008c 0122     		mov	r2, #1
+ 1773 008e 131C     		mov	r3, r2
+ 1774 0090 8B40     		lsl	r3, r3, r1
+ 1775 0092 0343     		orr	r3, r0
+ 1776 0094 2360     		str	r3, [r4]
+ 282:Src/GPIO_operations.cpp ****     GPIOx->MODER &= ~(GPIO_MODER_MODER0_1 << (bitPos * 2));
+ 1777              		.loc 1 282 0
+ 1778 0096 2368     		ldr	r3, [r4]
+ 1779 0098 0132     		add	r2, r2, #1
+ 1780 009a 8A40     		lsl	r2, r2, r1
+ 1781 009c 9343     		bic	r3, r2
+ 1782 009e 2360     		str	r3, [r4]
+ 283:Src/GPIO_operations.cpp ****     break;
+ 1783              		.loc 1 283 0
+ 1784 00a0 19E0     		b	.L102
+ 1785              	.L105:
+ 284:Src/GPIO_operations.cpp ****   }
+ 285:Src/GPIO_operations.cpp ****   case ALTERNATE:
+ 286:Src/GPIO_operations.cpp ****   {
+ 287:Src/GPIO_operations.cpp ****     /* set alternate mode :10 */
+ 288:Src/GPIO_operations.cpp ****     GPIOx->MODER &= ~(GPIO_MODER_MODER0_0 << (bitPos * 2));
+ 1786              		.loc 1 288 0
+ 1787 00a2 2268     		ldr	r2, [r4]
+ARM GAS  /tmp/ccJvy3DQ.s 			page 47
+
+
+ 1788 00a4 6800     		lsl	r0, r5, #1
+ 1789 00a6 0121     		mov	r1, #1
+ 1790 00a8 8140     		lsl	r1, r1, r0
+ 1791 00aa 8A43     		bic	r2, r1
+ 1792 00ac 2260     		str	r2, [r4]
+ 289:Src/GPIO_operations.cpp ****     GPIOx->MODER |= GPIO_MODER_MODER0_1 << (bitPos * 2);
+ 1793              		.loc 1 289 0
+ 1794 00ae 2168     		ldr	r1, [r4]
+ 1795 00b0 0222     		mov	r2, #2
+ 1796 00b2 131C     		mov	r3, r2
+ 1797 00b4 8340     		lsl	r3, r3, r0
+ 1798 00b6 0B43     		orr	r3, r1
+ 1799 00b8 2360     		str	r3, [r4]
+ 290:Src/GPIO_operations.cpp ****     break;
+ 1800              		.loc 1 290 0
+ 1801 00ba 0CE0     		b	.L102
+ 1802              	.L106:
+ 291:Src/GPIO_operations.cpp ****   }
+ 292:Src/GPIO_operations.cpp ****   case ANALOG:
+ 293:Src/GPIO_operations.cpp ****   {
+ 294:Src/GPIO_operations.cpp ****     /* set analog mode :11 */
+ 295:Src/GPIO_operations.cpp ****     GPIOx->MODER |= GPIO_MODER_MODER0_1 << (bitPos * 2);
+ 1803              		.loc 1 295 0
+ 1804 00bc 2368     		ldr	r3, [r4]
+ 1805 00be 6800     		lsl	r0, r5, #1
+ 1806 00c0 0221     		mov	r1, #2
+ 1807 00c2 0A1C     		mov	r2, r1
+ 1808 00c4 8240     		lsl	r2, r2, r0
+ 1809 00c6 1A43     		orr	r2, r3
+ 1810 00c8 2260     		str	r2, [r4]
+ 296:Src/GPIO_operations.cpp ****     GPIOx->MODER |= GPIO_MODER_MODER0_0 << (bitPos * 2);
+ 1811              		.loc 1 296 0
+ 1812 00ca 2168     		ldr	r1, [r4]
+ 1813 00cc 0122     		mov	r2, #1
+ 1814 00ce 131C     		mov	r3, r2
+ 1815 00d0 8340     		lsl	r3, r3, r0
+ 1816 00d2 0B43     		orr	r3, r1
+ 1817 00d4 2360     		str	r3, [r4]
+ 1818              	.L102:
+ 297:Src/GPIO_operations.cpp ****     break;
+ 298:Src/GPIO_operations.cpp ****   }
+ 299:Src/GPIO_operations.cpp ****   default:
+ 300:Src/GPIO_operations.cpp ****     break;
+ 301:Src/GPIO_operations.cpp ****   }
+ 302:Src/GPIO_operations.cpp **** 
+ 303:Src/GPIO_operations.cpp ****   switch (otype) /* output */
+ 1819              		.loc 1 303 0
+ 1820 00d6 4B46     		mov	r3, r9
+ 1821 00d8 002B     		cmp	r3, #0
+ 1822 00da 02D0     		beq	.L108
+ 1823 00dc 012B     		cmp	r3, #1
+ 1824 00de 06D0     		beq	.L109
+ 1825 00e0 0BE0     		b	.L107
+ 1826              	.L108:
+ 304:Src/GPIO_operations.cpp ****   {
+ 305:Src/GPIO_operations.cpp ****   case PUSH_PULL:
+ 306:Src/GPIO_operations.cpp ****   {
+ARM GAS  /tmp/ccJvy3DQ.s 			page 48
+
+
+ 307:Src/GPIO_operations.cpp ****     /* 0 */
+ 308:Src/GPIO_operations.cpp ****     GPIOx->OTYPER &= ~(GPIO_OTYPER_OT_0 << bitPos);
+ 1827              		.loc 1 308 0
+ 1828 00e2 6368     		ldr	r3, [r4, #4]
+ 1829 00e4 0122     		mov	r2, #1
+ 1830 00e6 AA40     		lsl	r2, r2, r5
+ 1831 00e8 9343     		bic	r3, r2
+ 1832 00ea 6360     		str	r3, [r4, #4]
+ 309:Src/GPIO_operations.cpp ****     break;
+ 1833              		.loc 1 309 0
+ 1834 00ec 05E0     		b	.L107
+ 1835              	.L109:
+ 310:Src/GPIO_operations.cpp ****   }
+ 311:Src/GPIO_operations.cpp ****   case OPEN_DRAIN:
+ 312:Src/GPIO_operations.cpp ****   {
+ 313:Src/GPIO_operations.cpp ****     /* 1 */
+ 314:Src/GPIO_operations.cpp ****     GPIOx->OTYPER |= GPIO_OTYPER_OT_0 << bitPos;
+ 1836              		.loc 1 314 0
+ 1837 00ee 6168     		ldr	r1, [r4, #4]
+ 1838 00f0 0122     		mov	r2, #1
+ 1839 00f2 131C     		mov	r3, r2
+ 1840 00f4 AB40     		lsl	r3, r3, r5
+ 1841 00f6 0B43     		orr	r3, r1
+ 1842 00f8 6360     		str	r3, [r4, #4]
+ 1843              	.L107:
+ 315:Src/GPIO_operations.cpp ****     break;
+ 316:Src/GPIO_operations.cpp ****   }
+ 317:Src/GPIO_operations.cpp ****   default:
+ 318:Src/GPIO_operations.cpp ****     break;
+ 319:Src/GPIO_operations.cpp ****   }
+ 320:Src/GPIO_operations.cpp **** 
+ 321:Src/GPIO_operations.cpp ****   switch (pullType) /* input*/
+ 1844              		.loc 1 321 0
+ 1845 00fa 4346     		mov	r3, r8
+ 1846 00fc 012B     		cmp	r3, #1
+ 1847 00fe 10D0     		beq	.L111
+ 1848 0100 002B     		cmp	r3, #0
+ 1849 0102 02D0     		beq	.L112
+ 1850 0104 022B     		cmp	r3, #2
+ 1851 0106 19D0     		beq	.L113
+ 1852 0108 24E0     		b	.L110
+ 1853              	.L112:
+ 322:Src/GPIO_operations.cpp ****   {
+ 323:Src/GPIO_operations.cpp ****   case NO_PULL_UP_DOWN:
+ 324:Src/GPIO_operations.cpp ****   { /* 00 */
+ 325:Src/GPIO_operations.cpp ****     GPIOx->PUPDR &= ~(GPIO_PUPDR_PUPDR0_0 << (bitPos * 2));
+ 1854              		.loc 1 325 0
+ 1855 010a E368     		ldr	r3, [r4, #12]
+ 1856 010c 6800     		lsl	r0, r5, #1
+ 1857 010e 0121     		mov	r1, #1
+ 1858 0110 8140     		lsl	r1, r1, r0
+ 1859 0112 8B43     		bic	r3, r1
+ 1860 0114 E360     		str	r3, [r4, #12]
+ 326:Src/GPIO_operations.cpp ****     GPIOx->PUPDR &= ~(GPIO_PUPDR_PUPDR0_1 << (bitPos * 2));
+ 1861              		.loc 1 326 0
+ 1862 0116 E368     		ldr	r3, [r4, #12]
+ 1863 0118 0222     		mov	r2, #2
+ARM GAS  /tmp/ccJvy3DQ.s 			page 49
+
+
+ 1864 011a 8240     		lsl	r2, r2, r0
+ 1865 011c 9343     		bic	r3, r2
+ 1866 011e E360     		str	r3, [r4, #12]
+ 327:Src/GPIO_operations.cpp ****     break;
+ 1867              		.loc 1 327 0
+ 1868 0120 18E0     		b	.L110
+ 1869              	.L111:
+ 328:Src/GPIO_operations.cpp ****   }
+ 329:Src/GPIO_operations.cpp ****   case PULL_UP:
+ 330:Src/GPIO_operations.cpp ****   { /* 01 */
+ 331:Src/GPIO_operations.cpp ****     GPIOx->PUPDR |= GPIO_PUPDR_PUPDR0_0 << (bitPos * 2);
+ 1870              		.loc 1 331 0
+ 1871 0122 E068     		ldr	r0, [r4, #12]
+ 1872 0124 6900     		lsl	r1, r5, #1
+ 1873 0126 0122     		mov	r2, #1
+ 1874 0128 131C     		mov	r3, r2
+ 1875 012a 8B40     		lsl	r3, r3, r1
+ 1876 012c 0343     		orr	r3, r0
+ 1877 012e E360     		str	r3, [r4, #12]
+ 332:Src/GPIO_operations.cpp ****     GPIOx->PUPDR &= ~(GPIO_PUPDR_PUPDR0_1 << (bitPos * 2));
+ 1878              		.loc 1 332 0
+ 1879 0130 E368     		ldr	r3, [r4, #12]
+ 1880 0132 0132     		add	r2, r2, #1
+ 1881 0134 8A40     		lsl	r2, r2, r1
+ 1882 0136 9343     		bic	r3, r2
+ 1883 0138 E360     		str	r3, [r4, #12]
+ 333:Src/GPIO_operations.cpp ****     break;
+ 1884              		.loc 1 333 0
+ 1885 013a 0BE0     		b	.L110
+ 1886              	.L113:
+ 334:Src/GPIO_operations.cpp ****   }
+ 335:Src/GPIO_operations.cpp ****   case PULL_DOWN:
+ 336:Src/GPIO_operations.cpp ****   { /* 10 */
+ 337:Src/GPIO_operations.cpp ****     GPIOx->PUPDR &= ~(GPIO_PUPDR_PUPDR0_0 << (bitPos * 2));
+ 1887              		.loc 1 337 0
+ 1888 013c E268     		ldr	r2, [r4, #12]
+ 1889 013e 6800     		lsl	r0, r5, #1
+ 1890 0140 0121     		mov	r1, #1
+ 1891 0142 8140     		lsl	r1, r1, r0
+ 1892 0144 8A43     		bic	r2, r1
+ 1893 0146 E260     		str	r2, [r4, #12]
+ 338:Src/GPIO_operations.cpp ****     GPIOx->PUPDR |= GPIO_PUPDR_PUPDR0_1 << (bitPos * 2);
+ 1894              		.loc 1 338 0
+ 1895 0148 E168     		ldr	r1, [r4, #12]
+ 1896 014a 0222     		mov	r2, #2
+ 1897 014c 131C     		mov	r3, r2
+ 1898 014e 8340     		lsl	r3, r3, r0
+ 1899 0150 0B43     		orr	r3, r1
+ 1900 0152 E360     		str	r3, [r4, #12]
+ 1901              	.L110:
+ 339:Src/GPIO_operations.cpp ****     break;
+ 340:Src/GPIO_operations.cpp ****   }
+ 341:Src/GPIO_operations.cpp ****   default:
+ 342:Src/GPIO_operations.cpp ****     break;
+ 343:Src/GPIO_operations.cpp ****   }
+ 344:Src/GPIO_operations.cpp **** 
+ 345:Src/GPIO_operations.cpp ****   switch (speed) /* output */
+ARM GAS  /tmp/ccJvy3DQ.s 			page 50
+
+
+ 1902              		.loc 1 345 0
+ 1903 0154 012F     		cmp	r7, #1
+ 1904 0156 10D0     		beq	.L115
+ 1905 0158 002F     		cmp	r7, #0
+ 1906 015a 02D0     		beq	.L116
+ 1907 015c 022F     		cmp	r7, #2
+ 1908 015e 19D0     		beq	.L117
+ 1909 0160 31E0     		b	.L99
+ 1910              	.L116:
+ 346:Src/GPIO_operations.cpp ****   {
+ 347:Src/GPIO_operations.cpp ****   case LOW_SPEED:
+ 348:Src/GPIO_operations.cpp ****   {
+ 349:Src/GPIO_operations.cpp ****     /* x0 */
+ 350:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR &= ~(GPIO_OSPEEDR_OSPEEDR0_0 << (bitPos * 2));
+ 1911              		.loc 1 350 0
+ 1912 0162 A368     		ldr	r3, [r4, #8]
+ 1913 0164 6D00     		lsl	r5, r5, #1
+ 1914              	.LVL221:
+ 1915 0166 0122     		mov	r2, #1
+ 1916 0168 AA40     		lsl	r2, r2, r5
+ 1917 016a 9343     		bic	r3, r2
+ 1918 016c A360     		str	r3, [r4, #8]
+ 351:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR &= ~(GPIO_OSPEEDR_OSPEEDR0_1 << (bitPos * 2));
+ 1919              		.loc 1 351 0
+ 1920 016e A368     		ldr	r3, [r4, #8]
+ 1921 0170 0222     		mov	r2, #2
+ 1922 0172 AA40     		lsl	r2, r2, r5
+ 1923 0174 9343     		bic	r3, r2
+ 1924 0176 A360     		str	r3, [r4, #8]
+ 352:Src/GPIO_operations.cpp ****     break;
+ 1925              		.loc 1 352 0
+ 1926 0178 25E0     		b	.L99
+ 1927              	.LVL222:
+ 1928              	.L115:
+ 353:Src/GPIO_operations.cpp ****   }
+ 354:Src/GPIO_operations.cpp ****   case MEDIUM_SPEED:
+ 355:Src/GPIO_operations.cpp ****   {
+ 356:Src/GPIO_operations.cpp ****     /* 01 */
+ 357:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR |= GPIO_OSPEEDR_OSPEEDR0_0 << (bitPos * 2);
+ 1929              		.loc 1 357 0
+ 1930 017a A168     		ldr	r1, [r4, #8]
+ 1931 017c 6D00     		lsl	r5, r5, #1
+ 1932              	.LVL223:
+ 1933 017e 0122     		mov	r2, #1
+ 1934 0180 131C     		mov	r3, r2
+ 1935 0182 AB40     		lsl	r3, r3, r5
+ 1936 0184 0B43     		orr	r3, r1
+ 1937 0186 A360     		str	r3, [r4, #8]
+ 358:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR &= ~(GPIO_OSPEEDR_OSPEEDR0_1 << (bitPos * 2));
+ 1938              		.loc 1 358 0
+ 1939 0188 A368     		ldr	r3, [r4, #8]
+ 1940 018a 0132     		add	r2, r2, #1
+ 1941 018c AA40     		lsl	r2, r2, r5
+ 1942 018e 9343     		bic	r3, r2
+ 1943 0190 A360     		str	r3, [r4, #8]
+ 359:Src/GPIO_operations.cpp ****     break;
+ 1944              		.loc 1 359 0
+ARM GAS  /tmp/ccJvy3DQ.s 			page 51
+
+
+ 1945 0192 18E0     		b	.L99
+ 1946              	.LVL224:
+ 1947              	.L117:
+ 360:Src/GPIO_operations.cpp ****   }
+ 361:Src/GPIO_operations.cpp ****   case HIGH_SPEED:
+ 362:Src/GPIO_operations.cpp ****   {
+ 363:Src/GPIO_operations.cpp ****     /* 11 */
+ 364:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR |= GPIO_OSPEEDR_OSPEEDR0_0 << (bitPos * 2);
+ 1948              		.loc 1 364 0
+ 1949 0194 A168     		ldr	r1, [r4, #8]
+ 1950 0196 6D00     		lsl	r5, r5, #1
+ 1951              	.LVL225:
+ 1952 0198 0122     		mov	r2, #1
+ 1953 019a 131C     		mov	r3, r2
+ 1954 019c AB40     		lsl	r3, r3, r5
+ 1955 019e 0B43     		orr	r3, r1
+ 1956 01a0 A360     		str	r3, [r4, #8]
+ 365:Src/GPIO_operations.cpp ****     GPIOx->OSPEEDR |= GPIO_OSPEEDR_OSPEEDR0_1 << (bitPos * 2);
+ 1957              		.loc 1 365 0
+ 1958 01a2 A268     		ldr	r2, [r4, #8]
+ 1959 01a4 0223     		mov	r3, #2
+ 1960 01a6 AB40     		lsl	r3, r3, r5
+ 1961 01a8 1D1C     		mov	r5, r3
+ 1962 01aa 1543     		orr	r5, r2
+ 1963 01ac A560     		str	r5, [r4, #8]
+ 366:Src/GPIO_operations.cpp ****     break;
+ 1964              		.loc 1 366 0
+ 1965 01ae 0AE0     		b	.L99
+ 1966              	.LVL226:
+ 1967              	.L121:
+ 1968              	.LBB548:
+ 1969              	.LBB549:
+ 1970              	.LBB550:
+ 1971              	.LBB551:
+ 301:/usr/include/newlib/c++/4.9.3/bits/basic_string.h **** 
+ 1972              		.loc 2 301 0
+ 1973 01b0 0098     		ldr	r0, [sp]
+ 1974 01b2 0C38     		sub	r0, r0, #12
+ 1975              	.LVL227:
+ 1976              	.LBE551:
+ 1977              	.LBE550:
+ 1978              		.loc 2 547 0
+ 1979 01b4 03A9     		add	r1, sp, #12
+ 1980 01b6 FFF7FEFF 		bl	_ZNSs4_Rep10_M_disposeERKSaIcE
+ 1981              	.LVL228:
+ 1982 01ba FFE7     		b	.L119
+ 1983              	.LVL229:
+ 1984              	.L120:
+ 1985              	.L119:
+ 1986              	.LBE549:
+ 1987              	.LBE548:
+ 262:Src/GPIO_operations.cpp ****   }
+ 1988              		.loc 1 262 0 discriminator 1
+ 1989 01bc 201C     		mov	r0, r4
+ 1990 01be FFF7FEFF 		bl	__cxa_free_exception
+ 1991              	.LVL230:
+ 1992 01c2 FFF7FEFF 		bl	__cxa_end_cleanup
+ARM GAS  /tmp/ccJvy3DQ.s 			page 52
+
+
+ 1993              	.LEHE26:
+ 1994              	.LVL231:
+ 1995              	.L99:
+ 1996              	.LBE543:
+ 367:Src/GPIO_operations.cpp ****   }
+ 368:Src/GPIO_operations.cpp ****   default:
+ 369:Src/GPIO_operations.cpp ****     break;
+ 370:Src/GPIO_operations.cpp ****   }
+ 371:Src/GPIO_operations.cpp **** }...
+ 1997              		.loc 1 371 0
+ 1998 01c6 05B0     		add	sp, sp, #20
+ 1999              		@ sp needed
+ 2000              	.LVL232:
+ 2001 01c8 0CBC     		pop	{r2, r3}
+ 2002 01ca 9046     		mov	r8, r2
+ 2003 01cc 9946     		mov	r9, r3
+ 2004 01ce F0BD     		pop	{r4, r5, r6, r7, pc}
+ 2005              	.L123:
+ 2006              		.align	2
+ 2007              	.L122:
+ 2008 01d0 00000000 		.word	.LC0
+ 2009 01d4 00000000 		.word	_ZTISt16invalid_argument
+ 2010 01d8 00000000 		.word	_ZNSt16invalid_argumentD1Ev
+ 2011 01dc 24000000 		.word	.LC32
+ 2012              		.cfi_endproc
+ 2013              	.LFE639:
+ 2014              		.personality	__gxx_personality_v0
+ 2015              		.handlerdata
+ 2016              	.LLSDA639:
+ 2017 000c FF       		.byte	0xff
+ 2018 000d FF       		.byte	0xff
+ 2019 000e 01       		.byte	0x1
+ 2020 000f 0F       		.uleb128 .LLSDACSE639-.LLSDACSB639
+ 2021              	.LLSDACSB639:
+ 2022 0010 2C       		.uleb128 .LEHB24-.LFB639
+ 2023 0011 04       		.uleb128 .LEHE24-.LEHB24
+ 2024 0012 BC03     		.uleb128 .L120-.LFB639
+ 2025 0014 00       		.uleb128 0
+ 2026 0015 34       		.uleb128 .LEHB25-.LFB639
+ 2027 0016 04       		.uleb128 .LEHE25-.LEHB25
+ 2028 0017 B003     		.uleb128 .L121-.LFB639
+ 2029 0019 00       		.uleb128 0
+ 2030 001a 48       		.uleb128 .LEHB26-.LFB639
+ 2031 001b FE02     		.uleb128 .LEHE26-.LEHB26
+ 2032 001d 00       		.uleb128 0
+ 2033 001e 00       		.uleb128 0
+ 2034              	.LLSDACSE639:
+ 2035              		.section	.text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PUL
+ 2036              		.fnend
+ 2038              		.section	.text._Z22Init_Output_NoPushPullP12GPIO_TypeDeft,"ax",%progbits
+ 2039              		.align	2
+ 2040              		.global	_Z22Init_Output_NoPushPullP12GPIO_TypeDeft
+ 2041              		.code	16
+ 2042              		.thumb_func
+ 2044              	_Z22Init_Output_NoPushPullP12GPIO_TypeDeft:
+ 2045              		.fnstart
+ 2046              	.LFB635:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 53
+
+
+ 166:Src/GPIO_operations.cpp **** {
+ 2047              		.loc 1 166 0
+ 2048              		.cfi_startproc
+ 2049              	.LVL233:
+ 2050 0000 00B5     		push	{lr}
+ 2051              		.save {lr}
+ 2052              	.LCFI23:
+ 2053              		.cfi_def_cfa_offset 4
+ 2054              		.cfi_offset 14, -4
+ 2055              		.pad #12
+ 2056 0002 83B0     		sub	sp, sp, #12
+ 2057              	.LCFI24:
+ 2058              		.cfi_def_cfa_offset 16
+ 167:Src/GPIO_operations.cpp ****   InitPin(GPIOx, GPIO_Pin, OUTPUT, PUSH_PULL, HIGH_SPEED, NO_PULL_UP_DOWN);
+ 2059              		.loc 1 167 0
+ 2060 0004 0223     		mov	r3, #2
+ 2061 0006 0093     		str	r3, [sp]
+ 2062 0008 0023     		mov	r3, #0
+ 2063 000a 0193     		str	r3, [sp, #4]
+ 2064 000c 0122     		mov	r2, #1
+ 2065 000e FFF7FEFF 		bl	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TY
+ 2066              	.LVL234:
+ 184:Src/GPIO_operations.cpp **** }
+ 2067              		.loc 1 184 0
+ 2068 0012 03B0     		add	sp, sp, #12
+ 2069              		@ sp needed
+ 2070 0014 00BD     		pop	{pc}
+ 2071              		.cfi_endproc
+ 2072              	.LFE635:
+ 2073              		.fnend
+ 2075 0016 C046     		.section	.text._Z7pinModeh9GPIO_MODE,"ax",%progbits
+ 2076              		.align	2
+ 2077              		.global	_Z7pinModeh9GPIO_MODE
+ 2078              		.code	16
+ 2079              		.thumb_func
+ 2081              	_Z7pinModeh9GPIO_MODE:
+ 2082              		.fnstart
+ 2083              	.LFB636:
+ 187:Src/GPIO_operations.cpp **** {
+ 2084              		.loc 1 187 0
+ 2085              		.cfi_startproc
+ 2086              	.LVL235:
+ 2087 0000 70B5     		push	{r4, r5, r6, lr}
+ 2088              		.save {r4, r5, r6, lr}
+ 2089              	.LCFI25:
+ 2090              		.cfi_def_cfa_offset 16
+ 2091              		.cfi_offset 4, -16
+ 2092              		.cfi_offset 5, -12
+ 2093              		.cfi_offset 6, -8
+ 2094              		.cfi_offset 14, -4
+ 2095              		.pad #8
+ 2096 0002 82B0     		sub	sp, sp, #8
+ 2097              	.LCFI26:
+ 2098              		.cfi_def_cfa_offset 24
+ 2099 0004 041C     		mov	r4, r0
+ 2100 0006 0E1C     		mov	r6, r1
+ 2101              	.LBB552:
+ARM GAS  /tmp/ccJvy3DQ.s 			page 54
+
+
+ 188:Src/GPIO_operations.cpp ****   GPIO_TypeDef *GPIOx = GetPort(pinName);
+ 2102              		.loc 1 188 0
+ 2103 0008 FFF7FEFF 		bl	_Z7GetPorth
+ 2104              	.LVL236:
+ 2105 000c 051C     		mov	r5, r0
+ 2106              	.LVL237:
+ 189:Src/GPIO_operations.cpp ****   int GPIO_Pin = GetPinMask(pinName);
+ 2107              		.loc 1 189 0
+ 2108 000e 201C     		mov	r0, r4
+ 2109              	.LVL238:
+ 2110 0010 FFF7FEFF 		bl	_Z10GetPinMaskh
+ 2111              	.LVL239:
+ 2112 0014 041C     		mov	r4, r0
+ 2113              	.LVL240:
+ 190:Src/GPIO_operations.cpp ****   if (GPIO_Pin == -1)
+ 2114              		.loc 1 190 0
+ 2115 0016 431C     		add	r3, r0, #1
+ 2116 0018 02D1     		bne	.L126
+ 191:Src/GPIO_operations.cpp ****     printf("pin mask not found.\n");
+ 2117              		.loc 1 191 0
+ 2118 001a 1948     		ldr	r0, .L133
+ 2119              	.LVL241:
+ 2120 001c FFF7FEFF 		bl	puts
+ 2121              	.LVL242:
+ 2122              	.L126:
+ 192:Src/GPIO_operations.cpp ****   EnableIO(GPIOx);
+ 2123              		.loc 1 192 0
+ 2124 0020 281C     		mov	r0, r5
+ 2125 0022 FFF7FEFF 		bl	_Z8EnableIOP12GPIO_TypeDef
+ 2126              	.LVL243:
+ 193:Src/GPIO_operations.cpp ****   switch (mode)
+ 2127              		.loc 1 193 0
+ 2128 0026 012E     		cmp	r6, #1
+ 2129 0028 1AD0     		beq	.L128
+ 2130 002a 002E     		cmp	r6, #0
+ 2131 002c 02D0     		beq	.L129
+ 2132 002e 042E     		cmp	r6, #4
+ 2133 0030 0BD0     		beq	.L130
+ 2134 0032 1FE0     		b	.L132
+ 2135              	.L129:
+ 197:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, INPUT, PUSH_PULL, LOW_SPEED, PULL_DOWN);
+ 2136              		.loc 1 197 0
+ 2137 0034 A1B2     		uxth	r1, r4
+ 2138 0036 0023     		mov	r3, #0
+ 2139 0038 0093     		str	r3, [sp]
+ 2140 003a 0233     		add	r3, r3, #2
+ 2141 003c 0193     		str	r3, [sp, #4]
+ 2142 003e 281C     		mov	r0, r5
+ 2143 0040 0022     		mov	r2, #0
+ 2144 0042 0023     		mov	r3, #0
+ 2145 0044 FFF7FEFF 		bl	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TY
+ 2146              	.LVL244:
+ 198:Src/GPIO_operations.cpp ****     break;
+ 2147              		.loc 1 198 0
+ 2148 0048 17E0     		b	.L125
+ 2149              	.L130:
+ 202:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, INPUT, PUSH_PULL, LOW_SPEED, PULL_UP);
+ARM GAS  /tmp/ccJvy3DQ.s 			page 55
+
+
+ 2150              		.loc 1 202 0
+ 2151 004a A1B2     		uxth	r1, r4
+ 2152 004c 0023     		mov	r3, #0
+ 2153 004e 0093     		str	r3, [sp]
+ 2154 0050 0133     		add	r3, r3, #1
+ 2155 0052 0193     		str	r3, [sp, #4]
+ 2156 0054 281C     		mov	r0, r5
+ 2157 0056 0022     		mov	r2, #0
+ 2158 0058 0023     		mov	r3, #0
+ 2159 005a FFF7FEFF 		bl	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TY
+ 2160              	.LVL245:
+ 203:Src/GPIO_operations.cpp ****     break;
+ 2161              		.loc 1 203 0
+ 2162 005e 0CE0     		b	.L125
+ 2163              	.L128:
+ 207:Src/GPIO_operations.cpp ****     InitPin(GPIOx, GPIO_Pin, OUTPUT, PUSH_PULL, HIGH_SPEED, NO_PULL_UP_DOWN);
+ 2164              		.loc 1 207 0
+ 2165 0060 A1B2     		uxth	r1, r4
+ 2166 0062 0223     		mov	r3, #2
+ 2167 0064 0093     		str	r3, [sp]
+ 2168 0066 0023     		mov	r3, #0
+ 2169 0068 0193     		str	r3, [sp, #4]
+ 2170 006a 281C     		mov	r0, r5
+ 2171 006c 0122     		mov	r2, #1
+ 2172 006e FFF7FEFF 		bl	_Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TY
+ 2173              	.LVL246:
+ 208:Src/GPIO_operations.cpp ****     break;
+ 2174              		.loc 1 208 0
+ 2175 0072 02E0     		b	.L125
+ 2176              	.L132:
+ 211:Src/GPIO_operations.cpp ****     printf("pin mode not supported. \n");
+ 2177              		.loc 1 211 0
+ 2178 0074 0348     		ldr	r0, .L133+4
+ 2179 0076 FFF7FEFF 		bl	puts
+ 2180              	.LVL247:
+ 2181              	.L125:
+ 2182              	.LBE552:
+ 214:Src/GPIO_operations.cpp **** }
+ 2183              		.loc 1 214 0
+ 2184 007a 02B0     		add	sp, sp, #8
+ 2185              		@ sp needed
+ 2186              	.LVL248:
+ 2187              	.LVL249:
+ 2188 007c 70BD     		pop	{r4, r5, r6, pc}
+ 2189              	.L134:
+ 2190 007e C046     		.align	2
+ 2191              	.L133:
+ 2192 0080 10000000 		.word	.LC10
+ 2193 0084 3C000000 		.word	.LC35
+ 2194              		.cfi_endproc
+ 2195              	.LFE636:
+ 2196              		.fnend
+ 2198              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 2199              		.align	2
+ 2200              	.LC0:
+ 2201 0000 4750494F 		.ascii	"GPIOx is NULL\000"
+ 2201      78206973 
+ARM GAS  /tmp/ccJvy3DQ.s 			page 56
+
+
+ 2201      204E554C 
+ 2201      4C00
+ 2202 000e 0000     		.space	2
+ 2203              	.LC10:
+ 2204 0010 70696E20 		.ascii	"pin mask not found.\000"
+ 2204      6D61736B 
+ 2204      206E6F74 
+ 2204      20666F75 
+ 2204      6E642E00 
+ 2205              	.LC32:
+ 2206 0024 6572726F 		.ascii	"error. pin position -1\000"
+ 2206      722E2070 
+ 2206      696E2070 
+ 2206      6F736974 
+ 2206      696F6E20 
+ 2207 003b 00       		.space	1
+ 2208              	.LC35:
+ 2209 003c 70696E20 		.ascii	"pin mode not supported. \000"
+ 2209      6D6F6465 
+ 2209      206E6F74 
+ 2209      20737570 
+ 2209      706F7274 
+ 2210              		.text
+ 2211              	.Letext0:
+ 2212              		.file 3 "/usr/include/newlib/c++/4.9.3/cwchar"
+ 2213              		.file 4 "/usr/include/newlib/c++/4.9.3/bits/char_traits.h"
+ 2214              		.file 5 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/c++config.h"
+ 2215              		.file 6 "/usr/include/newlib/c++/4.9.3/bits/allocator.h"
+ 2216              		.file 7 "/usr/include/newlib/c++/4.9.3/clocale"
+ 2217              		.file 8 "/usr/include/newlib/c++/4.9.3/bits/basic_string.tcc"
+ 2218              		.file 9 "/usr/include/newlib/c++/4.9.3/debug/debug.h"
+ 2219              		.file 10 "/usr/include/newlib/c++/4.9.3/bits/predefined_ops.h"
+ 2220              		.file 11 "/usr/include/newlib/c++/4.9.3/ext/new_allocator.h"
+ 2221              		.file 12 "/usr/include/newlib/c++/4.9.3/ext/numeric_traits.h"
+ 2222              		.file 13 "/usr/include/newlib/c++/4.9.3/exception"
+ 2223              		.file 14 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stddef.h"
+ 2224              		.file 15 "/usr/include/newlib/machine/_default_types.h"
+ 2225              		.file 16 "/usr/include/newlib/sys/lock.h"
+ 2226              		.file 17 "/usr/include/newlib/sys/_types.h"
+ 2227              		.file 18 "/usr/include/newlib/sys/reent.h"
+ 2228              		.file 19 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stdarg.h"
+ 2229              		.file 20 "<built-in>"
+ 2230              		.file 21 "/usr/include/newlib/wchar.h"
+ 2231              		.file 22 "/usr/include/newlib/locale.h"
+ 2232              		.file 23 "/usr/include/newlib/c++/4.9.3/arm-none-eabi/armv6-m/bits/atomic_word.h"
+ 2233              		.file 24 "/usr/include/newlib/sys/_stdint.h"
+ 2234              		.file 25 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
+ 2235              		.file 26 "Src/GPIO_operations.h"
+ 2236              		.file 27 "/usr/include/newlib/c++/4.9.3/ext/atomicity.h"
+ 2237              		.file 28 "Src/LQFP64_pinout.h"
+ARM GAS  /tmp/ccJvy3DQ.s 			page 57
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 GPIO_operations.cpp
+     /tmp/ccJvy3DQ.s:18     .text._Z11PrintBinarym:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:23     .text._Z11PrintBinarym:0000000000000000 _Z11PrintBinarym
+ .ARM.exidx.text._Z11PrintBinarym:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:75     .text._Z8EnableIOP12GPIO_TypeDef:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:80     .text._Z8EnableIOP12GPIO_TypeDef:0000000000000000 _Z8EnableIOP12GPIO_TypeDef
+     /tmp/ccJvy3DQ.s:250    .text._Z8EnableIOP12GPIO_TypeDef:00000000000000b8 $d
+.ARM.extab.text._Z8EnableIOP12GPIO_TypeDef:0000000000000000 $d
+.ARM.exidx.text._Z8EnableIOP12GPIO_TypeDef:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:286    .text._Z9TogglePinP12GPIO_TypeDeft:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:291    .text._Z9TogglePinP12GPIO_TypeDeft:0000000000000000 _Z9TogglePinP12GPIO_TypeDeft
+     /tmp/ccJvy3DQ.s:401    .text._Z9TogglePinP12GPIO_TypeDeft:0000000000000058 $d
+.ARM.extab.text._Z9TogglePinP12GPIO_TypeDeft:0000000000000000 $d
+.ARM.exidx.text._Z9TogglePinP12GPIO_TypeDeft:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:431    .text._Z7ReadPinP12GPIO_TypeDeft:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:436    .text._Z7ReadPinP12GPIO_TypeDeft:0000000000000000 _Z7ReadPinP12GPIO_TypeDeft
+     /tmp/ccJvy3DQ.s:556    .text._Z7ReadPinP12GPIO_TypeDeft:0000000000000060 $d
+.ARM.extab.text._Z7ReadPinP12GPIO_TypeDeft:0000000000000000 $d
+.ARM.exidx.text._Z7ReadPinP12GPIO_TypeDeft:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:586    .text._Z11digitalReadh8PinState:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:591    .text._Z11digitalReadh8PinState:0000000000000000 _Z11digitalReadh8PinState
+     /tmp/ccJvy3DQ.s:642    .text._Z11digitalReadh8PinState:0000000000000028 $d
+.ARM.exidx.text._Z11digitalReadh8PinState:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:648    .text._Z8WritePinP12GPIO_TypeDeft8PinState:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:653    .text._Z8WritePinP12GPIO_TypeDeft8PinState:0000000000000000 _Z8WritePinP12GPIO_TypeDeft8PinState
+     /tmp/ccJvy3DQ.s:774    .text._Z8WritePinP12GPIO_TypeDeft8PinState:0000000000000064 $d
+.ARM.extab.text._Z8WritePinP12GPIO_TypeDeft8PinState:0000000000000000 $d
+.ARM.exidx.text._Z8WritePinP12GPIO_TypeDeft8PinState:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:804    .text._Z12digitalWriteh8PinState:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:809    .text._Z12digitalWriteh8PinState:0000000000000000 _Z12digitalWriteh8PinState
+     /tmp/ccJvy3DQ.s:862    .text._Z12digitalWriteh8PinState:000000000000002c $d
+.ARM.exidx.text._Z12digitalWriteh8PinState:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:868    .text._Z12digitalWritehm:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:873    .text._Z12digitalWritehm:0000000000000000 _Z12digitalWritehm
+     /tmp/ccJvy3DQ.s:939    .text._Z12digitalWritehm:000000000000003c $d
+.ARM.exidx.text._Z12digitalWritehm:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:945    .text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:950    .text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:0000000000000000 _Z20Init_InputPin_PullUpP12GPIO_TypeDeftt
+     /tmp/ccJvy3DQ.s:1086   .text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:0000000000000074 $d
+.ARM.extab.text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:0000000000000000 $d
+.ARM.exidx.text._Z20Init_InputPin_PullUpP12GPIO_TypeDeftt:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:1116   .text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:1121   .text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:0000000000000000 _Z22Init_InputPin_PullDownP12GPIO_TypeDeftt
+     /tmp/ccJvy3DQ.s:1260   .text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:0000000000000074 $d
+.ARM.extab.text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:0000000000000000 $d
+.ARM.exidx.text._Z22Init_InputPin_PullDownP12GPIO_TypeDeftt:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:1290   .text._Z20Init_Output_PushPullP12GPIO_TypeDeftt:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:1295   .text._Z20Init_Output_PushPullP12GPIO_TypeDeftt:0000000000000000 _Z20Init_Output_PushPullP12GPIO_TypeDeftt
+     /tmp/ccJvy3DQ.s:1419   .text._Z20Init_Output_PushPullP12GPIO_TypeDeftt:0000000000000068 $d
+.ARM.extab.text._Z20Init_Output_PushPullP12GPIO_TypeDeftt:0000000000000000 $d
+.ARM.exidx.text._Z20Init_Output_PushPullP12GPIO_TypeDeftt:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:1449   .text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:1454   .text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:0000000000000000 _Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt
+     /tmp/ccJvy3DQ.s:1601   .text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:0000000000000084 $d
+.ARM.extab.text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:0000000000000000 $d
+.ARM.exidx.text._Z28Init_IOPin_AlternateFunctionP12GPIO_TypeDeftt:0000000000000000 $d
+ARM GAS  /tmp/ccJvy3DQ.s 			page 58
+
+
+     /tmp/ccJvy3DQ.s:1631   .text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:1636   .text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:0000000000000000 _Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE
+     /tmp/ccJvy3DQ.s:2008   .text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:00000000000001d0 $d
+.ARM.extab.text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:0000000000000000 $d
+.ARM.exidx.text._Z7InitPinP12GPIO_TypeDeft9GPIO_MODE16GPIO_OUTPUT_TYPE17GPIO_OUTPUT_SPEED22GPIO_PULL_UP_DOWN_TYPE:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:2039   .text._Z22Init_Output_NoPushPullP12GPIO_TypeDeft:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:2044   .text._Z22Init_Output_NoPushPullP12GPIO_TypeDeft:0000000000000000 _Z22Init_Output_NoPushPullP12GPIO_TypeDeft
+.ARM.exidx.text._Z22Init_Output_NoPushPullP12GPIO_TypeDeft:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:2076   .text._Z7pinModeh9GPIO_MODE:0000000000000000 $t
+     /tmp/ccJvy3DQ.s:2081   .text._Z7pinModeh9GPIO_MODE:0000000000000000 _Z7pinModeh9GPIO_MODE
+     /tmp/ccJvy3DQ.s:2192   .text._Z7pinModeh9GPIO_MODE:0000000000000080 $d
+.ARM.exidx.text._Z7pinModeh9GPIO_MODE:0000000000000000 $d
+     /tmp/ccJvy3DQ.s:2199   .rodata.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+putchar
+__aeabi_unwind_cpp_pr0
+__gxx_personality_v0
+__cxa_allocate_exception
+_ZNSsC1EPKcRKSaIcE
+_ZNSt16invalid_argumentC1ERKSs
+_ZNSs4_Rep10_M_disposeERKSaIcE
+__cxa_throw
+__cxa_free_exception
+__cxa_end_cleanup
+_ZTISt16invalid_argument
+_ZNSt16invalid_argumentD1Ev
+_Z7GetPorth
+_Z10GetPinMaskh
+puts
+_Z14GetBitPositionj
